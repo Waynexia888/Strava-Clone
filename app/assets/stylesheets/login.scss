@@ -1,0 +1,156 @@
+.login-form-container {
+  text-align: center;
+  display: flex;
+  position: center;
+  font-family: 'Russo', sans-serif;
+  // background-image: url("bike-under-banyans.jpg");
+
+  // this one is for heroku
+  background-image: image-url('background_image_03.jpg');
+  // and this one works on localhost:3000
+  // background-image: url('solo-woman-rider.jpg');
+
+
+  text-align: center;
+    width: 100%;
+    height: 100%;
+    // padding-top: 70px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-bottom: -15px;
+    // margin: -50px auto;
+    white-space: nowrap;
+
+  // background-position: center right;
+  // height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 50px;
+  margin: -10px auto;
+  margin-bottom: -15px;
+  overflow: hidden;
+
+}
+
+.splash-text {
+  font-family: 'Russo', sans-serif;
+  color: #AA18F2;
+  text-shadow: 1px 1px black;
+  height: 400px;
+  width: 300px;
+  position: relative;
+  text-align: left;
+}
+
+.splash-text > h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.second-head {
+  font-style: italic;
+}
+
+
+.splash-text > h2 {
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: orange;
+}
+
+h2 > .logo {
+  letter-spacing: 1px;
+  font-size: 40px;
+}
+.splash-text > h3 {
+  margin-top: 30px;
+  font-size: 20px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-style: italic;
+
+}
+
+.logo-login {
+  font-family: 'Russo One', sans-serif;
+  color: orange;
+  font-size: 40px;
+  text-transform: uppercase;
+  // padding-left: 20px;
+  margin-top: 15px;
+}
+
+.login-panel {
+  font-family: 'Russo', sans-serif;
+  margin-top: 100px;
+  padding-top: 50px;
+  height: 500px;
+  width: 300px;
+  background: rgba(0,0,0,0.75);
+  margin: 0 auto;
+  color: white;
+  z-index: 1;
+  border-radius: 5px;
+  margin-right: 25%;
+  letter-spacing: 0.5px;
+}
+
+.login-errors {
+  height: 40px;
+  text-shadow: 1px 1px black;
+}
+
+.login-form-box {
+  display: inline;
+  position: center;
+}
+
+.login-form-box > a {
+  color: #AA18F2;
+  text-shadow: 1px 1px black;
+}
+
+.login-form-box > a:hover {
+  color: #8A5AFC;
+}
+
+.login-input {
+  border: 1px solid #e6e6eb;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 5px;
+  // width: 100px;
+  display: block;
+  // margin: 5px 0;
+  
+}
+
+label {
+  display: inline-block;
+  width: 100px;
+  text-align: right;
+}
+
+.session-submit, .demo-submit {
+  border: 1px solid #e6e6eb;
+  border-radius: 2px;
+  padding: 5px 30px;
+  margin-bottom: 20px;
+  background-color: #338EFC;
+  text-transform: uppercase;
+}
+
+.demo-submit {
+  background-color: #AA18F2;
+}
+
+.session-submit:hover, .demo-submit:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
+.errors {
+  color: red;
+}

@@ -1,0 +1,151 @@
+// .navbar-right-side {
+//     display: flex;
+//     align-items: center;
+//     align-content: center;
+//     width: 300px;
+//     margin-right: 61px;
+//     justify-content: flex-end;
+// }
+
+// .navbar-right-side > span {
+//     padding-left: 15px;
+//     padding-bottom: 5px;
+// }
+
+// .navbar-left-side {
+//     display: flex;
+//     align-items: center;
+//     align-content: center;
+//     width: 300px;
+//     margin-right: 75px;
+// }
+
+// .navbar-left-side > span {
+//     padding-left: 15px;
+//     padding-bottom: 5px;
+// }
+
+// .logo {
+//     font-family: 'Montserrat', sans-serif;
+//     font-size: 25px;
+//     font-weight: 900;
+//     color: orangered;
+//     letter-spacing: -1.2px;
+//     text-decoration: none;
+// }
+
+// .btn {
+//     background-color: orangered;
+//     color: white;
+//     border-radius: 3px;
+//     font-size: 11px;
+//     padding: 9.5px 10px;
+//     font-weight: 700;
+//     text-decoration: none;
+//     -webkit-appearance: none;
+//     border-style: none;
+// }
+
+// .btn:hover {
+//     cursor: pointer;
+//     transition: background-color 300ms;
+//     background-color: rgb(218, 65, 9);
+// }
+
+// .welcome {
+//     display: flex;
+//     align-content: center;
+// }
+
+// .navbar-main {
+//     font-size: 16px;
+//     background-color: #fff;
+//     display: flex;
+//     justify-content: center;
+//     padding: 0 0 0 32px;
+//     align-items: center;
+//     height: 53px;
+//     position: fixed;
+//     width: 100%;
+//     border-bottom: .5px solid lightgray;
+//     z-index: 30;
+// }
+
+// .navbar-side {
+//     display: flex;
+//     margin-left: 20px;
+//     min-width: 900px;
+//     width: 70%;
+//     justify-content: space-between;
+// }
+
+// @media only screen and (max-width: 1600px) { 
+//     .navbar-side { 
+//         width: 100%;
+//     }
+// }
+
+// .navbar {
+//   display: flex;
+//   justify-content: space-between;
+//   border-bottom: 2px solid #e6e6eb;
+//   margin-bottom: 10px;
+//   margin-top: 10px;
+//   padding-bottom: 10px;
+//   background: #F7F7F7;
+// }
+
+// .logo {
+//   font-family: 'Russo One', sans-serif;
+//   color: #0013E5;
+//   font-size: 30px;
+//   text-transform: uppercase;
+//   padding-left: 20px;
+//   margin-top: 15px;
+// }
+
+// .login-signup {
+//   font-family: 'Russo', sans-serif;
+//   display: flex;
+//   justify-content: flex-end;
+//   padding: 10px 10px;
+//   position: relative;
+//   display: inline;
+//   margin-left: 10px;
+//   margin-right: 10px;
+//   margin-top: 10px;
+//   // border-bottom: 1px solid #e6e6eb;
+// }
+
+// .navlink:hover {
+//   background-color: #d3d3d3;
+//   box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+// }
+
+
+// .header-group {
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 10px 0;
+//   background: #F7F7F7;
+// }
+
+// .header-name {
+//   font-family: 'Russo', sans-serif;
+//   text-align: center;
+//   font-size: 15px;
+//   color: #0013E5;
+//   margin-bottom: 20px;
+//   margin-top: 25px;
+// }
+
+// .navlink {
+//   color: #0013E5;
+//   border: 1px solid #e6e6eb;
+//   padding: 10px 30px;
+//   font-weight: 700;
+//   border-radius: 2px;
+//   justify-content: center;
+//   margin: 10px;
+//   margin-top: 20px;
+// }

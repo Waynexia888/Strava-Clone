@@ -1,0 +1,89 @@
+/* nav bar in landing page */
+/* OK  */
+
+#nav-bar-container {
+  width: 100%;
+  margin: 0 auto;
+  background: white;
+
+}
+
+#nav-bar-container::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.headNav h1 {
+  color: orangered;
+  text-decoration: none;
+  font-size: 45px;
+}
+
+.removeLink {
+  text-decoration: none;
+}
+
+
+
+.headNav {
+  float: left;
+}
+
+
+.headFont {
+  float: right
+}
+
+.headFont ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+}
+
+.headFont li {
+  display: inline-block;
+  margin-left: 70px;
+  padding-top: 25px;
+  position: relative;
+  /* font-size: 50px; */
+ 
+}
+
+.headFont .active {
+  color: orangered;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  border: 1px solid #e6e6eb;
+  padding: 6px 30px;
+  font-weight: 700;
+  border-radius: 2px;
+  margin: 10px;
+  margin-top: 15px;
+ 
+}
+
+.headFont .active:hover {
+  color: pink;
+}
+
+.headFont .active::before {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 100;
+  background-color: orangered;
+
+  position: absolute;
+  top: 0;
+  width: 0%;
+
+  transition: all ease-in-out 250ms;
+}
+
+.headFont .active:hover::before {
+  width: 100%;
+}
+

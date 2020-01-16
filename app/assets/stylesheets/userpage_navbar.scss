@@ -1,0 +1,87 @@
+
+* {
+    box-sizing: border-box;
+}
+
+.nav-header {
+    background: #fff;
+    border-bottom: 1px solid #e6e6eb;
+    display: block
+}
+
+.container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.nav-header-content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 55px;
+    max-width: 1248px;
+}
+
+.dash-nav-head div {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-right: 50%;
+}
+
+.splash-logo {
+    height: 38px;
+    width: 95px;
+}
+
+.splash-logo h1 {
+    font-size: 26px;
+    color: #fc4c02;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.routes-fake-link p {
+    font-size: 14px;
+    line-height: 20px;
+    text-decoration: none;
+    color: black;
+    cursor: default;
+    margin-top: 10px;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.a {
+    font-size: 14px;
+    line-height: 20px;
+    color: black;
+    margin-top: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+nav {
+    display: block;
+}
+
+.logout-btn {
+    color: #FFFFFF;
+    font-weight: 700;
+    background-color: #fc4c02;
+    border: 0;
+    cursor: pointer;
+    padding: 9px 14px;
+    border-radius: 4px;
+}
+

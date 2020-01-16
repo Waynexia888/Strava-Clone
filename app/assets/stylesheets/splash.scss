@@ -1,0 +1,56 @@
+// .splash {
+//     background-image: url('background_image_07.jpg');
+//     height: 100%;
+//     background-size: 110% 76%;
+//     background-repeat: no-repeat;
+//     margin: 0px auto;
+//     margin-bottom: -15px;
+//     text-overflow: hidden;
+//     white-space: nowrap;
+//     overflow: hidden; 
+// }
+
+// .splash-content {
+//   padding-top: 40px;
+//   max-width: 700px;
+// }
+
+// .splash h1 {
+//   font-family: 'Russo', sans-serif;
+//   text-align: left;
+//   margin-top: 20px;
+//   font-size: 40px;
+//   color: #0013E5;
+//   margin-bottom: 20px;
+//   margin-left: 40px;
+//   text-shadow: 1px 1px  #99ddff;
+//   letter-spacing: .5px;
+//   font-weight: 600;
+// } 
+
+.splash {
+  background-image: url('background_image_07');
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    // padding-top: 70px;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin-bottom: -15px;
+    // margin: -50px auto;
+    white-space: nowrap;
+    // overflow: hidden
+}
+
+.splash-content {
+    
+    height: 100vh;
+}
+
+.splash h1 {
+    color: orange;
+    font-size: 48px;
+    font-weight: 700;
+    // margin-top: 100px;
+    // margin-bottom: 100px;
+}

@@ -59,7 +59,7 @@ class IndexRoute extends React.Component {
     render() {
         return (
             <div>
-                <div className="my-map-container" ref={map => this.mapNode = map}></div>
+                <div id="map-index" ref={map => this.mapNode = map}></div>
                
                 <div><Link to={`/routes/${this.props.route.id}`}>{this.props.route.title}</Link></div>
                 {/* <div id='elevation_chart'></div> */}

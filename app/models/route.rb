@@ -7,7 +7,8 @@ class Route < ApplicationRecord
     # foreign_key: :creator_id,
     # class_name: "User"
     
-    has_many :activities
+    has_many :workouts
+    belongs_to :user
 
     has_many :locations
 end

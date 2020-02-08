@@ -7,5 +7,6 @@ class CreateLocations < ActiveRecord::Migration[5.2]
       t.integer :ord, null: false
       t.timestamps
     end
+    add_index :locations, :route_id
   end
 end

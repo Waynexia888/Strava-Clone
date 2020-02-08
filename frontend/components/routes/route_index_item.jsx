@@ -11,7 +11,11 @@ const RouteIndexItem = (props) => {
     return (
         <div>
             <div>
-                <IndexRoute route={route} />
+                <IndexRoute 
+                    route={props.route}
+                    locations={props.locations}
+                    user={props.user}
+                />
             </div>
         </div>
     )

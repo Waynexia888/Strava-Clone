@@ -218,10 +218,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeModal", function() { return closeModal; });
 var OPEN_MODAL = 'OPEN_MODAL';
 var CLOSE_MODAL = 'CLOSE_MODAL';
-var openModal = function openModal(modal) {
+var openModal = function openModal(modal, dataString) {
   return {
     type: OPEN_MODAL,
-    modal: modal
+    modal: modal,
+    dataString: dataString
   };
 };
 var closeModal = function closeModal() {
@@ -529,7 +530,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log("(((((((((((((((((a)))))))))))))))))"); // let activities = Object.values(this.props.activities).reverse().map(activity => {
+      // let activities = Object.values(this.props.activities).reverse().map(activity => {
       //     return (
       //         <ActivityIndexItem
       //             key={activity.id}
@@ -577,7 +578,6 @@ function (_React$Component) {
       //         </div>
       //     </div>
       // );
-
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "My Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "15 Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Record a new activity")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Sport"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Date"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Title"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Time"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Distance"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "Elevation")))));
     }
   }]);
@@ -924,7 +924,7 @@ function (_React$Component) {
       var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "my-map-container",
+        id: "map-index",
         ref: function ref(map) {
           return _this2.mapNode = map;
         }
@@ -954,7 +954,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
-/* harmony import */ var _routes_route_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../routes/route_form_container */ "./frontend/components/routes/route_form_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -976,8 +975,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  // import { withRouter, Link, Redirect } from 'react-router-dom';
 
 
-
-
+ // import SaveRouteContainer from './save_route_container';
 
 var NewRoute =
 /*#__PURE__*/
@@ -1050,7 +1048,7 @@ function (_React$Component) {
       //adds place search bar with autocomplete, here are the reference document
       // https://chromatichq.com/blog/implementing-google-places-autocomplete-es6-part-one
 
-      this.map.controls[google.maps.ControlPosition.RIGHT_TOP].push(document.getElementById('searchTextField'));
+      this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(document.getElementById('searchTextField'));
       var autocomplete = new google.maps.places.Autocomplete(document.getElementById('autoc'));
       autocomplete.bindTo('bounds', this.map); // set the bounds to the map's viewport
       // utilize these results by adding the custom google places listener, place_changed
@@ -1075,28 +1073,23 @@ function (_React$Component) {
         map: this.map
       }); //this is HTML5 geolocation,
       //https://developers.google.com/maps/documentation/javascript/geolocation
-
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-          var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          };
-
-          _this2.infoWindow.setPosition(pos);
-
-          _this2.infoWindow.setContent('Location found.');
-
-          _this2.infoWindow.open(_this2.map);
-
-          _this2.map.setCenter(pos);
-        }, function () {
-          _this2.handleLocationError(true, _this2.infoWindow, _this2.map.getCenter());
-        });
-      } else {
-        this.handleLocationError(false, this.infoWindow, this.map.getCenter());
-      } // Add a listener for the click event
-
+      // if (navigator.geolocation) {
+      //     navigator.geolocation.getCurrentPosition(position => {
+      //         let pos = {
+      //             lat: position.coords.latitude,
+      //             lng: position.coords.longitude
+      //         };
+      //         this.infoWindow.setPosition(pos);
+      //         this.infoWindow.setContent('Location found.');
+      //         this.infoWindow.open(this.map);
+      //         this.map.setCenter(pos);
+      //     }, () => {
+      //         this.handleLocationError(true, this.infoWindow, this.map.getCenter());
+      //     });
+      // } else {
+      //     this.handleLocationError(false, this.infoWindow, this.map.getCenter());
+      // }
+      // Add a listener for the click event
 
       google.maps.event.addListener(this.map, 'click', function (event) {
         var coords = event.latLng;
@@ -1200,7 +1193,8 @@ function (_React$Component) {
     key: "saveRoute",
     value: function saveRoute() {
       if (Object.keys(this.routeData).length === 0) return;
-      this.props.openModal(this.routeData);
+      this.props.openModal(this.routeData); // e.preventDefault();
+      // this.props.openModal('save');
     }
   }, {
     key: "render",
@@ -1208,6 +1202,10 @@ function (_React$Component) {
       var _this4 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "distance"
+      }, "Distance: ", this.routeData['distance']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "duration"
+      }, "Est. Travel Time: ", this.routeData['travelTime'], " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "my-map-container",
         ref: function ref(map) {
           return _this4.mapNode = map;
@@ -1229,22 +1227,17 @@ function (_React$Component) {
         value: "WALKING"
       }, "Run"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
         value: "BICYCLING"
-      }, "Bike"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "distance"
-      }, "Distance: ", this.routeData['distance']), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        id: "duration"
-      }, "Est. Travel Time: ", this.routeData['travelTime'], " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_routes_route_form_container__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
+      }, "Bike")))));
     }
   }]);
 
   return NewRoute;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component); // const mapStateToProps = state => {
+//     return {
+//         modal: state.ui.modal
+//     }
+// };
 
-var mapStateToProps = function mapStateToProps(state) {
-  return {
-    modal: state.ui.modal
-  };
-};
 
 var mdp = function mdp(dispatch) {
   return {
@@ -1254,209 +1247,7 @@ var mdp = function mdp(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mdp)(NewRoute));
-
-/***/ }),
-
-/***/ "./frontend/components/routes/route_form.jsx":
-/*!***************************************************!*\
-  !*** ./frontend/components/routes/route_form.jsx ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-var RouteForm =
-/*#__PURE__*/
-function (_React$Component) {
-  _inherits(RouteForm, _React$Component);
-
-  function RouteForm(props) {
-    var _this;
-
-    _classCallCheck(this, RouteForm);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(RouteForm).call(this, props));
-    _this.state = {
-      title: "",
-      description: "",
-      // user_id: this.props.route.user_id,
-      route_data: _this.props.routeDataString
-    };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    return _this;
-  }
-
-  _createClass(RouteForm, [{
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      var _this2 = this;
-
-      e.preventDefault();
-      var route = Object.assign({}, this.state);
-      this.props.createRoute(route).then(function (route) {
-        _this2.props.closeModal();
-
-        _this2.props.history.replace("/routes/".concat(route.id));
-      });
-    }
-  }, {
-    key: "componentDidMount",
-    value: function componentDidMount() {// this.map = new google.maps.Map(this.mapNode, {
-      //     zoom: 16,
-      //     center: { lat: 37.7989687, lng: -122.4024461 },  // 825 Battery
-      //     mapTypeId: 'terrain',
-      //     mapTypeControl: false,
-      // });
-      // the following is referenced to google javascript api
-      //https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/examples/marker-symbol-custom
-      // let startPoint = new google.maps.Marker({
-      //     position: this.routeData.path[0],
-      //     label: { text: 'A', color: 'white' },
-      //     map: map,
-      //     icon: {
-      //         path: google.maps.SymbolPath.CIRCLE,
-      //         scale: 7.0,
-      //         fillColor: "#049D1D",
-      //         fillOpacity: 2.0,
-      //         strokeWeight: 0.4
-      //     },
-      // });
-      // let endPoint = new google.maps.Marker({
-      //     position: this.routeData.path[this.routeData.path.length - 1],
-      //     label: { text: 'B', color: 'white' },
-      //     map: map,
-      //     icon: {
-      //         path: google.maps.SymbolPath.CIRCLE,
-      //         scale: 7.0,
-      //         fillColor: "#000",
-      //         fillOpacity: 2.0,
-      //         strokeWeight: 0.4
-      //     },
-      // });
-      // let routePoly = new google.maps.Polyline({
-      //     path: this.routeData.path,
-      //     strokeColor: '#FF0000',
-      //     strokeOpacity: 1.0,
-      //     strokeWeight: 2,
-      //     strokeOpacity: 1.0,
-      //     map: map
-      // })
-    }
-  }, {
-    key: "update",
-    value: function update(field) {
-      var _this3 = this;
-
-      return function (e) {
-        _this3.setState(_defineProperty({}, field, e.target.value));
-      };
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Save"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Route Name", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        value: this.state.title,
-        placeholder: "Enter a description",
-        onChange: this.update("title")
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        value: this.state.description,
-        placeholder: "Enter a description",
-        onChange: this.update("description")
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "submit",
-        value: "Save"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.props.closeModal
-      }, "Cancel"))));
-    }
-  }]);
-
-  return RouteForm;
-}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["withRouter"])(RouteForm));
-
-/***/ }),
-
-/***/ "./frontend/components/routes/route_form_container.js":
-/*!************************************************************!*\
-  !*** ./frontend/components/routes/route_form_container.js ***!
-  \************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _route_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./route_form */ "./frontend/components/routes/route_form.jsx");
-/* harmony import */ var _actions_route_action__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/route_action */ "./frontend/actions/route_action.js");
-/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
-
-
-
-
-
-
-var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var currentUserId = state.session.id;
-  var routeDataString = JSON.stringify(ownProps.routeData);
-  return {
-    userId: currentUserId,
-    routeDataString: routeDataString
-  };
-};
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {
-    fetchRoute: function fetchRoute(routeId) {
-      return dispatch(Object(_actions_route_action__WEBPACK_IMPORTED_MODULE_3__["fetchRoute"])(routeId));
-    },
-    createRoute: function createRoute(route) {
-      return dispatch(Object(_actions_route_action__WEBPACK_IMPORTED_MODULE_3__["createRoute"])(route));
-    },
-    closeModal: function closeModal() {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["closeModal"])());
-    },
-    openModal: function openModal(modal) {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modal));
-    }
-  };
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_route_form__WEBPACK_IMPORTED_MODULE_2__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mdp)(NewRoute));
 
 /***/ }),
 
@@ -1594,7 +1385,9 @@ __webpack_require__.r(__webpack_exports__);
 var RouteIndexItem = function RouteIndexItem(props) {
   var route = props.route;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_index_route__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    route: route
+    route: props.route,
+    locations: props.locations,
+    user: props.user
   })));
 };
 
@@ -1690,15 +1483,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_route_action__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/route_action */ "./frontend/actions/route_action.js");
 
 
+ // const mapStateToProps = (state, ownProps) => {
+//     let routeId = ownProps.match.params.routeId;
+//     let route = state.entities.routes[routeId];
+//     let locations = Object.values(state.entities.locations);
+//     // let user;
+//     return ({
+//         routeId: routeId,
+//         route: route,
+//         locations: locations.filter(location => location.route_id == routeId),
+//         // user: user,
+//     })
+// }
 
+var mapStateToProps = function mapStateToProps(state, _ref) {
+  var match = _ref.match;
+  var routeId = parseInt(match.params.routeId); // const route = selectRoute(state.entities.routes, routeId);
 
-var mapStateToProps = function mapStateToProps(state, ownProps) {
-  var routeId = ownProps.match.params.routeId;
-  var route = state.entities.routes[routeId];
-  var user;
   return {
-    routeId: routeId,
-    route: route // user: user,
+    routeId: routeId // route
 
   };
 };
@@ -1830,7 +1633,7 @@ function (_React$Component) {
       var _this2 = this;
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "my-map-container",
+        className: "my-map-show",
         ref: function ref(map) {
           return _this2.mapNode = map;
         }
@@ -2326,7 +2129,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./routes_reducer */ "./frontend/reducers/routes_reducer.js");
 /* harmony import */ var _UI_state_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./UI_state_reducer */ "./frontend/reducers/UI_state_reducer.js");
 
- // import ui from './ui_reducer';
 
 
 
@@ -2350,7 +2152,16 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+// import { OPEN_MODAL } from '../actions/modal_actions';
+// const routeDataReducer = (state = null, action) => {
+//     switch (action.type) {
+//         case OPEN_MODAL:
+//             return action.dataString;
+//         default:
+//             return state;
+//     }
+// }
+// export default routeDataReducer;
 
 /***/ }),
 
@@ -2541,11 +2352,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
+/* harmony import */ var _frontend_actions_route_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../frontend/actions/route_action */ "./frontend/actions/route_action.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 // React
 
  //Components
+
 
 
 
@@ -2569,6 +2382,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.createRoute = _frontend_actions_route_action__WEBPACK_IMPORTED_MODULE_4__["createRoute"];
+  window.fetchRoutes = _frontend_actions_route_action__WEBPACK_IMPORTED_MODULE_4__["fetchRoutes"];
   var root = document.getElementById('root');
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__["default"], {
     store: store

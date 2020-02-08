@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 //Components
 import Root from './components/root';
 import configureStore from './store/store';
-
+import { fetchRoutes, createRoute } from '../frontend/actions/route_action';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.createRoute = createRoute;
+  window.fetchRoutes = fetchRoutes; 
   const root = document.getElementById('root');
   ReactDOM.render(<Root store={store} />, root);
 })

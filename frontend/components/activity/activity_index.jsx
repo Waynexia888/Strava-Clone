@@ -8,7 +8,7 @@ class ActivityIndex extends React.Component {
     }
 
     render() {
-        console.log("(((((((((((((((((a)))))))))))))))))")
+      
         // let activities = Object.values(this.props.activities).reverse().map(activity => {
         //     return (
         //         <ActivityIndexItem

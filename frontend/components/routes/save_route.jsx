@@ -2,14 +2,15 @@ import React from 'react';
 import { withRouter, Link, Redirect } from 'react-router-dom';
 
 
-class RouteForm extends React.Component {
+class SaveRoute extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             title: "",
             description: "",
             // user_id: this.props.route.user_id,
-            route_data: this.props.routeDataString
+            route_data: this.props.routeDataString,
+            show: false
         }
         this.handleSubmit = this.handleSubmit.bind(this);
 
@@ -86,23 +87,10 @@ class RouteForm extends React.Component {
     };
 
 
-
-
     render() {
         return (
             <div>
                 <h1>Save</h1>
-                {/* <div> */}
-                {/* <section>
-                        <Link to="/dashboard">STRACKER</Link>
-                        <h1>ROUTE BUILDER</h1>
-                    </section>
-                    <section>
-                        <Link to='/routes'>Exit Builder</Link>
-                    </section> */}
-                {/* <div className="my-map-container" ref={map => this.mapNode = map}></div> */}
-                {/* </div>
-              */}
 
                 <form onSubmit={this.handleSubmit}>
                     <div>
@@ -142,4 +130,4 @@ class RouteForm extends React.Component {
     }
 }
 
-export default withRouter(RouteForm);
+export default withRouter(SaveRoute);

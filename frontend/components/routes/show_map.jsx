@@ -63,7 +63,7 @@ class ShowMap extends React.Component {
     render() {
         return (
             <div>
-                <div className="my-map-container" ref={map => this.mapNode = map}></div>
+                <div className="my-map-show" ref={map => this.mapNode = map}></div>
                 {/* <div id='elevation_chart'></div> */}
                 <br />
                 <div>

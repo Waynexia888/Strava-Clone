@@ -2,7 +2,7 @@ import React from 'react';
 // import { withRouter, Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
-import RouteFormContainer from '../routes/route_form_container';
+// import SaveRouteContainer from './save_route_container';
 
 
 class NewRoute extends React.Component {
@@ -73,7 +73,7 @@ class NewRoute extends React.Component {
         //adds place search bar with autocomplete, here are the reference document
         // https://chromatichq.com/blog/implementing-google-places-autocomplete-es6-part-one
       
-        this.map.controls[google.maps.ControlPosition.RIGHT_TOP].push(
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
             document.getElementById('searchTextField'));
         const autocomplete = new google.maps.places.Autocomplete(
             document.getElementById('autoc'));
@@ -105,25 +105,25 @@ class NewRoute extends React.Component {
 
         //this is HTML5 geolocation,
         //https://developers.google.com/maps/documentation/javascript/geolocation
-        if (navigator.geolocation) {
+        // if (navigator.geolocation) {
            
-            navigator.geolocation.getCurrentPosition(position => {
+        //     navigator.geolocation.getCurrentPosition(position => {
                 
-                let pos = {
-                    lat: position.coords.latitude,
-                    lng: position.coords.longitude
-                };
-                this.infoWindow.setPosition(pos);
-                this.infoWindow.setContent('Location found.');
-                this.infoWindow.open(this.map);
-                this.map.setCenter(pos);
-            }, () => {
-                this.handleLocationError(true, this.infoWindow, this.map.getCenter());
-            });
-        } else {
+        //         let pos = {
+        //             lat: position.coords.latitude,
+        //             lng: position.coords.longitude
+        //         };
+        //         this.infoWindow.setPosition(pos);
+        //         this.infoWindow.setContent('Location found.');
+        //         this.infoWindow.open(this.map);
+        //         this.map.setCenter(pos);
+        //     }, () => {
+        //         this.handleLocationError(true, this.infoWindow, this.map.getCenter());
+        //     });
+        // } else {
             
-            this.handleLocationError(false, this.infoWindow, this.map.getCenter());
-        }
+        //     this.handleLocationError(false, this.infoWindow, this.map.getCenter());
+        // }
 
 
         // Add a listener for the click event
@@ -228,12 +228,19 @@ class NewRoute extends React.Component {
     saveRoute() {
         if (Object.keys(this.routeData).length === 0) return
         this.props.openModal(this.routeData);
+        // e.preventDefault();
+        // this.props.openModal('save');
+
     }
 
     render() {
        
         return (
             <div>
+                <div>
+                    <div id='distance'>Distance: {this.routeData['distance']}</div>
+                    <div id='duration'>Est. Travel Time: {this.routeData['travelTime']} </div>
+                </div>
                 <div>
                     <div className="my-map-container" ref={map => this.mapNode = map}></div>
                     <div id="searchTextField">
@@ -245,26 +252,23 @@ class NewRoute extends React.Component {
                             <option value="BICYCLING">Bike</option>
                         </select>
                     </div>
-                    <div>
-                        <div id='distance'>Distance: {this.routeData['distance']}</div>
-                        <div id='duration'>Est. Travel Time: {this.routeData['travelTime']} </div>
-                    </div>
-                    <RouteFormContainer />
+                    
+                    {/* <SaveRouteContainer /> */}
                 </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        modal: state.ui.modal
-    }
-};
+// const mapStateToProps = state => {
+//     return {
+//         modal: state.ui.modal
+//     }
+// };
 const mdp = dispatch => {
     return ({
         openModal: (dataString) => dispatch(openModal('save', dataString))
     })
 }
 
-export default connect(mapStateToProps, mdp)(NewRoute);
+export default connect(null, mdp)(NewRoute);

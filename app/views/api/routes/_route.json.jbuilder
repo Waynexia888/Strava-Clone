@@ -1,11 +1,11 @@
 json.extract! route,
   :id,
   :title,
-  :route_data
+  :route_data,
   :description,
   :distance,
   :elevation,
-  :type
-  :duration,
+  :type,
+
   :created_at
 

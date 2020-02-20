@@ -8,7 +8,7 @@
 
 User.destroy_all
 Route.destroy_all
-Workout.destroy_all
+Activity.destroy_all
 Location.destroy_all
 
 wayne =  User.create!({
@@ -48,6 +48,6 @@ follow3 = Follow.create!(follower_id: eddy.id, followee_id: thomas.id)
 follow4 = Follow.create!(follower_id: wayne.id, followee_id: eddy.id)
 follow5 = Follow.create!(follower_id: eddy.id, followee_id: wayne.id)
 
-workout1 = Workout.create!(user_id: wayne.id, route_id: route1.id, title: "tuesday commute", time: "1:00:00", sport: "walk", distance: 3.5);
-workout2 = Workout.create!(user_id: thomas.id, route_id: route2.id, title: "biked to als", time: "1:23:00", sport: "bike", distance: 8);
-workout3 = Workout.create!(user_id: eddy.id, route_id: route1.id, title: "tuesday commute", time: "2:45:00", sport: "walk", distance: 7.35);
+activity1 = Activity.create!(user_id: wayne.id, route_id: route1.id, title: "tuesday commute", time: "1:00:00", sport: "walk", distance: 3.5);
+activity2 = Activity.create!(user_id: thomas.id, route_id: route2.id, title: "biked to als", time: "1:23:00", sport: "bike", distance: 8);
+activity3 = Activity.create!(user_id: eddy.id, route_id: route1.id, title: "tuesday commute", time: "2:45:00", sport: "walk", distance: 7.35);

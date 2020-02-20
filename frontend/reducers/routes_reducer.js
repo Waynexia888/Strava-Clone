@@ -1,18 +1,19 @@
-
-import { RECEIVE_ROUTES, RECEIVE_ROUTE, REMOVE_ROUTE } from '../actions/route_action';
+import merge from 'lodash/merge';
+import { RECEIVE_ALL_ROUTES,  RECEIVE_ROUTE, REMOVE_ROUTE } from '../actions/route_action';
 
 const routesReducer = (state = {}, action) => {
-    Object.freeze(state);
-    let nextState = Object.assign({}, state);
-
+    let newState;
     switch (action.type) {
-        case RECEIVE_ROUTES:
+        case RECEIVE_ALL_ROUTES:
             return action.routes;
         case RECEIVE_ROUTE:
-            return Object.assign({}, state, { [action.route.id]: action.route })
+
+            newState = merge({}, state, { [action.route.id]: action.route });
+            return newState;
         case REMOVE_ROUTE:
-            delete nextState[action.routeId];
-            return nextState;
+            newState = merge({}, state);
+            delete newState[action.routeId];
+            return newState;
         default:
             return state;
     }

@@ -1,26 +1,39 @@
 class Api::ActivitiesController < ApplicationController
-    def index
-        @activities = Activity.all.where(athlete_id: current_user.id)
-        render :index    
-    end
-
-    def show
-        @activity = Activity.find(params[:id])
-        render :show
-    end
-
     def create
-        @activity = current_user.activities.new(activity_params)
+        @activity = Activity.new(activity_params)
+
         if @activity.save
-            render :show
+            render 'api/activities/show'
+        else 
+            render json: ["title and duration required"], status: 422
+        end
+    end
+
+    def index
+        @activities = current_user.activities
+    end
+
+    def show 
+        @activity = Activity.find(params[:id])
+    end
+
+    def update
+        @activity = current_user.activities.find(params[:id])
+        if @activity.update_attributes(activity_params)
+            render 'api/activities/show'
         else
             render json: @activity.errors.full_messages, status: 422
         end
     end
 
+    def destroy
+        @activity = Activity.find(params[:id])
+        @activity.destroy
+        render json: ["Activity successfully removed"], status: 200
+    end
+    
     private
-
     def activity_params
-        params.require(:activity).permit(:distance, :duration, :elevation, :sport, :date_and_time, :title, :description, :exertion, :route_id, :athlete_id)
+        params.require(:activity).permit(:user_id, :route_id, :title, :sport, :time, :distance)
     end
 end

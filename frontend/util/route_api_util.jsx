@@ -5,10 +5,10 @@ export const fetchRoutes = () => (
     })
 )
 
-export const fetchRoute = routeId => (
+export const fetchRoute = id => (
     $.ajax({
         method: 'GET',
-        url: `/api/routes/${routeId}`
+        url: `/api/routes/${id}`
     })
 )
 
@@ -20,20 +20,20 @@ export const createRoute = route => (
     })
 );
 
-export const updateRoute = route => (
-    $.ajax({
-        method: 'PATCH',
-        url: `/api/routes/${route.id}`,
-        data: { route }
-    })
-);
+// export const updateRoute = route => (
+//     $.ajax({
+//         method: 'PATCH',
+//         url: `/api/routes/${route.id}`,
+//         data: { route }
+//     })
+// );
 
 
 
-export const deleteRoute = routeId => (
+export const deleteRoute = id => (
     $.ajax({
         method: 'DELETE',
-        url: `/api/routes/${routeId}`,
+        url: `/api/routes/${id}`,
     })
 )
 

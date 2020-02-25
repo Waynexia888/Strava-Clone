@@ -1,25 +1,25 @@
-import React from 'react';
+// import React from 'react';
 
-import IndexRoute from './index_route';
+// import IndexRoute from './index_route';
 
 
 
-const RouteIndexItem = (props) => {
+// const RouteIndexItem = (props) => {
 
-    let route = props.route;
+//     let route = props.route;
 
-    return (
-        <div>
-            <div>
-                <IndexRoute 
-                    route={props.route}
-                    locations={props.locations}
-                    user={props.user}
-                />
-            </div>
-        </div>
-    )
-}
+//     return (
+//         <div>
+//             <div>
+//                 <IndexRoute 
+//                     route={props.route}
+//                     locations={props.locations}
+//                     user={props.user}
+//                 />
+//             </div>
+//         </div>
+//     )
+// }
 
-export default RouteIndexItem;
+// export default RouteIndexItem;
 

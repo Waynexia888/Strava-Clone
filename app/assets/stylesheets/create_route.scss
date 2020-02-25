@@ -1,0 +1,78 @@
+.route-form-container {
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0;
+    color: black;
+    display: flex;
+
+}
+
+.route-form {
+    position: absolute;
+    top: 100px;
+    margin-left: -45px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.route-input{
+    width: 200px;
+
+}
+
+.route-save {
+    position: absolute;
+    width: 50px;
+    left: 300px;
+    bottom: -82px;
+    background-color: #2d2d32;
+    color: white;
+    border-radius: 2px;
+    cursor: pointer;
+    height: 30px;
+}
+
+.new-route-buttons{
+
+}
+.name-input {
+    height: 50px;
+}
+.name-input > label {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 15%;
+    position: absolute;
+    top: 13px;
+    left: 58px;
+}
+
+.description-input > label {
+    flex-wrap: wrap;
+    margin-right: 50%;
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 58px;
+    left: 58px;
+}
+
+#cancel-btn {
+    position: absolute;
+    bottom: -82px;
+    left: 244px;
+    cursor: pointer;
+    border-radius: 2px;
+    height: 30px;
+}
+
+.route-errors{
+    position: absolute;
+    top: 75px;
+    left: 92px;
+}

@@ -1,0 +1,36 @@
+.show-route-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+.show-route-stats{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+    background-color: #f1f1f1;
+    font-family: 'Montserrat', sans-serif; 
+    width: 800px;
+    border-top: 1px solid #ccccd1;
+    border-bottom: 1px solid #ccccd1;
+    border-left: 1px solid #ccccd1;
+}
+
+.show-route-stats > div {
+    margin-right: 20px;
+}
+
+#delete-route-btn {
+    background-color: #f1f1f1;
+    height: 35px;
+    width: 150px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    color: black;
+    position: absolute;
+    left: 16px;
+    top: 514px;
+    font-size:16px;
+}
+

@@ -1,33 +1,33 @@
-import {
-    RECEIVE_ROUTES,
-    RECEIVE_ROUTE,
-    REMOVE_ROUTE
-} from "../actions/route_action";
-import {
-    RECEIVE_CURRENT_USER,
-    LOGOUT_CURRENT_USER,
-} from "../actions/session_actions";
+// import {
+//     RECEIVE_ROUTES,
+//     RECEIVE_ROUTE,
+//     REMOVE_ROUTE
+// } from "../actions/route_action";
+// import {
+//     RECEIVE_CURRENT_USER,
+//     LOGOUT_CURRENT_USER,
+// } from "../actions/session_actions";
 
-const LocationsReducer = (oldState = {}, action) => {
-    Object.freeze(oldState);
+// const LocationsReducer = (oldState = {}, action) => {
+//     Object.freeze(oldState);
 
-    let newState;
+//     let newState;
 
-    switch (action.type) {
-        case RECEIVE_ROUTES:
-            return action.locations;
+//     switch (action.type) {
+//         case RECEIVE_ROUTES:
+//             return action.locations;
 
-        case RECEIVE_ROUTE:
-            newState = Object.assign({}, oldState, action.locations);
+//         case RECEIVE_ROUTE:
+//             newState = Object.assign({}, oldState, action.locations);
 
-            return newState;
+//             return newState;
 
-        case LOGOUT_CURRENT_USER:
-            return {}
+//         case LOGOUT_CURRENT_USER:
+//             return {}
 
-        default:
-            return oldState;
-    }
-};
+//         default:
+//             return oldState;
+//     }
+// };
 
-export default LocationsReducer;
+// export default LocationsReducer;

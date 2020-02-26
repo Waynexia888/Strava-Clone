@@ -25,11 +25,14 @@ import NewRoute from './route_map/new_route';
 // import RoutesShowContainer from './routes/route_show_container';
 import RouteShowContainer from './route_show/route_show_container';
 import RouteIndexContainer from './route_index/route_index_container';
-import ActivitiesIndexContainer from './activity/activity_index_container';
+// import ActivitiesIndexContainer from './activity/activity_index_container';
 // import NewActivityFormContainer from './new_activity_form/new_activity_form_container';
 
 // import Footer from './footer/footer';
 
+import ActivityRouteIndexContainer from './activity/activity_route_index_container';
+import ActivityShowContainer from './activity/activity_show_container';
+import ActivityIndexContainer from './activity/activity_index_container';
 const App = () => (
     <div> 
         <Modal />
@@ -49,8 +52,11 @@ const App = () => (
             <ProtectedRoute exact path="/routes/new" component={NewRoute} />
             <ProtectedRoute path="/routes/:routeId" component={RouteShowContainer} />
             <ProtectedRoute path="/routes" component={RouteIndexContainer} />
-            <ProtectedRoute exact path="/activities" component={ActivitiesIndexContainer} />
-            
+            {/* <ProtectedRoute exact path="/activities" component={ActivitiesIndexContainer} /> */}
+            <ProtectedRoute exact path="/activities/new" component={ActivityRouteIndexContainer} />
+            <ProtectedRoute exact path="/activities/:activityId" component={ActivityShowContainer} />
+            {/* <ProtectedRoute exact path="/activities/:activityId/edit" component={EditActivityContainer} /> */}
+            <ProtectedRoute path="/activities" component={ActivityIndexContainer} />
         </Switch>
     </div>
 );

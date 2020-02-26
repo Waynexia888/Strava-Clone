@@ -39,35 +39,37 @@ export const fetchActivities = () => dispatch => {
     );
 };
 
-export const fetchActivity = activityId => dispatch => {
+export const fetchActivity = id => dispatch => {
     return (
-        ActivityApiUtil.fetchActivity(activityId).then(
+        ActivityApiUtil.fetchActivity(id).then(
             activity => dispatch(receiveActivity(activity)))
     );
 };
 
 export const createActivity = activity => dispatch => {
-    return (
-        ActivityApiUtil.createActivity(activity)
-            .then(createdActivity => dispatch(receiveActivity(createdActivity)),
-            err => (dispatch(receiveErrors(err.responseJSON))
-            )
-        ));
-}
+  return ActivityApiUtil.createActivity(activity).then(
+    activity => {
+      dispatch(receiveActivity(activity));
+      return activity;
+    },
+    err => dispatch(receiveErrors(err.responseJSON))
+  );
+};
 
-export const deleteActivity = activityId => dispatch => {
+
+export const deleteActivity = id => dispatch => {
     return (
-        ActivityApiUtil.deleteActivity(activityId).then(
-            () => dispatch(removeActivity(activityId)))
+        ActivityApiUtil.deleteActivity(id).then(
+            () => dispatch(removeActivity(id)))
     );
 };
 
 export const updateActivity = activity => dispatch => {
-    return (
-        ActivityApiUtil.updateActivity(activity)
-        .then(updatedActivity => dispatch(receiveActivity(updatedActivity)),
-            err => (dispatch(receiveErrors(err.responseJSON))
-            )
-        ));
+  return ActivityApiUtil.updateActivity(activity).then(
+    activity => {
+      dispatch(receiveActivity(activity));
+      return activity;
+    },
+    err => dispatch(receiveErrors(err.responseJSON))
+  );
 };
-

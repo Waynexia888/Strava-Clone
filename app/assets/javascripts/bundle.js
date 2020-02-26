@@ -423,7 +423,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
-/* harmony import */ var _session_form_splash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./session_form/splash */ "./frontend/components/session_form/splash.jsx");
+/* harmony import */ var _splash_splash__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./splash/splash */ "./frontend/components/splash/splash.jsx");
 /* harmony import */ var _routes_route_index_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./routes/route_index_container */ "./frontend/components/routes/route_index_container.js");
 /* harmony import */ var _routes_route_index_container__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_routes_route_index_container__WEBPACK_IMPORTED_MODULE_9__);
 /* harmony import */ var _route_map_new_route__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./route_map/new_route */ "./frontend/components/route_map/new_route.jsx");
@@ -464,7 +464,7 @@ var App = function App() {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
     exact: true,
     path: "/",
-    component: _session_form_splash__WEBPACK_IMPORTED_MODULE_8__["default"]
+    component: _splash_splash__WEBPACK_IMPORTED_MODULE_8__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_7__["AuthRoute"], {
     exact: true,
     path: "/login",
@@ -3354,8 +3354,8 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-      var athlete = Object.assign({}, this.state);
-      this.props.processForm(athlete).then(this.props.closeModal).then(this.props.history.push('/dashboard'));
+      var user = Object.assign({}, this.state);
+      this.props.processForm(user).then(this.props.closeModal).then(this.props.history.push('/dashboard'));
     }
   }, {
     key: "update",
@@ -3371,9 +3371,9 @@ function (_React$Component) {
     value: function handleClick(e) {
       e.preventDefault();
       this.props.login({
-        email: "demo",
-        username: "demoUser",
-        password: "starwars"
+        email: "demo@gmail.com",
+        username: "demo",
+        password: "123456789"
       }).then(this.props.closeModal).then(this.props.history.push('/dashboard'));
     }
   }, {
@@ -3509,10 +3509,10 @@ var mdp = function mdp(dispatch) {
 
 /***/ }),
 
-/***/ "./frontend/components/session_form/splash.jsx":
-/*!*****************************************************!*\
-  !*** ./frontend/components/session_form/splash.jsx ***!
-  \*****************************************************/
+/***/ "./frontend/components/splash/splash.jsx":
+/*!***********************************************!*\
+  !*** ./frontend/components/splash/splash.jsx ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3520,17 +3520,35 @@ var mdp = function mdp(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../footer/footer */ "./frontend/components/footer/footer.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _footer_footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../footer/footer */ "./frontend/components/footer/footer.jsx");
+
  // import img from '../../../app/assets/images/background_image_01.jpg';
 
-
+ // const splash = () => (
+//     <div className="splash">
+//         <div className="splash-content">
+//             <h1>The most popular site for</h1>
+//             <h1>runners and cyclists</h1>
+//             <h1>to track routes and workouts</h1>
+//         </div>
+//         <Footer />
+//     </div>
+// )
 
 var splash = function splash() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "splash"
+    className: "wrap"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "splash-content"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "The most popular site for"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "runners and cyclists"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "to track routes and workouts")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+    className: "main-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "#1 app for running and biking"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "devices image"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "https://d3nn82uaxijpm6.cloudfront.net/assets/website/show_simple/devices-header-3349320fa849e6a297a3b0d64a6dfdef7307b0fe50f6329a459a0105b76ffff8.jpg",
+    alt: ""
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "signup-form-group"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_footer_footer__WEBPACK_IMPORTED_MODULE_2__["default"], null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (splash);

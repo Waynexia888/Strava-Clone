@@ -162,8 +162,8 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        const athlete = Object.assign({}, this.state);
-        this.props.processForm(athlete).then(this.props.closeModal).then(this.props.history.push('/dashboard'));
+        const user = Object.assign({}, this.state);
+        this.props.processForm(user).then(this.props.closeModal).then(this.props.history.push('/dashboard'));
     }
 
     update(field) {
@@ -174,7 +174,7 @@ class SessionForm extends React.Component {
 
     handleClick(e) {
         e.preventDefault();
-        this.props.login({ email: "demo", username: "demoUser", password: "starwars" }).then(
+        this.props.login({ email: "demo@gmail.com", username: "demo", password: "123456789" }).then(
             this.props.closeModal).then(this.props.history.push('/dashboard'));
     }
 

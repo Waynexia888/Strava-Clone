@@ -1,0 +1,102 @@
+.activity-index-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+
+.activity-index-bar {
+    margin-bottom:10px;
+}
+
+.activity-index-bar, h2 {
+    font-size: 18;
+}
+
+.activities-table {
+    table-layout: fixed;
+    font-size: 12px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.activity-table-head {
+    font-weight: 900;
+    box-sizing: border-box;
+    padding: 8px;
+}
+
+.activites-index-list {
+    display: table-row-group;
+}
+
+.act-col {
+    background-color: #e6e6ec;
+    width: 90px;
+    height: 36px;
+}
+
+.view-col {
+    display: table-cell;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    height: 40px;
+    word-wrap: break-word;
+    vertical-align: top;
+    border-bottom: 1px solid #e6e6eb;
+}
+
+.col-sport {
+    text-align: left;
+}
+
+.col-time, .col-distance, .col-elevation {
+    text-align: right;
+}
+
+.col-date, .col-title {
+    text-align: left;
+}
+
+.col-actions {
+    text-align: right;
+}
+
+.activity-action-list {
+    list-style: none;
+
+}
+
+#delete-activity-btn {
+    border: none;
+    background: inherit;
+    color: #007fb6;
+}
+
+tr:nth-child(even) {
+  background-color:#f5f5fa
+}
+
+
+#create-activity-btn{
+    background-color: #ff5900;
+    height: 35px;
+    width: 200px;
+    border-radius: 5px;
+    font-family: inherit; 
+    cursor: pointer;
+    color: white;
+    position: relative;
+    left: 0;
+    margin-top: 10px;
+}
+
+#create-activity-btn a{
+    color: white;
+    font-size: 14px
+}
+
+.col-title a {
+  color: #437fa9;
+}

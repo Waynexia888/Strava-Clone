@@ -16,29 +16,39 @@
 
 
  
-
+/* 
 html, body, main, .mainPage {
   height: 100%;
 
-}
+} */
 
- html, body, header, nav, h1, a,
+ /* html, body, header, nav, h1, a,
 ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
 span, article, footer, time, small {
   margin: 0;
-  /* padding: 0; */
-  /* border: 0; */
+
   outline: 0;
-  /* font: inherit; */
+
   color: inherit;
   text-align: inherit;
   text-decoration: inherit;
   vertical-align: inherit;
   box-sizing: inherit;
   background: transparent;
+} */
+
+footer {
+  margin: 0;
+  outline: 0;
+  text-align: inherit;
+  text-decoration: inherit;
+  vertical-align: inherit;
+  box-sizing: inherit;
+  background: transparent;
 }
+
 
 /* #map-index {
    width: 270px;

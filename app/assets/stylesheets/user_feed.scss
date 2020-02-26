@@ -1,0 +1,101 @@
+.activity-feed-entry {
+    height: 335px;
+    width: 550px;
+    margin: 10px auto 10px auto;
+    background-color: white;
+    position: relative;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.feed-map-container {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.feed-entry-header {
+    display: flex;
+    flex-direction: row;
+    padding: 16px 24px 0px 24px;
+    position: relative;
+}
+
+.wrapper {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-right: 40px;
+
+}
+
+.username {
+    padding-top: 6px;
+}
+
+.feed-entry-body {
+    height: 80px;
+    margin: 8px 0px 16px 0px;
+    padding: 0px 88px 0px 24px;
+    position: relative;
+    display: flex;
+}
+
+.feed-icon {
+
+    padding-top: 2px;
+    margin-right: 24px;
+    width: 40px;
+    height: 100%;
+    position: relative;
+}
+
+.icon {
+    background-size: cover;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    text-align: left;
+    margin-left: 7px;
+}
+
+.bike {
+    background-image: url("https://cdn4.iconfinder.com/data/icons/real-estate-line-1-1/256/Bikecycle_512x512-512.png");
+}
+
+.run {
+    background-image: url("https://static.thenounproject.com/png/1473807-200.png");
+}
+
+.activity-info-container {
+    padding-top: 3px;
+    margin-left: 15px;
+}
+
+.feed-title a{
+    font-weight: bolder;
+    color: black;
+    font-size: 20px;
+}
+
+.feed-title:hover a {
+    color:   #007fb6;
+}
+
+.list-stats {
+    padding-left: 0px;
+    margin-top: 3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.feed-stats {
+    margin-right: 30px;
+}

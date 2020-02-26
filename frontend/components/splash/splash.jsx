@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 // import img from '../../../app/assets/images/background_image_01.jpg';
-import Footer from '../footer/footer';
+// import Footer from '../footer/footer';
 
 // const splash = () => (
 //     <div className="splash">
@@ -31,7 +31,7 @@ const splash = () => (
                 <h1>STRIVE</h1>
             </div>
         </footer> */}
-        <Footer />
+        {/* <Footer /> */}
         
     </div>
 )

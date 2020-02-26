@@ -149,3 +149,199 @@
 //   margin: 10px;
 //   margin-top: 20px;
 // }
+
+.header-group{
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: black;
+    // padding-top: 26px;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 200;
+    height: 50px;
+    // position: fixed;
+}
+
+.global-nav {
+    float: left;
+    line-height: 1;
+    list-style: none;
+    display: flex;
+    min-width: 2px;
+    justify-content: flex-start;
+}
+
+.nav-group {
+    z-index: 11;
+    margin: 0px;
+    min-width: 240px;
+}
+
+.user-nav {
+    display: flex;
+    height: 50px;
+    list-style: none;
+    justify-content: flex-end;
+    min-width: 100px;
+    padding-right: 50px;
+}
+.drop-down-menu {
+    position: relative;
+    margin-right: 20px;
+    padding: 28px 2px 5px 0px;
+    border: 1px solid transparent;
+}
+
+.options {
+    display: none;
+    position: absolute;
+    bottom: -52px;
+    left: -1px;
+    height: 50px;
+    width: 150px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+    background: white;
+    line-height: 50px;
+    color: black;
+}
+
+.feats {
+    bottom: -52px;
+    height: 50px;
+}
+
+
+.drop-down-menu:hover .options {
+    display: block;
+    cursor: pointer;
+    
+}
+
+.drop-down-menu:hover {
+    cursor: pointer;
+    color: #ff5300;
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+
+}
+
+.feature {
+    width: 91px;
+}
+
+.feature:hover::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 57px;
+    border-bottom: 1px solid gray;
+    position: absolute;
+    left: 94px;
+    bottom: -2px;
+}
+
+
+.list-option:hover {
+    background: #7c7b7b;
+}
+
+.gray-menu {
+    position: absolute;
+    bottom: 0px;
+    height: 35px;
+    width: 100%;
+    background-color:  #464545;
+    color: white;
+    
+}
+
+// .list-option > a {
+//     text-decoration: none;
+//     color: black;
+// }
+
+// .list-option {
+//     color: black;
+// }
+
+
+
+.nav{
+    position: relative;
+}
+
+.nav:hover::after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 99px;
+    border-bottom: 1px solid gray;
+    position: absolute;
+    left: -99px;
+    bottom: -2px;
+}
+
+.nav-av {
+    position: absolute;
+    bottom: 2px;
+    height: 35px;
+    width: 35px;
+    margin: 0px;
+}
+
+
+.dash {
+    border-bottom: 2px solid  #ff5900;
+}
+
+.dash:hover {
+    border-bottom: 2px solid transparent;
+}
+
+.av {
+    position: absolute;
+    bottom: 0px;
+}
+
+.avatar-wrapper {
+     margin-top: -26px;
+     display: flex;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+}
+
+.prof-nav {
+    left: -99px;
+    height: 100px;
+    bottom: -102px;
+}
+
+.hire-btn {
+    width: 90px;
+    height: 28px;
+    border-radius: 3px;
+    background-color: #ff5900;
+    color: white;
+    cursor: pointer;
+    margin-top: 16px;
+    margin-right: 7px;
+}
+
+li {
+    color: black;
+}
+///////////////////
+.site-nav{
+    background-color: white;
+    width: 500px;
+}
+

@@ -191,8 +191,16 @@
 .drop-down-menu {
     position: relative;
     margin-right: 20px;
-    padding: 28px 2px 5px 0px;
+    font-weight: 500;
     border: 1px solid transparent;
+    margin-top: 18px;
+    display: flex;
+}
+
+.drop-down-menu p {
+    font-size: 36px;
+    font-weight: 100;
+    margin-top: -2px;
 }
 
 .options {
@@ -325,14 +333,14 @@
     bottom: -102px;
 }
 
-.hire-btn {
-    width: 90px;
+.upgrade {
+    width: 70px;
     height: 28px;
     border-radius: 3px;
-    background-color: #ff5900;
+    background-color: #ff5200;
     color: white;
     cursor: pointer;
-    margin-top: 16px;
+    margin-top: 12px;
     margin-right: 7px;
 }
 

@@ -110,18 +110,26 @@
     justify-content: space-evenly;
 }
 
-.routes {
+.following {
     position: absolute;
     text-align: center;
     bottom: 0px;
     left: 37px;
 }
 
+
+.followers {
+    position: absolute;
+    text-align: center;
+    bottom: 0px;
+    left: 100px;
+}
+
 .activities {
     position: absolute;
     text-align: center;
     bottom: 0px;
-    left: 185px;
+    left: 163px;
 }
 
 .dash-stats {
@@ -129,7 +137,7 @@
 }
 
 .upper-card h3 {
-    margin: 0px;
+    margin-top: 3px;
 }
 
 .latest-activity {
@@ -308,7 +316,7 @@
     font-size: 14px;
     position: absolute;
     top: 30px;
-    left: 60px;
+    left: 45px;
     width: 150px;
 }
 

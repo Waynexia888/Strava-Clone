@@ -1271,49 +1271,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-// class Dashboard extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         // this.state = {
-//         //     mounted: false
-//         // }
-//     }
-//     render() {
-//         return (
-//             <div className="dashboard-page">
-//                 <header className="nav-header">
-//                     <div className="nav-header-container">
-//                         <div>
-//                             <div className="text-logo">
-//                                 <Link to={"/"}>Stracker</Link>
-//                             </div>
-//                             <div className="routes-link">
-//                                 <p>Dashboard</p>
-//                             </div>
-//                             <div className="routes-link">
-//                                 <Link to={"/routes"}>Routes</Link>
-//                             </div>
-//                             <div className="routes-link">
-//                                 <Link to={"/activities"}>Activities</Link>
-//                             </div>
-//                         </div>
-//                         <nav>
-//                             <button className="logout-button" onClick={this.props.logout}>Log Out</button>
-//                         </nav>
-//                     </div>
-//                 </header>
-//                 <div className="dashboard-body">
-//                     <div className="body-content">
-//                         <p>Will figure out the body content later</p>
-//                     </div>
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
-// export default Dashboard;
 
 
 
@@ -1443,10 +1400,14 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-stats"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "routes"
+        className: "following"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "dash-stats"
-      }, "Routes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.routeCount)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Following"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.routeCount)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "followers"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "dash-stats"
+      }, "Followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.activityCount)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "activities"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "dash-stats"
@@ -1499,9 +1460,9 @@ function (_React$Component) {
         id: "chev"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-body"
-      }, "Log as many miles as you feel comortable. Rest is essential. Never ever forget to", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
+      }, "Subscribe and stay motivated with custom progress, segment and power goals.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
         id: "hydrate"
-      }, " Hydrate!")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, " Upgrade!")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body bottom-card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "total-stats"
@@ -1554,7 +1515,7 @@ function (_React$Component) {
         className: "media-title"
       }, "My Github"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "media-text"
-      }, "Take a look at my Github. There's a decent chance that I'm coding and committing at this very moment."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, "For more information on how this clone was built, and to see other code that I've pushed, take a look at my Github!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         className: "media-link",
         href: "https://github.com/Waynexia888"
       }, "View All the Github Stuff")))))));
@@ -1582,99 +1543,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
- // const Greeting = ({ currentUser, logout }) => {
-//     const sessionLinks = () => (
-//         <div id="nav-bar-container"> 
-//             <div className="headNav">
-//                 <Link className = "removeLink" to="/"><h1>Stracker</h1></Link>
-//             </div>
-//             <div className="headFont">
-//                 <ul>
-//                     <li><Link className="active" to="/login" >Login</Link></li>
-//                     {/* &nbsp;or&nbsp; */}
-//                     <li><Link className="active" to="/signup">Sign up</Link></li>
-//                 </ul>
-//             </div>
-//         </div>
-//     );
-//     const personalGreeting = (currentUser, createRoute) => (
-//         <hgroup className="dash-viewport">
-//             <header className="nav-header">
-//                 <div className="nav-header-content container dash-nav-head">
-//                     <div>
-//                         <div className="splash-logo"> 
-//                             <Link to={"/"}><h1>Stracker</h1></Link>
-//                         </div>
-//                         <div className="routes-fake-link">
-//                             <p>Dashboard</p>
-//                         </div>
-//                         <div className="routes-fake-link">
-//                             <Link className="a" to={"/routes"}>Routes</Link>
-//                         </div>
-//                         <div className="routes-fake-link">
-//                             <Link className="a" to={"/activities"}>Activities</Link>
-//                         </div>
-//                     </div>
-//                     <nav>
-//                         <button className="logout-btn" onClick={logout}>Log Out</button>
-//                     </nav>
-//                 </div>
-//             </header>
-//                 {/* <p className="header-name">Welcome, Wayne</p>
-//                 <div>
-//                     <Link className="navlink" to="/routes/index">My Routes</Link>
-//                     <button className="navlink" onClick={logout}>Log Out</button>
-//                 </div> */}
-//                 {/* <ul>
-//                     <li id="activities-btn">
-//                         <Link to="/dashboard">Dashboard</Link>
-//                     </li>
-//                     <li id="routes-btn">
-//                         <Link to="/routes">My Routes</Link>
-//                     </li>
-//                 </ul>   */}
-//             {/* <nav className="right-nav">
-//                 <ul>
-//                     <li><h3 className="header-name">Hi, Wayne</h3></li>
-//                 </ul> 
-//                 <li className="nav-icon dropdown-container">
-//                     <a href="" id="dropdown-btn">
-//                         <div className="user-nav-avatar">
-//                             <i className="small-profile-pic"></i>
-//                         </div>
-//                         <div className="nav-avatar-chevron">
-//                             <i className="material-icons md-18">keyboard_arrow_down</i>
-//                         </div>
-//                     </a> 
-//                     <ul className="dropdown-content">
-//                         <li>
-//                             <button className="header-button" onClick={logout}>Log out</button>
-//                         </li>
-//                     </ul>
-//                 </li>
-//                 <li className="nav-icon dropdown-container">
-//                     <a href="">
-//                         <div>
-//                             <i className="material-icons md-24 circle-show">add_circle_outline</i>
-//                             <i className="material-icons md-24 circle-hidden">add_circle</i>
-//                         </div>
-//                     </a> 
-//                     <ul className="dropdown-content">
-//                         <li>
-//                             <a className="header-button" href="#/activities/new">Add new activity</a>
-//                         </li>
-//                         <li>
-//                             <a className="header-button" href="#/routes/new">Create a route</a>
-//                         </li>
-//                     </ul>
-//                 </li>
-//             </nav>
-//             */}
-//         </hgroup>
-//     );
-//     return currentUser ? personalGreeting() : sessionLinks();
-// };
-// export default Greeting;
+
 
 var Greeting = function Greeting(_ref) {
   var currentUser = _ref.currentUser,
@@ -1704,7 +1573,7 @@ var Greeting = function Greeting(_ref) {
       className: "global-nav nav-group"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "drop-down-menu feature dash"
-    }, "Dashboard v", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    }, "Dashboard", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u02C7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       className: "options feats"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/routes"
@@ -1712,7 +1581,7 @@ var Greeting = function Greeting(_ref) {
       className: "list-option"
     }, "My Routes")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "drop-down-menu feature"
-    }, "Training v", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+    }, "Training", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "\u02C7"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
       className: "options feats"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
       to: "/activities"
@@ -1723,10 +1592,10 @@ var Greeting = function Greeting(_ref) {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "personal-site"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "hire-btn"
+      className: "upgrade"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-      href: "https://eeberhart40.github.io"
-    }, "Wayne Xia"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      href: "https://www.strava.com/summit/join"
+    }, "Upgrade"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
       className: "drop-down-menu nav"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "avatar-wrapper"
@@ -3762,7 +3631,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.props.closeModal,
         className: "close-X"
-      }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.formType), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, " X "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.formType), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "errors"
       }, errors), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
@@ -3791,7 +3660,7 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "demo-login",
         onClick: this.handleClick
-      }, "Demo User"))));
+      }, "Demo"))));
     }
   }]);
 
@@ -3892,33 +3761,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 
- // import img from '../../../app/assets/images/background_image_01.jpg';
-// import Footer from '../footer/footer';
-// const splash = () => (
-//     <div className="splash">
-//         <div className="splash-content">
-//             <h1>The most popular site for</h1>
-//             <h1>runners and cyclists</h1>
-//             <h1>to track routes and workouts</h1>
-//         </div>
-//         <Footer />
-//     </div>
-// )
+
 
 var splash = function splash() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "wrap"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "main-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "#1 app for running and biking"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "devices image"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+    className: "splash-message"
+  }, "The #1 app for runners and cyclists"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "splash-content"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
     src: "https://d3nn82uaxijpm6.cloudfront.net/assets/website/show_simple/devices-header-3349320fa849e6a297a3b0d64a6dfdef7307b0fe50f6329a459a0105b76ffff8.jpg",
     alt: ""
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "signup-form-group"
-  })));
-};
+  }))));
+}; //     <div className="wrap">
+//         <div className="main-container">
+//             <h2>#1 app for running and biking</h2>
+//             <div className="devices image">
+//                 <img src="https://d3nn82uaxijpm6.cloudfront.net/assets/website/show_simple/devices-header-3349320fa849e6a297a3b0d64a6dfdef7307b0fe50f6329a459a0105b76ffff8.jpg" alt="" />
+//             </div>
+//             <div className="signup-form-group">
+//             </div>
+//         </div>
+//         {/* <footer className="footer">
+//             <div id="footer-logo">
+//                 <h1>STRIVE</h1>
+//             </div>
+//         </footer> */}
+//         {/* <Footer /> */}
+//     </div>
+// )
+
 
 /* harmony default export */ __webpack_exports__["default"] = (splash);
 

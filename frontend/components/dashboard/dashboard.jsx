@@ -1,51 +1,3 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom';
-
-// class Dashboard extends React.Component {
-//     constructor(props) {
-//         super(props);
-//         // this.state = {
-//         //     mounted: false
-//         // }
-
-//     }
-
-//     render() {
-//         return (
-//             <div className="dashboard-page">
-//                 <header className="nav-header">
-//                     <div className="nav-header-container">
-//                         <div>
-//                             <div className="text-logo">
-//                                 <Link to={"/"}>Stracker</Link>
-//                             </div>
-//                             <div className="routes-link">
-//                                 <p>Dashboard</p>
-//                             </div>
-//                             <div className="routes-link">
-//                                 <Link to={"/routes"}>Routes</Link>
-//                             </div>
-//                             <div className="routes-link">
-//                                 <Link to={"/activities"}>Activities</Link>
-//                             </div>
-//                         </div>
-//                         <nav>
-//                             <button className="logout-button" onClick={this.props.logout}>Log Out</button>
-//                         </nav>
-//                     </div>
-//                 </header>
-//                 <div className="dashboard-body">
-//                     <div className="body-content">
-//                         <p>Will figure out the body content later</p>
-//                     </div>
-
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
-
-// export default Dashboard;
 
 import React from 'react';
 import { connect } from 'react-redux';
@@ -140,9 +92,21 @@ class Dashboard extends React.Component {
                                 <h3 id="username">{this.props.currentUser.username}</h3>
                                 <div className="upper-card">
                                     <div className="user-stats">
-                                        <div className="routes">
+                                        {/* <div className="routes">
                                             <label className="dash-stats">Routes</label>
                                             <h3>{this.props.routeCount}</h3>
+                                        </div>
+                                        <div className="activities">
+                                            <label className="dash-stats">Activities</label>
+                                            <h3>{this.props.activityCount}</h3>
+                                        </div> */}
+                                        <div className="following">
+                                            <label className="dash-stats">Following</label>
+                                            <h3>{this.props.routeCount}</h3>
+                                        </div>
+                                        <div className="followers">
+                                            <label className="dash-stats">Followers</label>
+                                            <h3>{this.props.activityCount}</h3>
                                         </div>
                                         <div className="activities">
                                             <label className="dash-stats">Activities</label>
@@ -182,9 +146,9 @@ class Dashboard extends React.Component {
                                     <div className="message-chev-container"></div>
                                     <span id="chev"></span>
                                     <div className="message-body">
-                                        Log as many miles as you feel comortable. Rest
-                                        is essential. Never ever forget to
-                                        <strong id="hydrate"> Hydrate!</strong>
+                                        Subscribe and stay motivated with custom progress, 
+                                        segment and power goals. 
+                                        <strong id="hydrate"> Upgrade!</strong>
                                     </div>
                                 </div>
                             </div>
@@ -210,6 +174,7 @@ class Dashboard extends React.Component {
                             <UserFeedIndexContainer />
                         </div>
                     </div>
+
                     <div className="right col">
                         <div className="section" id="linked-in">
                             <div className="media">
@@ -242,7 +207,7 @@ class Dashboard extends React.Component {
                                 <div className="media-body">
                                     <h4 className="media-title">My Github</h4>
                                     <p className="media-text">
-                                        Take a look at my Github. There's a decent chance that I'm coding and committing at this very moment.
+                                        For more information on how this clone was built, and to see other code that I've pushed, take a look at my Github!
                                     </p>
                                     <a className="media-link" href="https://github.com/Waynexia888">
                                         View All the Github Stuff
@@ -250,27 +215,6 @@ class Dashboard extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="section" id="pig">
-                            <div className="media">
-                                <div className="media-object">
-                                    <img
-                                        className="media-img"
-                                        src="https://image.flaticon.com/icons/svg/26/26144.svg"
-                                        alt="pig Icon" />
-                                </div>
-                                <div className="media-body">
-                                    <h4 className="media-title">When Pigs Fly</h4>
-                                    <p className="media-text">
-                                        Play my game! It's super fun and simple:
-                                        avoid the other animals. Built with vanilla JavaScript
-                                        and HTML.
-                                    </p>
-                                    <a className="media-link" href="https://eeberhart40.github.io/when-pigs-fly/">
-                                        View All the Fun Piggy Stuff
-                                    </a>
-                                </div>
-                            </div> */}
-                        {/* </div> */}
                     </div>
                 </div>
             </div>

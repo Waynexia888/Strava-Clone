@@ -24,5 +24,3 @@ class Api::LocationsController < ApplicationController
     end 
 
 end
-
-end

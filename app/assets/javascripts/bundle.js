@@ -3469,7 +3469,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 //         });
 //     }
 //     handleSubmit(e) {
-//         // console.log("sign up");
+//        
 //         e.preventDefault();
 //         const user = Object.assign({}, this.state);
 //         this.props.processForm(user);

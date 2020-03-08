@@ -112,3 +112,10 @@ div {
   position: fixed;
   top: 51px;
 }
+
+.route-index {
+    margin-left: 13%;
+    margin-right: 13%;
+    max-width: 90%;
+    padding-left: 0;
+}

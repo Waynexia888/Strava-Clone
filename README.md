@@ -6,8 +6,6 @@ The application was built using React/Redux for the frontend and Ruby on Rails f
 
 [Live Demo](https://stracker-app-50523.herokuapp.com/#/)
 
-***
-
 ## Current Features
 ***
 

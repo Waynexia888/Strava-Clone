@@ -4,25 +4,28 @@ Stracker is a browser-based application allows runners and cyclists to track the
 
 The application was built using React/Redux for the frontend and Ruby on Rails for the backend, with PostgreSQL to manage the database. All styling was accomplished with Sass-compiled CSS, and I used the Google Map API for all of my geographic needs.
 
+[Live Demo](https://stracker-app-50523.herokuapp.com/#/)
+
 ***
 
+## Current Features
+***
 
-Things you may want to cover:
+- User Authentication and Authorization
+  - User login/Signup
+  - Demo User
+- Create/Save biking or running routes
+- TCreate/Record Activities
 
-* Ruby version
+## Technologies Used
+***
 
-* System dependencies
+- Google Maps and Directions Service API to plot routes
+- PostgreSQL for the database
+- Ruby on Rails for the backend framework
+- React for the Frontend with Redux to manage state
+- jQuery AJAX for accessing the backend through Thunk actions
+- SASS/CSS for styling
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Implementation
+***

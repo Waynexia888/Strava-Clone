@@ -1146,7 +1146,7 @@ var msp = function msp(state, _ref) {
   var activity = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_1__["selectActivity"])(state.entities.activities, activityId);
   var routeId = activity.route_id;
   var route = Object(_reducers_selectors__WEBPACK_IMPORTED_MODULE_1__["selectRoute"])(state.entities.routes, routeId);
-  var currentUser = state.entities.athletes[state.session.id];
+  var currentUser = state.entities.users[state.session.id];
   return {
     activityId: activityId,
     activity: activity,

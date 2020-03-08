@@ -15,7 +15,6 @@ const ActivityIndexItem = (props) => {
             <td className="view-col col-elevation">{activity.elevation}</td>
             <td className="view-col col-actions">
                 <ul className="activity-action-list">
-                    {/* <li><Link to={}>Edit</Link></li> */}
                     <li><button id="delete-activity-btn" onClick={() => props.deleteActivity(activity.id)}>Delete</button></li>
                 </ul>
             </td>

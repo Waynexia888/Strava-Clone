@@ -2181,19 +2181,27 @@ function (_React$Component) {
         });
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "wrap"
+        className: "routes-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "route-index-container container scroll"
+        className: "route-index"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "index-bar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "My Routes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        id: "create-route-btn"
+        className: "route-index-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "route-index-header-left"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "route-heading"
+      }, "My Routes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "new-route-btn"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: 'routes/new'
       }, "Create New Route"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "bottom-border"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "index-list"
+        className: "route-index-header-right"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        id: "route-builder-img",
+        src: window.images.route_builder_img,
+        alt: "Route Build Pic"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "route-list"
       }, routes)));
     }
   }]);

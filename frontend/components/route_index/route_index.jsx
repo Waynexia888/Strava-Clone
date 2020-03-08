@@ -26,12 +26,12 @@ class RouteIndex extends React.Component {
             );
         });
         return (
-            <div className="routes-page">
-                <div className="route-index">
-                    <div className="route-index-header">
+            <div className="wrap">
+                <div className="route-index-container container scroll">
+                    <div className="index-bar">
                         <div className='route-index-header-left'>
                             <h1 className="route-heading">My Routes</h1>
-                            <button className="new-route-btn"><Link to={'routes/new'}>Create New Route</Link></button>
+                            <button id='create-route-btn'><Link to={'routes/new'}>Create New Route</Link></button>
                         </div>
                         <div className="route-index-header-right">
                             <img
@@ -41,8 +41,8 @@ class RouteIndex extends React.Component {
                             />
                         </div>
                     </div>
-                    {/* <div className="bottom-border"></div> */}
-                    <ul className="route-list">
+                    <div className="bottom-border"></div>
+                    <ul className="index-list">
                         {routes}
                     </ul>
                 </div>

@@ -2181,17 +2181,17 @@ function (_React$Component) {
         });
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "routes-page"
+        className: "wrap"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "route-index"
+        className: "route-index-container container scroll"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "route-index-header"
+        className: "index-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "route-index-header-left"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "route-heading"
       }, "My Routes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "new-route-btn"
+        id: "create-route-btn"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: 'routes/new'
       }, "Create New Route"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2200,8 +2200,10 @@ function (_React$Component) {
         id: "route-builder-img",
         src: window.images.route_builder_img,
         alt: "Route Build Pic"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-        className: "route-list"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bottom-border"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "index-list"
       }, routes)));
     }
   }]);

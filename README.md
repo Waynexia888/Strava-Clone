@@ -7,7 +7,6 @@ The application was built using React/Redux for the frontend and Ruby on Rails f
 [Live Demo](https://stracker-app-50523.herokuapp.com/#/)
 
 ## Current Features
-***
 
 - User Authentication and Authorization
   - User login/Signup
@@ -16,7 +15,6 @@ The application was built using React/Redux for the frontend and Ruby on Rails f
 - TCreate/Record Activities
 
 ## Technologies Used
-***
 
 - Google Maps and Directions Service API to plot routes
 - PostgreSQL for the database
@@ -26,4 +24,3 @@ The application was built using React/Redux for the frontend and Ruby on Rails f
 - SASS/CSS for styling
 
 ## Implementation
-***

@@ -83,7 +83,17 @@ class UserFeedIndexItem extends React.Component {
                         />
                     </div>
                 ) : null}
-                <div className="feed-entry-header"></div>
+                {"\n"}
+                {/* <div className="feed-entry-header"></div> */}
+                <div className="feed-map-comments">
+                    <p>Be the first to give kudos!</p>
+                    Be the first to give kudos!
+                    Be the first to give kudos!
+                    Be the first to give kudos!
+                        {/* <a className="comment-modal-btn" onClick={this.handleOpenModal(true)}>
+                        5 comments
+                        </a> */}
+                </div>
             </div>
         )
     }

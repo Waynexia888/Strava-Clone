@@ -8,5 +8,5 @@ export default combineReducers({
     users,
     activities,
     routes,
-    comments
+    comments,
 });

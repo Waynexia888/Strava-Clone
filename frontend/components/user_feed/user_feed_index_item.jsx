@@ -34,6 +34,7 @@ class UserFeedIndexItem extends React.Component {
         return "n/a";
 
     }
+    
 
     render() {
         const route = this.props.route;
@@ -85,14 +86,21 @@ class UserFeedIndexItem extends React.Component {
                 ) : null}
                 {"\n"}
                 {/* <div className="feed-entry-header"></div> */}
-                <div className="feed-map-comments">
-                    <p>Be the first to give kudos!</p>
-                    Be the first to give kudos!
-                    Be the first to give kudos!
-                    Be the first to give kudos!
-                        {/* <a className="comment-modal-btn" onClick={this.handleOpenModal(true)}>
-                        5 comments
-                        </a> */}
+                <div className="user-feedback">
+                    <div className="kudos-section">
+                        <span>kudos</span>
+                        <div className="user-feedback-buttons">
+                            <button>kudos</button>
+                            <button className="feedback-button comment-button">
+                                <i className="far fa-comment">comment</i>
+                            </button>
+                        </div>
+                    </div>
+                    <div className="comment-section">
+                       <p>how are you</p>
+                       <p>fine, thnak you</p>
+                       <p>hhahaha</p>
+                    </div>
                 </div>
             </div>
         )

@@ -100,3 +100,81 @@
 .feed-stats {
     margin-right: 30px;
 }
+
+.user-feedback {
+    width: 100%;
+    margin-top: 8px;
+    padding: 0 0 16px;
+}
+        
+.kudos-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 0 0;
+    border-top: 1px solid #e6e6eb;
+}
+
+.kudos-count {
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+}
+                
+.kudos-profile-pic {
+    border: 2px solid #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    float: left;
+}
+// h1 {
+//     font-size: 15px
+// }
+//                 }
+
+//                 .kudos-profile-pic:nth-child(1) {
+//                     z-index: 3;
+//                 }
+
+//                 .kudos-profile-pic:nth-child(2) {
+//                     z-index: 2;
+//                     margin-left: -10px;
+//                 }
+
+//                 .kudos-profile-pic:nth-child(3) {
+//                     z-index: 1;
+//                     margin-left: -10px;
+//                 }
+                
+//                 .kudos-profile-pic:last-child {
+//                     margin-right: 5px;
+//                 }
+//             }
+
+//             .user-feedback-buttons {
+//                 display: flex;
+//                 align-items: center;
+//             }
+
+//             .feedback-button {
+//                 background-color: #e6e6eb;
+//                 border: 1px solid #e6e6eb;
+//                 display: block;
+//                 padding: 6px 12px;;
+//                 border-radius: 4px;
+                
+//                 &:hover {
+//                     background-color: #fff;
+//                 }
+//             }
+            
+//             .like-button {
+//                 margin-right: 5px;
+//             }
+
+//             .fas.fa-thumbs-up {
+//                 color: #fc4c02;
+//             }

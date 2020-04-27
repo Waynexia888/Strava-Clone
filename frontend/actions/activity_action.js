@@ -12,12 +12,26 @@ const receiveAllActivities = (activities) => {
     });
 };
 
+// const receiveAllActivities = (payload) => {
+//     return ({
+//         type: RECEIVE_ALL_ACTIVITIES,
+//         payload
+//     });
+// };
+
 const receiveActivity = activity => {
     return ({
         type: RECEIVE_ACTIVITY,
         activity
     });
 };
+
+// const receiveActivity = payload => {
+//     return ({
+//         type: RECEIVE_ACTIVITY,
+//         payload
+//     });
+// };
 
 const removeActivity = activityId => {
     return ({

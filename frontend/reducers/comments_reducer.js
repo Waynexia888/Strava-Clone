@@ -10,8 +10,8 @@ export default (state = {}, action) => {
             return merge({}, action.comments)
         case RECEIVE_ALL_ACTIVITIES:
             let addComments = merge({}, state)
-            Object.keys(action.payload.comments).forEach(com => {
-                return addComments[com] = action.payload.comments[com]
+            Object.keys(action.activities).forEach(com => {
+                return addComments[com] = action.activities[com]
             })
             return addComments;
         case RECEIVE_COMMENT:

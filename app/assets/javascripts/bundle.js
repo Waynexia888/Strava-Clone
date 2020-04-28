@@ -4306,8 +4306,8 @@ __webpack_require__.r(__webpack_exports__);
 
     case _actions_activity_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_ACTIVITIES"]:
       var addComments = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state);
-      Object.keys(action.payload.comments).forEach(function (com) {
-        return addComments[com] = action.payload.comments[com];
+      Object.keys(action.activities).forEach(function (com) {
+        return addComments[com] = action.activities[com];
       });
       return addComments;
 

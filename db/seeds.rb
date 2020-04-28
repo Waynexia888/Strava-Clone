@@ -51,3 +51,8 @@ follow5 = Follow.create!(follower_id: eddy.id, followee_id: wayne.id)
 activity1 = Activity.create!(user_id: wayne.id, route_id: route1.id, title: "tuesday commute", time: "1:00:00", sport: "walk", distance: 3.5);
 activity2 = Activity.create!(user_id: thomas.id, route_id: route2.id, title: "biked to als", time: "1:23:00", sport: "bike", distance: 8);
 activity3 = Activity.create!(user_id: eddy.id, route_id: route1.id, title: "tuesday commute", time: "2:45:00", sport: "walk", distance: 7.35);
+
+
+Comment.create!(body: "you are a beast!", user_id: wayne.id, activity_id: activity1.id)
+Comment.create!(body: "dude so fast!", user_id: thomas.id, activity_id: activity2.id)
+Comment.create!(body: "next time, invite me", user_id: eddy.id, activity_id: activity3.id)

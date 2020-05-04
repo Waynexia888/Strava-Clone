@@ -4072,11 +4072,22 @@ function (_React$Component) {
     _classCallCheck(this, UserFeedIndexItem);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserFeedIndexItem).call(this, props));
+    _this.state = {
+      makeComment: false
+    };
     _this.timeStr = _this.timeStr.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(UserFeedIndexItem, [{
+    key: "handleClick",
+    value: function handleClick() {
+      this.setState({
+        makeComment: !this.state.makeComment
+      });
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchActivity(this.props.activityId);
@@ -4105,7 +4116,11 @@ function (_React$Component) {
       }
 
       return "n/a";
-    }
+    } // displayKudosPics() {
+    //     const { likes } = this.props;
+    //     const 
+    // }
+
   }, {
     key: "render",
     value: function render() {
@@ -4158,14 +4173,19 @@ function (_React$Component) {
       })) : null, "\n", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-feedback"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "kudos-section"
+        className: "like-comment"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "kudos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-feedback-buttons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "kudos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "feedback-button comment-button"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "far fa-comment"
-      }, "comment")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "comment-icon",
+        onClick: this.handleClick
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.images.comment_icon,
+        alt: ""
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "comment-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.images.like_icon,
+        alt: ""
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment-section"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "how are you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "fine, thnak you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hhahaha"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "like-comment"

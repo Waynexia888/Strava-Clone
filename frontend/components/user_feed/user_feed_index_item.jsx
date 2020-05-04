@@ -5,8 +5,19 @@ import { Link } from 'react-router-dom';
 class UserFeedIndexItem extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            makeComment: false
+        }
+    
         this.timeStr = this.timeStr.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        
     }
+
+    handleClick() {
+        this.setState({ makeComment: !this.state.makeComment })
+    }
+
 
     componentDidMount() {
         this.props.fetchActivity(this.props.activityId);
@@ -34,11 +45,18 @@ class UserFeedIndexItem extends React.Component {
         return "n/a";
 
     }
+
+    
+    // displayKudosPics() {
+    //     const { likes } = this.props;
+    //     const 
+    // }
     
 
     render() {
         const route = this.props.route;
         const activity = this.props.activity;
+
         return (
             <div className="activity-feed-entry">
                 <div className="feed-entry-header">
@@ -87,14 +105,21 @@ class UserFeedIndexItem extends React.Component {
                 {"\n"}
                 {/* <div className="feed-entry-header"></div> */}
                 <div className="user-feedback">
-                    <div className="kudos-section">
+                    <div className="like-comment">
                         <span>kudos</span>
-                        <div className="user-feedback-buttons">
+                        {/* <div className="user-feedback-buttons">
                             <button>kudos</button>
-                            <button className="feedback-button comment-button">
-                                <i className="far fa-comment">comment</i>
+                            <button className="feedback-button comment-button" >
+                                <i className="far fa-comment"></i>
                             </button>
+                        </div> */}
+                        <div id='comment-icon' onClick={this.handleClick}>
+                            <img src={window.images.comment_icon} alt="" />
                         </div>
+                        <div id='comment-icon'>
+                            <img src={window.images.like_icon} alt="" />
+                        </div>
+
                     </div>
                     <div className="comment-section">
                        <p>how are you</p>

@@ -4167,7 +4167,9 @@ function (_React$Component) {
         className: "far fa-comment"
       }, "comment")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment-section"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "how are you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "fine, thnak you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hhahaha"))));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "how are you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "fine, thnak you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hhahaha"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "like-comment"
+      }));
     }
   }]);
 

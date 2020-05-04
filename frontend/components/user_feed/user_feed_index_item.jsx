@@ -102,6 +102,14 @@ class UserFeedIndexItem extends React.Component {
                        <p>hhahaha</p>
                     </div>
                 </div>
+
+                <div className="like-comment">
+
+
+
+
+
+                </div>
             </div>
         )
     }

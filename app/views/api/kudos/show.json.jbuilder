@@ -1,1 +1,0 @@
-json.partial! "api/kudos/kudo", kudo: @kudo

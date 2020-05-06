@@ -6,13 +6,9 @@ Rails.application.routes.draw do
     resources :routes, only: [:create, :show, :index, :destroy]
     resources :activities, except: [:new, :edit]
     resources :locations, only: [:create, :show, :update, :destroy]
-    resources :comments, only: [:create, :destroy, :show]
-    resources :kudos, only: [:create, :show, :destroy]
-    resources :activities do 
-      resources :comments, only: [:index]
-      resources :kudos, only: [:index]
-    end
-
+    resources :comments, except: [:new, :edit]
+    resources :likes, except: [:new, :edit]
+    
   end
 
   root "static_pages#root"

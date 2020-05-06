@@ -106,7 +106,8 @@ class UserFeedIndexItem extends React.Component {
                 {/* <div className="feed-entry-header"></div> */}
                 <div className="user-feedback">
                     <div className="like-comment">
-                        <span>kudos</span>
+                        {/* <p>9 kudos</p>
+                        <p>8 comments</p> */}
                         {/* <div className="user-feedback-buttons">
                             <button>kudos</button>
                             <button className="feedback-button comment-button" >

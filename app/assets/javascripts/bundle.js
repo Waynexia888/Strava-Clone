@@ -117,26 +117,14 @@ var receiveAllActivities = function receiveAllActivities(activities) {
     type: RECEIVE_ALL_ACTIVITIES,
     activities: activities
   };
-}; // const receiveAllActivities = (payload) => {
-//     return ({
-//         type: RECEIVE_ALL_ACTIVITIES,
-//         payload
-//     });
-// };
-
+};
 
 var receiveActivity = function receiveActivity(activity) {
   return {
     type: RECEIVE_ACTIVITY,
     activity: activity
   };
-}; // const receiveActivity = payload => {
-//     return ({
-//         type: RECEIVE_ACTIVITY,
-//         payload
-//     });
-// };
-
+};
 
 var removeActivity = function removeActivity(activityId) {
   return {
@@ -199,29 +187,24 @@ var updateActivity = function updateActivity(activity) {
 /*!*********************************************!*\
   !*** ./frontend/actions/comment_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_ACTIVITY_COMMENTS, RECEIVE_COMMENT, REMOVE_COMMENT, fetchActivityComments, createComment, removeComment */
+/*! exports provided: RECEIVE_COMMENT, RECEIVE_COMMENTS, REMOVE_COMMENT, RECEIVE_COMMENT_ERRORS, fetchComments, createComment, deleteComment */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ACTIVITY_COMMENTS", function() { return RECEIVE_ACTIVITY_COMMENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENT", function() { return RECEIVE_COMMENT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENTS", function() { return RECEIVE_COMMENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_COMMENT", function() { return REMOVE_COMMENT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchActivityComments", function() { return fetchActivityComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENT_ERRORS", function() { return RECEIVE_COMMENT_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComments", function() { return fetchComments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeComment", function() { return removeComment; });
-/* harmony import */ var _util_comment_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/comment_util */ "./frontend/util/comment_util.jsx");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
+/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/comment_api_util */ "./frontend/util/comment_api_util.js");
 
-var RECEIVE_ACTIVITY_COMMENTS = 'RECEIVE_ACTIVITY_COMMENTS';
 var RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+var RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 var REMOVE_COMMENT = 'REMOVE_COMMENT';
-
-var receiveActivityComments = function receiveActivityComments(comments) {
-  return {
-    type: RECEIVE_ACTIVITY_COMMENTS,
-    comments: comments
-  };
-};
+var RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
 
 var receiveComment = function receiveComment(comment) {
   return {
@@ -230,31 +213,49 @@ var receiveComment = function receiveComment(comment) {
   };
 };
 
-var deleteComment = function deleteComment(commentId) {
+var receiveComments = function receiveComments(comments) {
   return {
-    type: REMOVE_COMMENT,
-    commentId: commentId
+    type: RECEIVE_COMMENTS,
+    comments: comments
   };
 };
 
-var fetchActivityComments = function fetchActivityComments(activityId) {
+var removeComment = function removeComment(comment) {
+  return {
+    type: REMOVE_COMMENT,
+    commentId: comment.id
+  };
+};
+
+var receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_COMMENT_ERRORS,
+    errors: errors
+  };
+};
+
+var fetchComments = function fetchComments() {
   return function (dispatch) {
-    return _util_comment_util__WEBPACK_IMPORTED_MODULE_0__["fetchActivityComments"](activityId).then(function (comments) {
-      return dispatch(receiveActivityComments(comments));
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__["fetchComments"]().then(function (comments) {
+      return dispatch(receiveComments(comments));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
 var createComment = function createComment(comment) {
   return function (dispatch) {
-    return _util_comment_util__WEBPACK_IMPORTED_MODULE_0__["createComment"](comment).then(function (comment) {
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__["createComment"](comment).then(function (comment) {
       return dispatch(receiveComment(comment));
+    }, function (err) {
+      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
-var removeComment = function removeComment(commentId) {
+var deleteComment = function deleteComment(id) {
   return function (dispatch) {
-    return _util_comment_util__WEBPACK_IMPORTED_MODULE_0__["deleteComment"](commentId).then(function (comment) {
-      return dispatch(deleteComment(commentId));
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__["deleteComment"](id).then(function (comment) {
+      return dispatch(removeComment(comment));
     });
   };
 };
@@ -4174,7 +4175,7 @@ function (_React$Component) {
         className: "user-feedback"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "like-comment"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "kudos"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "comment-icon",
         onClick: this.handleClick
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -4854,37 +4855,44 @@ var updateActivity = function updateActivity(activity) {
 
 /***/ }),
 
-/***/ "./frontend/util/comment_util.jsx":
-/*!****************************************!*\
-  !*** ./frontend/util/comment_util.jsx ***!
-  \****************************************/
-/*! exports provided: fetchActivityComments, createComment, deleteComment */
+/***/ "./frontend/util/comment_api_util.js":
+/*!*******************************************!*\
+  !*** ./frontend/util/comment_api_util.js ***!
+  \*******************************************/
+/*! exports provided: createComment, deleteComment, fetchComment, fetchComments */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchActivityComments", function() { return fetchActivityComments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
-var fetchActivityComments = function fetchActivityComments(activityId) {
-  return $.ajax({
-    url: "api/activities/".concat(activityId, "/comments"),
-    method: 'GET'
-  });
-};
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComment", function() { return fetchComment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComments", function() { return fetchComments; });
 var createComment = function createComment(comment) {
   return $.ajax({
+    method: 'POST',
     url: "api/comments",
-    method: "POST",
     data: {
       comment: comment
     }
   });
 };
-var deleteComment = function deleteComment(commentId) {
+var deleteComment = function deleteComment(id) {
   return $.ajax({
-    url: "api/comments/".concat(commentId),
-    method: 'DELETE'
+    method: 'DELETE',
+    url: "api/comments/".concat(id)
+  });
+};
+var fetchComment = function fetchComment(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "api/comments/".concat(id)
+  });
+};
+var fetchComments = function fetchComments() {
+  return $.ajax({
+    method: 'GET',
+    url: "api/comments"
   });
 };
 
@@ -4895,48 +4903,9 @@ var deleteComment = function deleteComment(commentId) {
   !*** ./frontend/util/route_api_util.jsx ***!
   \******************************************/
 /*! exports provided: fetchRoutes, fetchRoute, createRoute, deleteRoute */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRoutes", function() { return fetchRoutes; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRoute", function() { return fetchRoute; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createRoute", function() { return createRoute; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteRoute", function() { return deleteRoute; });
-var fetchRoutes = function fetchRoutes() {
-  return $.ajax({
-    method: 'GET',
-    url: '/api/routes'
-  });
-};
-var fetchRoute = function fetchRoute(id) {
-  return $.ajax({
-    method: 'GET',
-    url: "/api/routes/".concat(id)
-  });
-};
-var createRoute = function createRoute(route) {
-  return $.ajax({
-    method: 'POST',
-    url: '/api/routes',
-    data: {
-      route: route
-    }
-  });
-}; // export const updateRoute = route => (
-//     $.ajax({
-//         method: 'PATCH',
-//         url: `/api/routes/${route.id}`,
-//         data: { route }
-//     })
-// );
-
-var deleteRoute = function deleteRoute(id) {
-  return $.ajax({
-    method: 'DELETE',
-    url: "/api/routes/".concat(id)
-  });
-};
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/waynexia/Desktop/stracker/frontend/util/route_api_util.jsx'");
 
 /***/ }),
 

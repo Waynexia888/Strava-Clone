@@ -1,32 +1,33 @@
 class Api::CommentsController < ApplicationController
+    def create
+        @comment = Comment.new(comment_params)
+
+        if @comment.save
+            render 'api/comments/show'
+        else
+            render json: @comment.errors.full_messages, status: 422
+        end
+    end
+
     def index
-        @comments = Comment.where(activity_id: params[:activity_id])
+        @comments = Comment.all
+        render 'api/comments/index'
     end
 
     def show
         @comment = Comment.find(params[:id])
+        render 'api/comments/show'
     end
 
-    def create
-        @comment = Comment.new(comment_params)
-        if @comment.save
-            render :show
-        else
-            render json: @user.errors.full_messages, status: 401
-        end
-    end
-
-    def destroy 
+    def destroy
         @comment = Comment.find(params[:id])
-        if @comment.user_id === current_user.id
-            @comment.destroy
-        else
-            render json: ["Something went wrong because you shouldnt be able to delete another users comments!"], status: 401
-        end
+        @comment.destroy
+        render json: @comment
     end
 
     private
+
     def comment_params
-         params.require(:comment).permit(:body, :user_id, :activity_id)
+        params.require(:comment).permit(:user_id, :activity_id, :body)
     end
 end

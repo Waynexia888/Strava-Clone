@@ -4311,41 +4311,65 @@ var activitiesReducer = function activitiesReducer() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_activity_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/activity_action */ "./frontend/actions/activity_action.js");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
-/* harmony default export */ __webpack_exports__["default"] = (function () {
+ // export default (state = {}, action) => {
+//     Object.freeze(state);
+//     switch (action.type) {
+//         case RECEIVE_ACTIVITY_COMMENTS:
+//             return merge({}, action.comments)
+//         case RECEIVE_ALL_ACTIVITIES:
+//             let addComments = merge({}, state)
+//             Object.keys(action.activities).forEach(com => {
+//                 return addComments[com] = action.activities[com]
+//             })
+//             return addComments;
+//         case RECEIVE_COMMENT:
+//             return merge({}, state, action.comment)
+//         case REMOVE_COMMENT:
+//             let newState = merge({}, state)
+//             delete newState[action.commentId]
+//             return newState
+//         default:
+//             return state;
+//     }
+// };
+
+var commentsReducer = function commentsReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
 
   switch (action.type) {
-    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ACTIVITY_COMMENTS"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, action.comments);
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.comment.id, action.comment));
+
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENTS"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, action.comments);
 
     case _actions_activity_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_ACTIVITIES"]:
-      var addComments = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state);
-      Object.keys(action.activities).forEach(function (com) {
-        return addComments[com] = action.activities[com];
-      });
-      return addComments;
+      // return merge({}, action.payload.comments)
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, action.activities);
 
-    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state, action.comment);
-
-    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_COMMENT"]:
-      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state);
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["REMOVE_COMMENT"]:
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state);
       delete newState[action.commentId];
       return newState;
 
     default:
       return state;
   }
-});
+
+  ;
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (commentsReducer);
 
 /***/ }),
 
@@ -4903,9 +4927,48 @@ var fetchComments = function fetchComments() {
   !*** ./frontend/util/route_api_util.jsx ***!
   \******************************************/
 /*! exports provided: fetchRoutes, fetchRoute, createRoute, deleteRoute */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/Users/waynexia/Desktop/stracker/frontend/util/route_api_util.jsx'");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRoutes", function() { return fetchRoutes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchRoute", function() { return fetchRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createRoute", function() { return createRoute; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteRoute", function() { return deleteRoute; });
+var fetchRoutes = function fetchRoutes() {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/routes'
+  });
+};
+var fetchRoute = function fetchRoute(id) {
+  return $.ajax({
+    method: 'GET',
+    url: "/api/routes/".concat(id)
+  });
+};
+var createRoute = function createRoute(route) {
+  return $.ajax({
+    method: 'POST',
+    url: '/api/routes',
+    data: {
+      route: route
+    }
+  });
+}; // export const updateRoute = route => (
+//     $.ajax({
+//         method: 'PATCH',
+//         url: `/api/routes/${route.id}`,
+//         data: { route }
+//     })
+// );
+
+var deleteRoute = function deleteRoute(id) {
+  return $.ajax({
+    method: 'DELETE',
+    url: "/api/routes/".concat(id)
+  });
+};
 
 /***/ }),
 

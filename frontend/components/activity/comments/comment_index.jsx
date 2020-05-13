@@ -2,8 +2,8 @@ import React from 'react'
 import CommentItem from './comment_item'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { fetchAllActivities } from '../../../actions/activity_action'
-import { fetchActivityComments, removeComment } from '../../../actions/comment_actions';
+import { fetchActivities } from '../../../actions/activity_action'
+import { removeComment } from '../../../actions/comment_actions';
 import CommentItemModal from './comment_item_modal'
 
 const mapStateToProps = (state, ownProps) => ({
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    fetchAllActivities: (page) => dispatch(fetchAllActivities(page)),
+    fetchActivities: (page) => dispatch(fetchActivities(page)),
     removeComment: (commentId) => dispatch(removeComment(commentId)),
 })
 
@@ -28,7 +28,7 @@ class CommentIndex extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (Object.values(prevProps.comments).length !== Object.values(this.props.comments).length) {
-            this.props.fetchAllActivities(this.props.page)
+            this.props.fetchActivities(this.props.page)
 
         }
     }
@@ -41,8 +41,9 @@ class CommentIndex extends React.Component {
 
 
     render() {
-
+    
         const actComments = this.props.activity.comment_ids.map(commentId => this.props.comments[commentId])
+        
         let allComments = []
         let allCommentsModal = []
         if (actComments[0]) {

@@ -1,29 +1,24 @@
-
-export const createComment = comment => (
+export const fetchActivityComments = (activityId) => (
     $.ajax({
-        method: 'POST',
+        url: `api/activities/${activityId}/comments`,
+        method: 'GET'
+    })
+
+)
+
+export const createComment = (comment) => (
+    $.ajax({
         url: `api/comments`,
-        data: { comment },
+        method: "POST",
+        data: {
+            comment
+        }
     })
 )
 
-export const deleteComment = id => (
+export const deleteComment = (commentId) => (
     $.ajax({
+        url: `api/comments/${commentId}`,
         method: 'DELETE',
-        url: `api/comments/${id}`,
-    })
-)
-
-export const fetchComment = id => (
-    $.ajax({
-        method: 'GET',
-        url: `api/comments/${id}`,
-    })
-)
-
-export const fetchComments = () => (
-    $.ajax({
-        method: 'GET',
-        url: `api/comments`,
     })
 )

@@ -3,6 +3,12 @@ import ActivityIndexItem from './activity_index_item';
 import { Link } from 'react-router-dom';
 
 class ActivityIndex extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            page: 1
+        }
+    }
     componentDidMount() {
 
         this.props.fetchActivities();
@@ -19,6 +25,7 @@ class ActivityIndex extends React.Component {
                     updateActivity={this.props.updateActivity}
                     deleteActivity={this.props.deleteActivity}
                     fetchRoute={this.props.fetchRoute}
+                    page={this.state.page}
                 />
             );
         });

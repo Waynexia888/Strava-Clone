@@ -1,55 +1,34 @@
-import merge from 'lodash/merge';
 import {
-    RECEIVE_ALL_ACTIVITIES
-} from '../actions/activity_action';
-import {
+    RECEIVE_ACTIVITY_COMMENTS,
     RECEIVE_COMMENT,
-    REMOVE_COMMENT,
-    RECEIVE_COMMENTS
+    REMOVE_COMMENT
 } from '../actions/comment_actions';
 
-// export default (state = {}, action) => {
-    
-//     Object.freeze(state);
-//     switch (action.type) {
-//         case RECEIVE_ACTIVITY_COMMENTS:
-//             return merge({}, action.comments)
-//         case RECEIVE_ALL_ACTIVITIES:
-//             let addComments = merge({}, state)
-//             Object.keys(action.activities).forEach(com => {
-//                 return addComments[com] = action.activities[com]
-//             })
-//             return addComments;
-//         case RECEIVE_COMMENT:
-//             return merge({}, state, action.comment)
-//         case REMOVE_COMMENT:
-//             let newState = merge({}, state)
-//             delete newState[action.commentId]
-//             return newState
-//         default:
-//             return state;
-//     }
-// };
+import {
+    RECEIVE_ALL_ACTIVITIES
+} from '../actions/activity_action'
 
-const commentsReducer = (state = {}, action) => {
+import merge from 'lodash/merge';
+
+export default (state = {}, action) => {
+
     Object.freeze(state);
     switch (action.type) {
-        case RECEIVE_COMMENT:
-            return merge({}, state, {
-                [action.comment.id]: action.comment
-            });
-        case RECEIVE_COMMENTS:
+        case RECEIVE_ACTIVITY_COMMENTS:
             return merge({}, action.comments)
         case RECEIVE_ALL_ACTIVITIES:
-            // return merge({}, action.payload.comments)
-            return merge({}, action.activities)
+            let addComments = merge({}, state)
+            Object.keys(action.payload.comments).forEach(com => {
+                return addComments[com] = action.payload.comments[com]
+            })
+            return addComments;
+        case RECEIVE_COMMENT:
+            return merge({}, state, action.comment)
         case REMOVE_COMMENT:
-            let newState = merge({}, state);
-            delete newState[action.commentId];
-            return newState;
+            let newState = merge({}, state)
+            delete newState[action.commentId]
+            return newState
         default:
             return state;
-    };
+    }
 };
-
-export default commentsReducer;

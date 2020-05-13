@@ -4,11 +4,29 @@ export const RECEIVE_ALL_ACTIVITIES = "RECEIVE_ALL_ACTIVITIES";
 export const RECEIVE_ACTIVITY = "RECEIVE_ACTIVITY";
 export const REMOVE_ACTIVITY = "REMOVE_ACTIVITY";
 export const RECEIVE_ACTIVITIES_ERRORS = "RECEIVE_ACTIVITIES_ERRORS";
+export const RECEIVE_CURRENT_USER_ACTIVITIES = "RECEIVE_CURRENT_USER_ACTIVITIES"
 
-const receiveAllActivities = (activities) => {
+
+// const receiveAllActivities = (activities) => {
+//     return ({
+//         type: RECEIVE_ALL_ACTIVITIES,
+//         activities: activities
+//     });
+// };
+
+
+
+// const receiveActivity = activity => {
+//     return ({
+//         type: RECEIVE_ACTIVITY,
+//         activity
+//     });
+// };
+
+const receiveAllActivities = (payload) => {
     return ({
         type: RECEIVE_ALL_ACTIVITIES,
-        activities: activities
+        payload
     });
 };
 
@@ -21,6 +39,12 @@ const receiveActivity = activity => {
     });
 };
 
+/////////////////
+const receiveCurrentUserActivities = (payload) => ({
+    type: RECEIVE_CURRENT_USER_ACTIVITIES,
+    payload
+})
+///////////////////////////
 
 const removeActivity = activityId => {
     return ({
@@ -35,9 +59,9 @@ export const receiveErrors = errors => ({
 });
 
 
-export const fetchActivities = () => dispatch => {
+export const fetchActivities = (page) => dispatch => {
     return (
-        ActivityApiUtil.fetchActivities().then(
+        ActivityApiUtil.fetchActivities(page).then(
             activities => dispatch(receiveAllActivities(activities)))
     );
 };
@@ -76,3 +100,9 @@ export const updateActivity = activity => dispatch => {
     err => dispatch(receiveErrors(err.responseJSON))
   );
 };
+
+
+/////////////////////
+export const fetchUserActivities = () => (dispatch) =>
+    ActivityApiUtil.fetchUserActivities().then(
+        (activities) => dispatch(receiveCurrentUserActivities(activities)));

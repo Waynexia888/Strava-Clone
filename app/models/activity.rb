@@ -3,4 +3,7 @@ class Activity < ApplicationRecord
 
     belongs_to :user
     belongs_to :route 
+
+    has_many :comments
+    has_many :kudos
 end

@@ -9,7 +9,7 @@ const CommentItem = ({ comment, user, currentUser, removeComment }) => {
                 </div>
 
                 <div>
-                    <h3>{user.first_name} {user.last_name}</h3>
+                    <h3>{user.username}</h3>
                     <p>{comment.body}</p>
                 </div>
 

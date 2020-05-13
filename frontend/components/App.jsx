@@ -43,18 +43,11 @@ const App = () => (
         <Switch>
             <AuthRoute exact path="/" component={Splash} />
             <ProtectedRoute path="/dashboard" component={Dashboard} />
-            
-            {/* <AuthRoute exact path="/login" component={LogInFormContainer} />
-            <AuthRoute exact path="/signup" component={SignUpFormContainer} /> */}
-            {/* <Route exact path="/not_found" component={PageNotFound} /> */}
-            {/* <Redirect to="/not_found" /> */}
             <ProtectedRoute exact path="/routes/new" component={NewRoute} />
             <ProtectedRoute path="/routes/:routeId" component={RouteShowContainer} />
             <ProtectedRoute path="/routes" component={RouteIndexContainer} />
-            {/* <ProtectedRoute exact path="/activities" component={ActivitiesIndexContainer} /> */}
             <ProtectedRoute exact path="/activities/new" component={ActivityRouteIndexContainer} />
             <ProtectedRoute exact path="/activities/:activityId" component={ActivityShowContainer} />
-            {/* <ProtectedRoute exact path="/activities/:activityId/edit" component={EditActivityContainer} /> */}
             <ProtectedRoute path="/activities" component={ActivityIndexContainer} />
         </Switch>
     </div>

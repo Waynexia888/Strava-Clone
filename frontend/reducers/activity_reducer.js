@@ -7,11 +7,11 @@ import {
 
 
 const activitiesReducer = (state = {}, action) => {
+    Object.freeze(state);
     let newState;
     switch (action.type) {
         case RECEIVE_ALL_ACTIVITIES:
-            return action.activities;
-            // return action.payload.activities;
+            return merge({}, state, action.payload.activities);
         case RECEIVE_ACTIVITY:
             newState = merge({}, state, { [action.activity.id]: action.activity });
             return newState;

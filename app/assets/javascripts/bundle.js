@@ -90,7 +90,7 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/activity_action.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_ALL_ACTIVITIES, RECEIVE_ACTIVITY, REMOVE_ACTIVITY, RECEIVE_ACTIVITIES_ERRORS, receiveErrors, fetchActivities, fetchActivity, createActivity, deleteActivity, updateActivity */
+/*! exports provided: RECEIVE_ALL_ACTIVITIES, RECEIVE_ACTIVITY, REMOVE_ACTIVITY, RECEIVE_ACTIVITIES_ERRORS, RECEIVE_CURRENT_USER_ACTIVITIES, receiveErrors, fetchActivities, fetchActivity, createActivity, deleteActivity, updateActivity, fetchUserActivities */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -99,23 +99,37 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ACTIVITY", function() { return RECEIVE_ACTIVITY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_ACTIVITY", function() { return REMOVE_ACTIVITY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ACTIVITIES_ERRORS", function() { return RECEIVE_ACTIVITIES_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CURRENT_USER_ACTIVITIES", function() { return RECEIVE_CURRENT_USER_ACTIVITIES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveErrors", function() { return receiveErrors; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchActivities", function() { return fetchActivities; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchActivity", function() { return fetchActivity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createActivity", function() { return createActivity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteActivity", function() { return deleteActivity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateActivity", function() { return updateActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserActivities", function() { return fetchUserActivities; });
 /* harmony import */ var _util_activity_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/activity_api_util */ "./frontend/util/activity_api_util.js");
 
 var RECEIVE_ALL_ACTIVITIES = "RECEIVE_ALL_ACTIVITIES";
 var RECEIVE_ACTIVITY = "RECEIVE_ACTIVITY";
 var REMOVE_ACTIVITY = "REMOVE_ACTIVITY";
 var RECEIVE_ACTIVITIES_ERRORS = "RECEIVE_ACTIVITIES_ERRORS";
+var RECEIVE_CURRENT_USER_ACTIVITIES = "RECEIVE_CURRENT_USER_ACTIVITIES"; // const receiveAllActivities = (activities) => {
+//     return ({
+//         type: RECEIVE_ALL_ACTIVITIES,
+//         activities: activities
+//     });
+// };
+// const receiveActivity = activity => {
+//     return ({
+//         type: RECEIVE_ACTIVITY,
+//         activity
+//     });
+// };
 
-var receiveAllActivities = function receiveAllActivities(activities) {
+var receiveAllActivities = function receiveAllActivities(payload) {
   return {
     type: RECEIVE_ALL_ACTIVITIES,
-    activities: activities
+    payload: payload
   };
 };
 
@@ -124,7 +138,16 @@ var receiveActivity = function receiveActivity(activity) {
     type: RECEIVE_ACTIVITY,
     activity: activity
   };
-};
+}; /////////////////
+
+
+var receiveCurrentUserActivities = function receiveCurrentUserActivities(payload) {
+  return {
+    type: RECEIVE_CURRENT_USER_ACTIVITIES,
+    payload: payload
+  };
+}; ///////////////////////////
+
 
 var removeActivity = function removeActivity(activityId) {
   return {
@@ -139,9 +162,9 @@ var receiveErrors = function receiveErrors(errors) {
     errors: errors
   };
 };
-var fetchActivities = function fetchActivities() {
+var fetchActivities = function fetchActivities(page) {
   return function (dispatch) {
-    return _util_activity_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchActivities"]().then(function (activities) {
+    return _util_activity_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchActivities"](page).then(function (activities) {
       return dispatch(receiveAllActivities(activities));
     });
   };
@@ -179,6 +202,14 @@ var updateActivity = function updateActivity(activity) {
       return dispatch(receiveErrors(err.responseJSON));
     });
   };
+}; /////////////////////
+
+var fetchUserActivities = function fetchUserActivities() {
+  return function (dispatch) {
+    return _util_activity_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUserActivities"]().then(function (activities) {
+      return dispatch(receiveCurrentUserActivities(activities));
+    });
+  };
 };
 
 /***/ }),
@@ -187,24 +218,29 @@ var updateActivity = function updateActivity(activity) {
 /*!*********************************************!*\
   !*** ./frontend/actions/comment_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_COMMENT, RECEIVE_COMMENTS, REMOVE_COMMENT, RECEIVE_COMMENT_ERRORS, fetchComments, createComment, deleteComment */
+/*! exports provided: RECEIVE_ACTIVITY_COMMENTS, RECEIVE_COMMENT, REMOVE_COMMENT, fetchActivityComments, createComment, removeComment */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ACTIVITY_COMMENTS", function() { return RECEIVE_ACTIVITY_COMMENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENT", function() { return RECEIVE_COMMENT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENTS", function() { return RECEIVE_COMMENTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_COMMENT", function() { return REMOVE_COMMENT; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_COMMENT_ERRORS", function() { return RECEIVE_COMMENT_ERRORS; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComments", function() { return fetchComments; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchActivityComments", function() { return fetchActivityComments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
-/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/comment_api_util */ "./frontend/util/comment_api_util.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "removeComment", function() { return removeComment; });
+/* harmony import */ var _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/comment_api_util */ "./frontend/util/comment_api_util.js");
 
+var RECEIVE_ACTIVITY_COMMENTS = 'RECEIVE_ACTIVITY_COMMENTS';
 var RECEIVE_COMMENT = 'RECEIVE_COMMENT';
-var RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 var REMOVE_COMMENT = 'REMOVE_COMMENT';
-var RECEIVE_COMMENT_ERRORS = 'RECEIVE_COMMENT_ERRORS';
+
+var receiveActivityComments = function receiveActivityComments(comments) {
+  return {
+    type: RECEIVE_ACTIVITY_COMMENTS,
+    comments: comments
+  };
+};
 
 var receiveComment = function receiveComment(comment) {
   return {
@@ -213,49 +249,99 @@ var receiveComment = function receiveComment(comment) {
   };
 };
 
-var receiveComments = function receiveComments(comments) {
-  return {
-    type: RECEIVE_COMMENTS,
-    comments: comments
-  };
-};
-
-var removeComment = function removeComment(comment) {
+var deleteComment = function deleteComment(commentId) {
   return {
     type: REMOVE_COMMENT,
-    commentId: comment.id
+    commentId: commentId
   };
 };
 
-var receiveErrors = function receiveErrors(errors) {
-  return {
-    type: RECEIVE_COMMENT_ERRORS,
-    errors: errors
-  };
-};
-
-var fetchComments = function fetchComments() {
+var fetchActivityComments = function fetchActivityComments(activityId) {
   return function (dispatch) {
-    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__["fetchComments"]().then(function (comments) {
-      return dispatch(receiveComments(comments));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchActivityComments"](activityId).then(function (comments) {
+      return dispatch(receiveActivityComments(comments));
     });
   };
 };
 var createComment = function createComment(comment) {
   return function (dispatch) {
-    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__["createComment"](comment).then(function (comment) {
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["createComment"](comment).then(function (comment) {
       return dispatch(receiveComment(comment));
-    }, function (err) {
-      return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
-var deleteComment = function deleteComment(id) {
+var removeComment = function removeComment(commentId) {
   return function (dispatch) {
-    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_1__["deleteComment"](id).then(function (comment) {
-      return dispatch(removeComment(comment));
+    return _util_comment_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteComment"](commentId).then(function () {
+      return dispatch(deleteComment(commentId));
+    });
+  };
+};
+
+/***/ }),
+
+/***/ "./frontend/actions/kudo_action.js":
+/*!*****************************************!*\
+  !*** ./frontend/actions/kudo_action.js ***!
+  \*****************************************/
+/*! exports provided: RECEIVE_KUDO, RECEIVE_ALL_KUDOS, REMOVE_KUDO, fetchKudo, createKudo, fetchAllKudos */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_KUDO", function() { return RECEIVE_KUDO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ALL_KUDOS", function() { return RECEIVE_ALL_KUDOS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_KUDO", function() { return REMOVE_KUDO; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchKudo", function() { return fetchKudo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createKudo", function() { return createKudo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllKudos", function() { return fetchAllKudos; });
+/* harmony import */ var _util_kudo_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/kudo_api_util */ "./frontend/util/kudo_api_util.js");
+
+var RECEIVE_KUDO = "RECEIVE_KUDO";
+var RECEIVE_ALL_KUDOS = "RECEIVE_ALL_KUDOS";
+var REMOVE_KUDO = "REMOVE_KUDO";
+
+var receiveKudo = function receiveKudo(kudo) {
+  return {
+    type: RECEIVE_KUDO,
+    kudo: kudo
+  };
+};
+
+var receiveAllKudos = function receiveAllKudos(kudos) {
+  return {
+    type: RECEIVE_ALL_KUDOS,
+    kudos: kudos
+  };
+};
+
+var removeKudo = function removeKudo(kudoId) {
+  return {
+    type: REMOVE_KUDO,
+    kudoId: kudoId
+  };
+};
+
+var fetchKudo = function fetchKudo(kudoId) {
+  return function (dispatch) {
+    return _util_kudo_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchKudo"](kudoId).then(function (kudo) {
+      return dispatch(receiveKudo(kudo));
+    });
+  };
+};
+var createKudo = function createKudo(kudo) {
+  return function (dispatch) {
+    return _util_kudo_api_util__WEBPACK_IMPORTED_MODULE_0__["createKudo"](kudo).then(function (kudo) {
+      return dispatch(receiveKudo(kudo));
+    }).fail(function (kudo) {
+      return dispatch(removeKudo(kudo.responseJSON[0]));
+    });
+  };
+};
+var fetchAllKudos = function fetchAllKudos(id) {
+  return function (dispatch) {
+    return _util_kudo_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchAllKudos"](id).then(function (kudos) {
+      return dispatch(receiveAllKudos(kudos));
     });
   };
 };
@@ -745,10 +831,16 @@ var ActivityIndex =
 function (_React$Component) {
   _inherits(ActivityIndex, _React$Component);
 
-  function ActivityIndex() {
+  function ActivityIndex(props) {
+    var _this;
+
     _classCallCheck(this, ActivityIndex);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ActivityIndex).apply(this, arguments));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ActivityIndex).call(this, props));
+    _this.state = {
+      page: 1
+    };
+    return _this;
   }
 
   _createClass(ActivityIndex, [{
@@ -760,15 +852,16 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       var activities = Object.values(this.props.activities).reverse().map(function (activity) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_activity_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: activity.id,
           activity: activity,
-          updateActivity: _this.props.updateActivity,
-          deleteActivity: _this.props.deleteActivity,
-          fetchRoute: _this.props.fetchRoute
+          updateActivity: _this2.props.updateActivity,
+          deleteActivity: _this2.props.deleteActivity,
+          fetchRoute: _this2.props.fetchRoute,
+          page: _this2.state.page
         });
       });
       var actCount = Object.keys(this.props.activities).length;
@@ -1247,6 +1340,408 @@ var mdp = function mdp(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(_activity_show__WEBPACK_IMPORTED_MODULE_4__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/activity/comments/comment_form.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/activity/comments/comment_form.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _comment_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comment_index */ "./frontend/components/activity/comments/comment_index.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+var CommentForm =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CommentForm, _React$Component);
+
+  function CommentForm(props) {
+    var _this;
+
+    _classCallCheck(this, CommentForm);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CommentForm).call(this, props));
+    _this.state = {
+      body: "",
+      user_id: _this.props.currentUser.id,
+      activity_id: _this.props.activity.id,
+      makeComment: true
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(CommentForm, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      this.props.createComment({
+        "user_id": this.state.user_id,
+        "activity_id": this.state.activity_id,
+        "body": this.state.body
+      });
+      this.setState({
+        makeComment: false
+      });
+    }
+  }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.setState({
+        makeComment: true
+      });
+    }
+  }, {
+    key: "handleChange",
+    value: function handleChange() {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState({
+          body: e.target.value
+        });
+      };
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick() {
+      this.setState({
+        makeComment: true
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.state.makeComment ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        onChange: this.handleChange(),
+        value: this.state.body,
+        placeholder: "Add Comment"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "submit",
+        value: "Post"
+      })) : "");
+    }
+  }]);
+
+  return CommentForm;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (CommentForm);
+
+/***/ }),
+
+/***/ "./frontend/components/activity/comments/comment_form_container.jsx":
+/*!**************************************************************************!*\
+  !*** ./frontend/components/activity/comments/comment_form_container.jsx ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _comment_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./comment_form */ "./frontend/components/activity/comments/comment_form.jsx");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    currentUser: state.session.currentUser,
+    comments: state.entities.comments
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    createComment: function createComment(comment) {
+      return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_1__["createComment"])(comment));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_comment_form__WEBPACK_IMPORTED_MODULE_3__["default"])));
+
+/***/ }),
+
+/***/ "./frontend/components/activity/comments/comment_index.jsx":
+/*!*****************************************************************!*\
+  !*** ./frontend/components/activity/comments/comment_index.jsx ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _comment_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./comment_item */ "./frontend/components/activity/comments/comment_item.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_activity_action__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../actions/activity_action */ "./frontend/actions/activity_action.js");
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../actions/comment_actions */ "./frontend/actions/comment_actions.js");
+/* harmony import */ var _comment_item_modal__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./comment_item_modal */ "./frontend/components/activity/comments/comment_item_modal.jsx");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    activities: state.entities.activities,
+    comments: state.entities.comments,
+    users: state.entities.users
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    fetchActivities: function fetchActivities(page) {
+      return dispatch(Object(_actions_activity_action__WEBPACK_IMPORTED_MODULE_4__["fetchActivities"])(page));
+    },
+    removeComment: function removeComment(commentId) {
+      return dispatch(Object(_actions_comment_actions__WEBPACK_IMPORTED_MODULE_5__["removeComment"])(commentId));
+    }
+  };
+};
+
+var CommentIndex =
+/*#__PURE__*/
+function (_React$Component) {
+  _inherits(CommentIndex, _React$Component);
+
+  function CommentIndex(props) {
+    var _this;
+
+    _classCallCheck(this, CommentIndex);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(CommentIndex).call(this, props));
+    _this.state = {
+      viewAllComments: false
+    };
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(CommentIndex, [{
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (Object.values(prevProps.comments).length !== Object.values(this.props.comments).length) {
+        this.props.fetchActivities(this.props.page);
+      }
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick() {
+      this.setState({
+        viewAllComments: !this.state.viewAllComments
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var actComments = this.props.activity.comment_ids.map(function (commentId) {
+        return _this2.props.comments[commentId];
+      });
+      var allComments = [];
+      var allCommentsModal = [];
+
+      if (actComments[0]) {
+        allComments = actComments.map(function (comment) {
+          if (comment) {
+            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+              key: comment.id,
+              comment: comment,
+              user: _this2.props.users[comment.user_id],
+              activity: _this2.props.activity,
+              removeComment: _this2.props.removeComment,
+              currentUser: _this2.props.currentUser
+            });
+          }
+        });
+        allCommentsModal = actComments.map(function (comment) {
+          return comment ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_comment_item_modal__WEBPACK_IMPORTED_MODULE_6__["default"], {
+            key: comment.id,
+            comment: comment,
+            user: _this2.props.users[comment.user_id],
+            activity: _this2.props.activity,
+            removeComment: _this2.props.removeComment,
+            currentUser: _this2.props.currentUser
+          }) : "";
+        });
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "comments"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, allComments.slice(0, 2)), actComments.length > 2 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        onClick: this.handleClick,
+        id: "view-all-comments"
+      }, "See all ", actComments.length, " comments") : ""), this.state.viewAllComments ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "comment-modal"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "close"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        onClick: this.handleClick,
+        src: window.images.close,
+        alt: ""
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "modal-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        id: "modal-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "profile-picture-small"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: this.props.users[this.props.activity.user_id].photoUrl
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.props.activity.title)), allCommentsModal)) : "");
+    }
+  }]);
+
+  return CommentIndex;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["withRouter"])(Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(CommentIndex)));
+
+/***/ }),
+
+/***/ "./frontend/components/activity/comments/comment_item.jsx":
+/*!****************************************************************!*\
+  !*** ./frontend/components/activity/comments/comment_item.jsx ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var CommentItem = function CommentItem(_ref) {
+  var comment = _ref.comment,
+      user = _ref.user,
+      currentUser = _ref.currentUser,
+      removeComment = _ref.removeComment;
+  return user ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "comment-item"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-picture-small-comment"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: user.photoUrl,
+    alt: ""
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, user.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, comment.body)), currentUser.id === user.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    id: "delete-comment",
+    onClick: function onClick() {
+      return removeComment(comment.id);
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "x",
+    src: window.images.x,
+    alt: ""
+  })) : "") : "";
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CommentItem);
+
+/***/ }),
+
+/***/ "./frontend/components/activity/comments/comment_item_modal.jsx":
+/*!**********************************************************************!*\
+  !*** ./frontend/components/activity/comments/comment_item_modal.jsx ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+
+
+var CommentItemModal = function CommentItemModal(_ref) {
+  var comment = _ref.comment,
+      user = _ref.user,
+      currentUser = _ref.currentUser,
+      removeComment = _ref.removeComment;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    id: "comment-item-modal"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "profile-picture-small-modal"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: user.photoUrl,
+    alt: ""
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "comment-content"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, user.first_name, " ", user.last_name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, comment.body)), currentUser.id === user.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    id: "delete-comment-modal",
+    onClick: function onClick() {
+      return removeComment(comment.id);
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    id: "x-modal",
+    src: window.images.x,
+    alt: ""
+  })) : "");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (CommentItemModal);
 
 /***/ }),
 
@@ -4040,6 +4535,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _route_map_feed_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../route_map/feed_route */ "./frontend/components/route_map/feed_route.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _activity_comments_comment_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../activity/comments/comment_index */ "./frontend/components/activity/comments/comment_index.jsx");
+/* harmony import */ var _activity_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../activity/comments/comment_form_container */ "./frontend/components/activity/comments/comment_form_container.jsx");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4062,6 +4559,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
+
+
 var UserFeedIndexItem =
 /*#__PURE__*/
 function (_React$Component) {
@@ -4077,7 +4576,8 @@ function (_React$Component) {
       makeComment: false
     };
     _this.timeStr = _this.timeStr.bind(_assertThisInitialized(_this));
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this)); // this.handleDeleteComment = this.handleDeleteComment.bind(this);
+
     return _this;
   }
 
@@ -4120,6 +4620,39 @@ function (_React$Component) {
     } // displayKudosPics() {
     //     const { likes } = this.props;
     //     const 
+    // }
+    // handleDeleteComment(commentId) {
+    //     let { deleteComment } = this.props;
+    //     return () => {
+    //         deleteComment(commentId);
+    //     }
+    // }
+    // openedCommentModal() {
+    // }
+    // displayComments() {
+    //     const { payload, currentUser } = this.props;
+    //     if (payload.comments.length === 0) {
+    //         return;
+    //     } else {
+    //         return payload.comments.map(comment => {
+    //             const deleteable = comment.userId === currentUser.id ? <i className="fas fa-times comment-delete" onClick={this.handleDeleteComment(comment.id)}></i> : null;
+    //             return <div className="comments-item" key={comment.id}>
+    //                 {/* {this.commentPic(comment)} */}
+    //                 <div className="avatar-img wrapper"></div>
+    //                 <section>
+    //                     <div className="comment-header">
+    //                         <div className="comments-commenter">
+    //                             {/* <Link className="profile-link" to={`/athletes/${comment.userId}`}> */}
+    //                                 {comment.username}
+    //                             {/* </Link> */}
+    //                         </div>
+    //                         {deleteable}
+    //                     </div>
+    //                     <div className="comments-body">{comment.body}</div>
+    //                 </section>
+    //             </div>
+    //         }).slice(0, 2);
+    //     }
     // }
 
   }, {
@@ -4188,9 +4721,14 @@ function (_React$Component) {
         alt: ""
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment-section"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "how are you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "fine, thnak you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hhahaha"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "like-comment"
-      }));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_activity_comments_comment_index__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        users: this.props.users,
+        activity: this.props.activity,
+        currentUser: this.props.currentUser,
+        page: this.props.pages
+      }), this.state.makeComment ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_activity_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        activity: this.props.activity
+      }) : "")));
     }
   }]);
 
@@ -4277,12 +4815,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var activitiesReducer = function activitiesReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
   var newState;
 
   switch (action.type) {
     case _actions_activity_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_ACTIVITIES"]:
-      return action.activities;
-    // return action.payload.activities;
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, action.payload.activities);
 
     case _actions_activity_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ACTIVITY"]:
       newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.activity.id, action.activity));
@@ -4311,65 +4849,71 @@ var activitiesReducer = function activitiesReducer() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
-/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
 /* harmony import */ var _actions_activity_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/activity_action */ "./frontend/actions/activity_action.js");
-/* harmony import */ var _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/comment_actions */ "./frontend/actions/comment_actions.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_2__);
 
 
 
- // export default (state = {}, action) => {
-//     Object.freeze(state);
-//     switch (action.type) {
-//         case RECEIVE_ACTIVITY_COMMENTS:
-//             return merge({}, action.comments)
-//         case RECEIVE_ALL_ACTIVITIES:
-//             let addComments = merge({}, state)
-//             Object.keys(action.activities).forEach(com => {
-//                 return addComments[com] = action.activities[com]
-//             })
-//             return addComments;
-//         case RECEIVE_COMMENT:
-//             return merge({}, state, action.comment)
-//         case REMOVE_COMMENT:
-//             let newState = merge({}, state)
-//             delete newState[action.commentId]
-//             return newState
-//         default:
-//             return state;
-//     }
-// };
-
-var commentsReducer = function commentsReducer() {
+/* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
 
   switch (action.type) {
-    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENT"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state, _defineProperty({}, action.comment.id, action.comment));
-
-    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_COMMENTS"]:
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, action.comments);
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ACTIVITY_COMMENTS"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, action.comments);
 
     case _actions_activity_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_ACTIVITIES"]:
-      // return merge({}, action.payload.comments)
-      return lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, action.activities);
+      var addComments = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state);
+      Object.keys(action.payload.comments).forEach(function (com) {
+        return addComments[com] = action.payload.comments[com];
+      });
+      return addComments;
 
-    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_2__["REMOVE_COMMENT"]:
-      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_0___default()({}, state);
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_COMMENT"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state, action.comment);
+
+    case _actions_comment_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_COMMENT"]:
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state);
       delete newState[action.commentId];
       return newState;
 
     default:
       return state;
   }
+});
 
-  ;
-};
+/***/ }),
 
-/* harmony default export */ __webpack_exports__["default"] = (commentsReducer);
+/***/ "./frontend/reducers/current_user_activities.js":
+/*!******************************************************!*\
+  !*** ./frontend/reducers/current_user_activities.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_activity_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/activity_action */ "./frontend/actions/activity_action.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_1__);
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_activity_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER_ACTIVITIES"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_1___default()({}, state, action.payload.activities);
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 
@@ -4387,6 +4931,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _activity_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./activity_reducer */ "./frontend/reducers/activity_reducer.js");
 /* harmony import */ var _routes_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes_reducer */ "./frontend/reducers/routes_reducer.js");
 /* harmony import */ var _comments_reducer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./comments_reducer */ "./frontend/reducers/comments_reducer.js");
+/* harmony import */ var _kudos_reducer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./kudos_reducer */ "./frontend/reducers/kudos_reducer.js");
+/* harmony import */ var _current_user_activities__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./current_user_activities */ "./frontend/reducers/current_user_activities.js");
+
+
 
 
 
@@ -4396,7 +4944,9 @@ __webpack_require__.r(__webpack_exports__);
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   activities: _activity_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   routes: _routes_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
+  comments: _comments_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  kudos: _kudos_reducer__WEBPACK_IMPORTED_MODULE_5__["default"],
+  currentUserActivities: _current_user_activities__WEBPACK_IMPORTED_MODULE_6__["default"]
 }));
 
 /***/ }),
@@ -4423,6 +4973,51 @@ __webpack_require__.r(__webpack_exports__);
   activities: _activities_errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
   routes: _route_errors_reducers__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
+
+/***/ }),
+
+/***/ "./frontend/reducers/kudos_reducer.js":
+/*!********************************************!*\
+  !*** ./frontend/reducers/kudos_reducer.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_kudo_action__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/kudo_action */ "./frontend/actions/kudo_action.js");
+/* harmony import */ var _actions_activity_action__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/activity_action */ "./frontend/actions/activity_action.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
+/* harmony import */ var lodash_merge__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(lodash_merge__WEBPACK_IMPORTED_MODULE_2__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_kudo_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ALL_KUDOS"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, action.kudos);
+
+    case _actions_kudo_action__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_KUDO"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state, _defineProperty({}, action.kudo.id, action.kudo));
+
+    case _actions_activity_action__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_ALL_ACTIVITIES"]:
+      return lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, action.payload.kudos);
+
+    case _actions_kudo_action__WEBPACK_IMPORTED_MODULE_0__["REMOVE_KUDO"]:
+      var newState = lodash_merge__WEBPACK_IMPORTED_MODULE_2___default()({}, state);
+      delete newState[action.kudoId];
+      return newState;
+
+    default:
+      return state;
+  }
+});
 
 /***/ }),
 
@@ -4723,7 +5318,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-
+// import merge from 'lodash/merge';
+ // import {
+//     RECEIVE_USERS
+// } from '../actions/user_action';
+// import {
+//     RECEIVE_ACTIVITY,
+//     RECEIVE_ALL_ACTIVITIES
+// } from '../actions/activity_action';
+// import {
+//     RECEIVE_ROUTE
+// } from '../actions/route_actions';
 
 var usersReducer = function usersReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -4830,28 +5435,40 @@ document.addEventListener('DOMContentLoaded', function () {
 /*!********************************************!*\
   !*** ./frontend/util/activity_api_util.js ***!
   \********************************************/
-/*! exports provided: fetchActivities, fetchActivity, deleteActivity, createActivity, updateActivity */
+/*! exports provided: fetchActivity, fetchActivities, fetchUserActivities, deleteActivity, createActivity, updateActivity */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchActivities", function() { return fetchActivities; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchActivity", function() { return fetchActivity; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchActivities", function() { return fetchActivities; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUserActivities", function() { return fetchUserActivities; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteActivity", function() { return deleteActivity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createActivity", function() { return createActivity; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateActivity", function() { return updateActivity; });
-var fetchActivities = function fetchActivities() {
-  return $.ajax({
-    method: "GET",
-    url: "api/activities"
-  });
-};
 var fetchActivity = function fetchActivity(id) {
   return $.ajax({
     method: "GET",
     url: "api/activities/".concat(id)
   });
 };
+var fetchActivities = function fetchActivities(page) {
+  return $.ajax({
+    method: "GET",
+    url: "api/pages/".concat(page, "/activities"),
+    data: {
+      page: page
+    }
+  });
+}; ///////////not sure
+
+var fetchUserActivities = function fetchUserActivities() {
+  return $.ajax({
+    url: "api//activities/",
+    method: 'GET'
+  });
+}; /////////////////
+
 var deleteActivity = function deleteActivity(id) {
   return $.ajax({
     method: "DELETE",
@@ -4883,40 +5500,69 @@ var updateActivity = function updateActivity(activity) {
 /*!*******************************************!*\
   !*** ./frontend/util/comment_api_util.js ***!
   \*******************************************/
-/*! exports provided: createComment, deleteComment, fetchComment, fetchComments */
+/*! exports provided: fetchActivityComments, createComment, deleteComment */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchActivityComments", function() { return fetchActivityComments; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createComment", function() { return createComment; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteComment", function() { return deleteComment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComment", function() { return fetchComment; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchComments", function() { return fetchComments; });
+var fetchActivityComments = function fetchActivityComments(activityId) {
+  return $.ajax({
+    url: "api/activities/".concat(activityId, "/comments"),
+    method: 'GET'
+  });
+};
 var createComment = function createComment(comment) {
   return $.ajax({
-    method: 'POST',
     url: "api/comments",
+    method: "POST",
     data: {
       comment: comment
     }
   });
 };
-var deleteComment = function deleteComment(id) {
+var deleteComment = function deleteComment(commentId) {
   return $.ajax({
-    method: 'DELETE',
-    url: "api/comments/".concat(id)
+    url: "api/comments/".concat(commentId),
+    method: 'DELETE'
   });
 };
-var fetchComment = function fetchComment(id) {
+
+/***/ }),
+
+/***/ "./frontend/util/kudo_api_util.js":
+/*!****************************************!*\
+  !*** ./frontend/util/kudo_api_util.js ***!
+  \****************************************/
+/*! exports provided: fetchKudo, fetchAllKudos, createKudo */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchKudo", function() { return fetchKudo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchAllKudos", function() { return fetchAllKudos; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createKudo", function() { return createKudo; });
+var fetchKudo = function fetchKudo(kudoId) {
   return $.ajax({
-    method: 'GET',
-    url: "api/comments/".concat(id)
+    url: "/api/kudos/".concat(kudoId),
+    method: "GET"
   });
 };
-var fetchComments = function fetchComments() {
+var fetchAllKudos = function fetchAllKudos(activityId) {
   return $.ajax({
-    method: 'GET',
-    url: "api/comments"
+    url: "api/activities/".concat(activityId, "/kudos"),
+    method: "GET"
+  });
+};
+var createKudo = function createKudo(kudo) {
+  return $.ajax({
+    url: "/api/kudos",
+    method: "post",
+    data: {
+      kudo: kudo
+    }
   });
 };
 

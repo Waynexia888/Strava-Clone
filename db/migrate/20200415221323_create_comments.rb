@@ -8,3 +8,11 @@ class CreateComments < ActiveRecord::Migration[5.2]
     end
   end
 end
+
+
+
+      # t.integer :user_id, null: false
+      # t.integer :activity_id, null: false
+      # t.timestamps
+
+      # add_index :likes, [:user_id, :activity_id], unique: true

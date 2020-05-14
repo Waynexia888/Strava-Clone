@@ -15,13 +15,13 @@
 .form-container {
     display: flex;
     align-items: center;
-    text-align: center; 
+    text-align: center;
     flex-direction: column;
     width: 100%;
     height: 100vh;
     padding-top: 116px;
     background-size: cover;
-    background-image: image-url('running_sf.jpg'); 
+    background-image: image-url('running_sf.jpg');
 
     form {
         display: flex;
@@ -31,17 +31,17 @@
         justify-content: space-evenly;
         height: 461px;
         width: 400px;
-        background-color: rgba(0,0,0,0.75);
+        background-color: rgba(0, 0, 0, 0.75);
         border-bottom-right-radius: 3px;
         border-bottom-left-radius: 3px;
-    
+
         input {
             height: 40px;
             width: 300px;
             font-weight: 400;
             font-size: 13px;
             color: lightgray;
-            background-color: rgba(0,0,0,0.75);
+            background-color: rgba(0, 0, 0, 0.75);
             margin: 0;
             -webkit-appearance: none;
             border-style: none;
@@ -52,9 +52,9 @@
     }
 
     form input:focus {
-        background-color: rgba(255,255,255,0.9);
-        box-shadow: 0 0 8px 0 rgba(255,255,255,0.8);
-        border: .5px solid rgba(0,0,0,0.5);
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 8px 0 rgba(255, 255, 255, 0.8);
+        border: .5px solid rgba(0, 0, 0, 0.5);
         color: #333;
     }
 
@@ -82,7 +82,7 @@
     display: flex;
     text-align: center;
     font-size: 34px;
-    background-color: rgba(0,0,0,0.85);
+    background-color: rgba(0, 0, 0, 0.85);
     width: 400px;
     height: 82px;
     justify-content: center;
@@ -93,8 +93,8 @@
 }
 
 form h3 {
-     color: white;
-     font-weight: 700;
+    color: white;
+    font-weight: 700;
 }
 
 // .facebook {

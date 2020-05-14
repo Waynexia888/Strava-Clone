@@ -1,3 +1,12 @@
+export const fetchActivities = () => {
+    return (
+        $.ajax({
+            method: "GET",
+            url: `api/activities`
+        })
+    );
+};
+
 export const fetchActivity = id => {
     return (
         $.ajax({
@@ -7,24 +16,6 @@ export const fetchActivity = id => {
     );
 };
 
-export const fetchActivities = (page) => {
-    return (
-        $.ajax({
-            method: "GET",
-            url: `api/pages/${page}/activities`,
-            data: {page}
-        })
-    );
-};
-
-///////////not sure
-export const fetchUserActivities = () => (
-    $.ajax({
-        url: `api//activities/`,
-        method: 'GET',
-    })
-)
-/////////////////
 export const deleteActivity = id => {
     return (
         $.ajax({
@@ -39,7 +30,9 @@ export const createActivity = activity => {
         $.ajax({
             method: "POST",
             url: `api/activities`,
-            data: { activity }
+            data: {
+                activity
+            }
         })
     );
 };
@@ -50,7 +43,9 @@ export const updateActivity = activity => {
         $.ajax({
             method: "PATCH",
             url: `api/activities/${activity.id}`,
-            data: { activity }
+            data: {
+                activity
+            }
         })
     )
 }

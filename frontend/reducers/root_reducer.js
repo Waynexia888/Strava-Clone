@@ -11,7 +11,6 @@ const rootReducer = combineReducers({
     session,
     ui,
     errors,
-    // routes,
 });
 
 export default rootReducer;

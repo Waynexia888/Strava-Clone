@@ -7,10 +7,11 @@
 
 
 .activity-index-bar {
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
 
-.activity-index-bar, h2 {
+.activity-index-bar,
+h2 {
     font-size: 18;
 }
 
@@ -51,11 +52,14 @@
     text-align: left;
 }
 
-.col-time, .col-distance, .col-elevation {
+.col-time,
+.col-distance,
+.col-elevation {
     text-align: right;
 }
 
-.col-date, .col-title {
+.col-date,
+.col-title {
     text-align: left;
 }
 
@@ -75,16 +79,16 @@
 }
 
 tr:nth-child(even) {
-  background-color:#f5f5fa
+    background-color: #f5f5fa
 }
 
 
-#create-activity-btn{
+#create-activity-btn {
     background-color: #ff5900;
     height: 35px;
     width: 200px;
     border-radius: 5px;
-    font-family: inherit; 
+    font-family: inherit;
     cursor: pointer;
     color: white;
     position: relative;
@@ -92,11 +96,11 @@ tr:nth-child(even) {
     margin-top: 10px;
 }
 
-#create-activity-btn a{
+#create-activity-btn a {
     color: white;
     font-size: 14px
 }
 
 .col-title a {
-  color: #437fa9;
+    color: #437fa9;
 }

@@ -3,17 +3,18 @@ import {
     RECEIVE_ALL_ACTIVITIES,
     RECEIVE_ACTIVITY,
     REMOVE_ACTIVITY
-} from '../actions/activity_action';
+} from '../actions/activity_actions';
 
 
 const activitiesReducer = (state = {}, action) => {
-    Object.freeze(state);
     let newState;
     switch (action.type) {
         case RECEIVE_ALL_ACTIVITIES:
-            return merge({}, state, action.payload.activities);
+            return action.activities;
         case RECEIVE_ACTIVITY:
-            newState = merge({}, state, { [action.activity.id]: action.activity });
+            newState = merge({}, state, {
+                [action.activity.id]: action.activity
+            });
             return newState;
         case REMOVE_ACTIVITY:
             newState = merge({}, state);

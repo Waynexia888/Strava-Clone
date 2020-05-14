@@ -1,7 +1,7 @@
 .activity-form-container {
     width: 100%;
     height: 100%;
-    background-color:#f5f5fa;
+    background-color: #f5f5fa;
     color: black;
     border-radius: 3px;
     text-align: left;
@@ -13,10 +13,10 @@
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
-    
+
 }
 
-.activity-input{
+.activity-input {
     display: flex;
     flex-wrap: wrap;
     margin-right: 50%;
@@ -26,7 +26,7 @@
     margin-bottom: 10px;
 }
 
-#create-activity-btn-2{
+#create-activity-btn-2 {
     position: absolute;
     width: 50px;
     left: 336px;

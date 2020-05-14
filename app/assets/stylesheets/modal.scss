@@ -5,7 +5,7 @@
     color: gray;
 }
 
-.session-submit{
+.session-submit {
     background: #ff5300;
     color: white;
     width: 100%;
@@ -19,29 +19,29 @@
 
 
 .modal-background {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 12;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 12;
 }
 
 .modal-child {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  display: inline-block;
-  background:rgba(0, 0, 0, 0.8);
-  height: 400px;
-  width: 400px;
-  display: flex;
-  align-items: top;
-  justify-content: center;
-  border-radius: 5px;
-  text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    display: inline-block;
+    background: rgba(0, 0, 0, 0.8);
+    height: 400px;
+    width: 400px;
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    border-radius: 5px;
+    text-align: left;
 
 }

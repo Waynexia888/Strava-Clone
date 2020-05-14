@@ -1,7 +1,8 @@
-h1{
+h1 {
     font-family: 'Sarabun', sans-serif;
     font-weight: 1000;
 }
+
 .main-container h2 {
     font-size: 40px;
     font-family: 'Montserrat', sans-serif;
@@ -11,6 +12,7 @@ h1{
 .vsc-initialized {
     margin: 0;
 }
+
 .login-header {
     background: #fff;
     display: flex;
@@ -24,7 +26,7 @@ h1{
     min-height: 50px;
     max-height: 50px;
     min-width: 350px;
-    max-width:1200px;
+    max-width: 1200px;
     // position: fixed;
 }
 
@@ -38,10 +40,11 @@ h1{
     text-align: center;
     font-family: 'Sarabun', sans-serif;
     font-weight: bold;
-    
+
 
 
 }
+
 .login-form {
     justify-content: center;
     width: 350px;
@@ -53,7 +56,7 @@ h1{
     font-size: 14px;
     min-height: 40px;
     width: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     border: 1px solid lightgray;
     color: #CCC;
     margin: 6px 0;
@@ -67,7 +70,7 @@ h1{
     color: gray;
 }
 
-.session-submit{
+.session-submit {
     background: #ff5300;
     color: white;
     width: 100%;
@@ -118,7 +121,8 @@ h1{
     padding-left: 16px;
     padding-right: 16px;
 }
-.devices-image{
+
+.devices-image {
     display: inline-block;
     width: 100%;
     max-width: 468px;
@@ -136,7 +140,7 @@ h1{
     padding-bottom: 64px;
 }
 
-#footer-logo{
+#footer-logo {
     margin: 50px;
 }
 

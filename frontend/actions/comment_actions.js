@@ -1,35 +1,35 @@
-import * as CommentUtil from '../util/comment_api_util'
+// import * as CommentUtil from '../util/comment_api_util'
 
-export const RECEIVE_ACTIVITY_COMMENTS = 'RECEIVE_ACTIVITY_COMMENTS';
-export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
-export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+// export const RECEIVE_ACTIVITY_COMMENTS = 'RECEIVE_ACTIVITY_COMMENTS';
+// export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+// export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
-const receiveActivityComments = (comments) => ({
-    type: RECEIVE_ACTIVITY_COMMENTS,
-    comments
-})
+// const receiveActivityComments = (comments) => ({
+//     type: RECEIVE_ACTIVITY_COMMENTS,
+//     comments
+// })
 
-const receiveComment = (comment) => ({
-    type: RECEIVE_COMMENT,
-    comment
-})
+// const receiveComment = (comment) => ({
+//     type: RECEIVE_COMMENT,
+//     comment
+// })
 
-const deleteComment = (commentId) => ({
-    type: REMOVE_COMMENT,
-    commentId
-})
-
-
-
-export const fetchActivityComments = (activityId) => (dispatch) =>
-    CommentUtil.fetchActivityComments(activityId).then(
-        (comments) => dispatch(receiveActivityComments(comments)))
+// const deleteComment = (commentId) => ({
+//     type: REMOVE_COMMENT,
+//     commentId
+// })
 
 
-export const createComment = (comment) => (dispatch) =>
-    CommentUtil.createComment(comment).then(
-        (comment) => dispatch(receiveComment(comment)))
 
-export const removeComment = (commentId) => (dispatch) =>
-    CommentUtil.deleteComment(commentId).then(
-        () => dispatch(deleteComment(commentId))) 
+// export const fetchActivityComments = (activityId) => (dispatch) =>
+//     CommentUtil.fetchActivityComments(activityId).then(
+//         (comments) => dispatch(receiveActivityComments(comments)))
+
+
+// export const createComment = (comment) => (dispatch) =>
+//     CommentUtil.createComment(comment).then(
+//         (comment) => dispatch(receiveComment(comment)))
+
+// export const removeComment = (commentId) => (dispatch) =>
+//     CommentUtil.deleteComment(commentId).then(
+//         () => dispatch(deleteComment(commentId))) 

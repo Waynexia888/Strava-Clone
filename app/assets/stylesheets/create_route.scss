@@ -20,7 +20,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-.route-input{
+.route-input {
     width: 200px;
 
 }
@@ -37,13 +37,13 @@
     height: 30px;
 }
 
-.new-route-buttons{
+.new-route-buttons {}
 
-}
 .name-input {
     height: 50px;
 }
-.name-input > label {
+
+.name-input>label {
     display: flex;
     flex-wrap: wrap;
     margin-left: 15%;
@@ -52,7 +52,7 @@
     left: 58px;
 }
 
-.description-input > label {
+.description-input>label {
     flex-wrap: wrap;
     margin-right: 50%;
     width: 80%;
@@ -71,7 +71,7 @@
     height: 30px;
 }
 
-.route-errors{
+.route-errors {
     position: absolute;
     top: 75px;
     left: 92px;

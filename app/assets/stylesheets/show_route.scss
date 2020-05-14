@@ -4,19 +4,20 @@
     padding-right: 16px;
     padding-left: 16px;
 }
-.show-route-stats{
+
+.show-route-stats {
     display: flex;
     justify-content: flex-start;
     font-size: 20px;
     background-color: #f1f1f1;
-    font-family: 'Montserrat', sans-serif; 
+    font-family: 'Montserrat', sans-serif;
     width: 800px;
     border-top: 1px solid #ccccd1;
     border-bottom: 1px solid #ccccd1;
     border-left: 1px solid #ccccd1;
 }
 
-.show-route-stats > div {
+.show-route-stats>div {
     margin-right: 20px;
 }
 
@@ -31,6 +32,6 @@
     position: absolute;
     left: 16px;
     top: 514px;
-    font-size:16px;
+    font-size: 16px;
 }
 

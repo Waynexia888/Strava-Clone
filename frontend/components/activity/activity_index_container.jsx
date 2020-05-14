@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchActivities, deleteActivity, updateActivity } from '../../actions/activity_action';
+import { fetchActivities, deleteActivity, updateActivity } from '../../actions/activity_actions';
 import { fetchRoute, fetchRoutes } from '../../actions/route_action';
 import ActivityIndex from './activity_index';
 

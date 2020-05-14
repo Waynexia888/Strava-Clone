@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { createActivity } from '../../actions/activity_action';
+import { createActivity } from '../../actions/activity_actions';
 import { fetchRoutes } from '../../actions/route_action';
 import { closeModalAct } from '../../actions/modal_actions';
 import ActivityForm from './activity_form';

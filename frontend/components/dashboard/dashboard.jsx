@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchActivity, fetchActivities } from '../../actions/activity_action';
+import { fetchActivity, fetchActivities } from '../../actions/activity_actions';
 import { fetchRoutes } from '../../actions/route_action';
 import { Link } from 'react-router-dom';
 import UserFeedIndexContainer from '../user_feed/user_feed_index_container';

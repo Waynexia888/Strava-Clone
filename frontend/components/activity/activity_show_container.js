@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import { selectActivity, selectRoute } from '../../reducers/selectors';
-import { fetchActivity } from '../../actions/activity_action';
+import { fetchActivity } from '../../actions/activity_actions';
 import { fetchRoute } from '../../actions/route_action';
 import ActivityShow from './activity_show';
 

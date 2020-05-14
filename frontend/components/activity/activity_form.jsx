@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-
+import { closeModalAct } from '../../actions/modal_actions';
 
 class ActivityForm extends React.Component {
     constructor(props) {

@@ -502,6 +502,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -521,6 +522,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1166,139 +1168,6 @@ var mdp = function mdp(dispatch) {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(msp, mdp)(_activity_show__WEBPACK_IMPORTED_MODULE_4__["default"]));
-
-/***/ }),
-
-/***/ "./frontend/components/activity/comments/comment_form_container.jsx":
-/*!**************************************************************************!*\
-  !*** ./frontend/components/activity/comments/comment_form_container.jsx ***!
-  \**************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// import React from 'react'
-// import { createComment } from '../../../actions/comment_actions'
-// import { connect } from 'react-redux'
-// import CommentForm from './comment_form'
-// import { withRouter } from 'react-router-dom';
-// const mapStateToProps = (state, ownProps) => ({
-//     currentUser: state.session.currentUser,
-//     comments: state.entities.comments
-// })
-// const mapDispatchToProps = (dispatch) => ({
-//     createComment: (comment) => dispatch(createComment(comment))
-// })
-// export default withRouter(connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-// )(CommentForm))
-
-/***/ }),
-
-/***/ "./frontend/components/activity/comments/comment_index.jsx":
-/*!*****************************************************************!*\
-  !*** ./frontend/components/activity/comments/comment_index.jsx ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// import React from 'react'
-// import CommentItem from './comment_item'
-// import { connect } from 'react-redux'
-// import { withRouter } from 'react-router-dom'
-// import { fetchActivities } from '../../../actions/activity_action'
-// import { removeComment } from '../../../actions/comment_actions';
-// import CommentItemModal from './comment_item_modal'
-// const mapStateToProps = (state, ownProps) => ({
-//     activities: state.entities.activities,
-//     comments: state.entities.comments,
-//     users: state.entities.users
-// })
-// const mapDispatchToProps = (dispatch) => ({
-//     fetchActivities: (page) => dispatch(fetchActivities(page)),
-//     removeComment: (commentId) => dispatch(removeComment(commentId)),
-// })
-// class CommentIndex extends React.Component {
-//     constructor(props) {
-//         super(props)
-//         this.state = {
-//             viewAllComments: false
-//         }
-//         this.handleClick = this.handleClick.bind(this)
-//     }
-//     componentDidUpdate(prevProps) {
-//         if (Object.values(prevProps.comments).length !== Object.values(this.props.comments).length) {
-//             this.props.fetchActivities(this.props.page)
-//         }
-//     }
-//     handleClick() {
-//         this.setState({ viewAllComments: !this.state.viewAllComments })
-//     }
-//     render() {
-//         const actComments = this.props.activity.comment_ids.map(commentId => this.props.comments[commentId])
-//         let allComments = []
-//         let allCommentsModal = []
-//         if (actComments[0]) {
-//             allComments = actComments.map(comment => {
-//                 if (comment) {
-//                     return (<CommentItem
-//                         key={comment.id}
-//                         comment={comment}
-//                         user={this.props.users[comment.user_id]}
-//                         activity={this.props.activity}
-//                         removeComment={this.props.removeComment}
-//                         currentUser={this.props.currentUser}
-//                     />)
-//                 }
-//             })
-//             allCommentsModal = actComments.map(comment =>
-//                 comment ?
-//                     <CommentItemModal
-//                         key={comment.id}
-//                         comment={comment}
-//                         user={this.props.users[comment.user_id]}
-//                         activity={this.props.activity}
-//                         removeComment={this.props.removeComment}
-//                         currentUser={this.props.currentUser}
-//                     /> : "")
-//         }
-//         return (
-//             <div>
-//                 <div id='comments'>
-//                     <div>
-//                         {allComments.slice(0, 2)}
-//                     </div>
-//                     {actComments.length > 2 ?
-//                         <p onClick={this.handleClick}
-//                             id="view-all-comments">
-//                             See all {actComments.length} comments
-//                     </p>
-//                         : ""}
-//                 </div>
-//                 {this.state.viewAllComments ?
-//                     <div className="comment-modal">
-//                         <div className="close">
-//                             <img onClick={this.handleClick} src={window.images.close} alt="" />
-//                         </div>
-//                         <div id="modal-content">
-//                             <section id="modal-header">
-//                                 {/* <div className="profile-picture-small">
-//                                     <img src={this.props.users[this.props.activity.user_id].photoUrl} />
-//                                 </div> */}
-//                                 <h1>{this.props.activity.title}</h1>
-//                             </section>
-//                             {allCommentsModal}
-//                         </div>
-//                     </div>
-//                     : ""
-//                 }
-//             </div>
-//         )
-//     }
-// }
-// export default withRouter(connect(
-//     mapStateToProps,
-//     mapDispatchToProps)(CommentIndex))
 
 /***/ }),
 
@@ -4092,10 +3961,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _route_map_feed_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../route_map/feed_route */ "./frontend/components/route_map/feed_route.jsx");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var _activity_comments_comment_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../activity/comments/comment_index */ "./frontend/components/activity/comments/comment_index.jsx");
-/* harmony import */ var _activity_comments_comment_index__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_activity_comments_comment_index__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _activity_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../activity/comments/comment_form_container */ "./frontend/components/activity/comments/comment_form_container.jsx");
-/* harmony import */ var _activity_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_activity_comments_comment_form_container__WEBPACK_IMPORTED_MODULE_4__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4118,8 +3983,6 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
-
 var UserFeedIndexItem =
 /*#__PURE__*/
 function (_React$Component) {
@@ -4131,23 +3994,11 @@ function (_React$Component) {
     _classCallCheck(this, UserFeedIndexItem);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserFeedIndexItem).call(this, props));
-    _this.state = {
-      makeComment: false
-    };
     _this.timeStr = _this.timeStr.bind(_assertThisInitialized(_this));
-    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this)); // this.handleDeleteComment = this.handleDeleteComment.bind(this);
-
     return _this;
   }
 
   _createClass(UserFeedIndexItem, [{
-    key: "handleClick",
-    value: function handleClick() {
-      this.setState({
-        makeComment: !this.state.makeComment
-      });
-    }
-  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchActivity(this.props.activityId);
@@ -4176,44 +4027,7 @@ function (_React$Component) {
       }
 
       return "n/a";
-    } // displayKudosPics() {
-    //     const { likes } = this.props;
-    //     const 
-    // }
-    // handleDeleteComment(commentId) {
-    //     let { deleteComment } = this.props;
-    //     return () => {
-    //         deleteComment(commentId);
-    //     }
-    // }
-    // openedCommentModal() {
-    // }
-    // displayComments() {
-    //     const { payload, currentUser } = this.props;
-    //     if (payload.comments.length === 0) {
-    //         return;
-    //     } else {
-    //         return payload.comments.map(comment => {
-    //             const deleteable = comment.userId === currentUser.id ? <i className="fas fa-times comment-delete" onClick={this.handleDeleteComment(comment.id)}></i> : null;
-    //             return <div className="comments-item" key={comment.id}>
-    //                 {/* {this.commentPic(comment)} */}
-    //                 <div className="avatar-img wrapper"></div>
-    //                 <section>
-    //                     <div className="comment-header">
-    //                         <div className="comments-commenter">
-    //                             {/* <Link className="profile-link" to={`/athletes/${comment.userId}`}> */}
-    //                                 {comment.username}
-    //                             {/* </Link> */}
-    //                         </div>
-    //                         {deleteable}
-    //                     </div>
-    //                     <div className="comments-body">{comment.body}</div>
-    //                 </section>
-    //             </div>
-    //         }).slice(0, 2);
-    //     }
-    // }
-
+    }
   }, {
     key: "render",
     value: function render() {
@@ -4263,7 +4077,24 @@ function (_React$Component) {
         className: "feed-map-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_route_map_feed_route__WEBPACK_IMPORTED_MODULE_1__["default"], {
         route: route
-      })) : null, "\n");
+      })) : null, "\n", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "user-feedback"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "like-comment"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "comment-icon",
+        onClick: this.handleClick
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.images.comment_icon,
+        alt: ""
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "comment-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.images.like_icon,
+        alt: ""
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "comment-section"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "how are you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "fine, thnak you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hhahaha"))));
     }
   }]);
 

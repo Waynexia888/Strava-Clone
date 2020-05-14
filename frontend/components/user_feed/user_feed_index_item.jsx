@@ -1,28 +1,16 @@
 import React from 'react';
 import FeedRoute from '../route_map/feed_route';
 import { Link } from 'react-router-dom';
-import CommentIndex from '../activity/comments/comment_index'
-import CommentFormContainer from '../activity/comments/comment_form_container'
+
 
 
 
 class UserFeedIndexItem extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            makeComment: false
-        }
-    
         this.timeStr = this.timeStr.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-        // this.handleDeleteComment = this.handleDeleteComment.bind(this);
         
     }
-
-    handleClick() {
-        this.setState({ makeComment: !this.state.makeComment })
-    }
-
 
     componentDidMount() {
         this.props.fetchActivity(this.props.activityId);
@@ -51,53 +39,7 @@ class UserFeedIndexItem extends React.Component {
 
     }
 
-    
-    // displayKudosPics() {
-    //     const { likes } = this.props;
-    //     const 
-    // }
 
-    // handleDeleteComment(commentId) {
-    //     let { deleteComment } = this.props;
-    //     return () => {
-    //         deleteComment(commentId);
-    //     }
-    // }
-
-    // openedCommentModal() {
-
-    // }
-
-
-    // displayComments() {
-
-    //     const { payload, currentUser } = this.props;
-        
-    //     if (payload.comments.length === 0) {
-    //         return;
-    //     } else {
-    //         return payload.comments.map(comment => {
-    //             const deleteable = comment.userId === currentUser.id ? <i className="fas fa-times comment-delete" onClick={this.handleDeleteComment(comment.id)}></i> : null;
-
-    //             return <div className="comments-item" key={comment.id}>
-    //                 {/* {this.commentPic(comment)} */}
-    //                 <div className="avatar-img wrapper"></div>
-    //                 <section>
-    //                     <div className="comment-header">
-    //                         <div className="comments-commenter">
-    //                             {/* <Link className="profile-link" to={`/athletes/${comment.userId}`}> */}
-    //                                 {comment.username}
-    //                             {/* </Link> */}
-    //                         </div>
-    //                         {deleteable}
-    //                     </div>
-    //                     <div className="comments-body">{comment.body}</div>
-    //                 </section>
-    //             </div>
-    //         }).slice(0, 2);
-    //     }
-    // }
-    
 
     render() {
         const route = this.props.route;
@@ -151,7 +93,7 @@ class UserFeedIndexItem extends React.Component {
                 {"\n"}
                
                 {/* <div className="feed-entry-header"></div> */}
-                {/* <div className="user-feedback">
+                <div className="user-feedback">
                     <div className="like-comment">
 
                         <div id='comment-icon' onClick={this.handleClick}>
@@ -165,9 +107,9 @@ class UserFeedIndexItem extends React.Component {
                     <div className="comment-section">
                        <p>how are you</p>
                        <p>fine, thnak you</p>
-                       <p>hhahaha</p> */}
-{/* 
-                        <CommentIndex
+                       <p>hhahaha</p>
+
+                        {/* <CommentIndex
                             users={this.props.users}
                             activity={this.props.activity}
                             currentUser={this.props.currentUser}
@@ -182,8 +124,8 @@ class UserFeedIndexItem extends React.Component {
                         
                         
 
-                    {/* </div>
-                </div> */}
+                    </div>
+                </div>
 
             </div>
         )

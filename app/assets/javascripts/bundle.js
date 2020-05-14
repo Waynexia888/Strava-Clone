@@ -1807,7 +1807,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _session_form_login_form_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../session_form/login_form_container */ "./frontend/components/session_form/login_form_container.jsx");
 /* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../session_form/signup_form_container */ "./frontend/components/session_form/signup_form_container.jsx");
-/* harmony import */ var _session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _route_form_create_route_form_container__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../route_form/create_route_form_container */ "./frontend/components/route_form/create_route_form_container.js");
 /* harmony import */ var _nav_nav__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../nav/nav */ "./frontend/components/nav/nav.jsx");
 /* harmony import */ var _activity_create_activity_form_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../activity/create_activity_form_container */ "./frontend/components/activity/create_activity_form_container.js");
@@ -1876,7 +1875,7 @@ function Modal(_ref) {
       break;
 
     case 'signup':
-      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4___default.a, null);
+      component = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_form_signup_form_container__WEBPACK_IMPORTED_MODULE_4__["default"], null);
       break;
 
     case 'save':
@@ -3817,10 +3816,76 @@ function (_React$Component) {
 /*!********************************************************************!*\
   !*** ./frontend/components/session_form/signup_form_container.jsx ***!
   \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /Users/waynexia/Desktop/stracker/frontend/components/session_form/signup_form_container.jsx: Unexpected token, expected \";\" (56:52)\n\n\u001b[0m \u001b[90m 54 | \u001b[39m}\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 55 | \u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 56 | \u001b[39m\u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m connect(msp\u001b[33m,\u001b[39m mdp)(\u001b[33mSessionForm\u001b[39m)\u001b[33m;\u001b[39monForm)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m                                                    \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n    at Object.raise (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:7012:17)\n    at Object.unexpected (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:8405:16)\n    at Object.semicolon (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:8387:40)\n    at Object.parseExpressionStatement (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:11225:10)\n    at Object.parseStatementContent (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:10824:19)\n    at Object.parseStatement (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:10690:17)\n    at Object.parseBlockOrModuleBlockBody (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:11266:25)\n    at Object.parseBlockBody (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:11253:10)\n    at Object.parseTopLevel (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:10621:10)\n    at Object.parse (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:12131:10)\n    at parse (/Users/waynexia/Desktop/stracker/node_modules/@babel/parser/lib/index.js:12182:38)\n    at parser (/Users/waynexia/Desktop/stracker/node_modules/@babel/core/lib/transformation/normalize-file.js:187:34)\n    at normalizeFile (/Users/waynexia/Desktop/stracker/node_modules/@babel/core/lib/transformation/normalize-file.js:113:11)\n    at runSync (/Users/waynexia/Desktop/stracker/node_modules/@babel/core/lib/transformation/index.js:44:43)\n    at runAsync (/Users/waynexia/Desktop/stracker/node_modules/@babel/core/lib/transformation/index.js:35:14)\n    at process.nextTick (/Users/waynexia/Desktop/stracker/node_modules/@babel/core/lib/transform.js:34:34)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _session_form__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./session_form */ "./frontend/components/session_form/session_form.jsx");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+// import { connect } from 'react-redux';
+// import React from 'react';
+// import { Link } from 'react-router-dom';
+// import { signup, login } from '../../actions/session_actions';
+// import SessionForm from './session_form';
+// import { clearErrors } from '../../actions/error_actions'
+// const mapStateToProps = ({ errors }) => {
+//     return {
+//         errors: errors.session,
+//         formType: 'signup',
+//         // navLink: <Link to="/login">log in instead</Link>,
+//         otherFormType: 'log in',
+//         otherRoute: '/login'
+//     };
+// };
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         // submitAction: user => dispatch(signup(user)),
+//         processForm: (user) => dispatch(signup(user)),
+//         demoLogin: (user) => dispatch(login(user)),
+//         clearErrors: () => dispatch(clearErrors()),
+//         // login: user => dispatch(login(user)),
+//     };
+// };
+// export default connect(mapStateToProps, mapDispatchToProps)(SessionForm);
+
+
+
+
+
+
+var msp = function msp(_ref) {
+  var errors = _ref.errors;
+  return {
+    errors: errors.session,
+    formType: 'Sign Up'
+  };
+};
+
+var mdp = function mdp(dispatch) {
+  return {
+    processForm: function processForm(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["signup"])(user));
+    },
+    otherForm: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      onClick: function onClick() {
+        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])('login'));
+      }
+    }, "Log In"),
+    login: function login(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(user));
+    },
+    closeModal: function closeModal() {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["closeModal"])());
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(_session_form__WEBPACK_IMPORTED_MODULE_3__["default"]));
 
 /***/ }),
 

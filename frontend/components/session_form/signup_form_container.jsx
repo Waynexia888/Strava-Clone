@@ -53,4 +53,4 @@ const mdp = dispatch => {
     }
 };
 
-export default connect(msp, mdp)(SessionForm);onForm);
+export default connect(msp, mdp)(SessionForm);

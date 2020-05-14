@@ -11,7 +11,6 @@ class User < ApplicationRecord
   has_many :routes
   has_many :workouts
 
-  has_one_attached :photo
   
 
   def self.find_by_credentials(username, password)

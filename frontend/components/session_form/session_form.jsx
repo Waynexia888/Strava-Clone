@@ -194,7 +194,9 @@ class SessionForm extends React.Component {
                         {errors}
                     </ul>
                     <div className="login-form">
-                        <br />
+                      
+                        <a className="facebook" onClick={this.handleClick}>{this.props.formType} using Facebook</a>
+                        <h3>Or {this.props.formType} With a Username</h3>
                         <label>
                             <input type="text"
                                 value={this.state.username}

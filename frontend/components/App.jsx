@@ -34,10 +34,13 @@ const App = () => (
     <div>
         <Modal />
         <div className="header-container">
-            <header className="container login-header">
-                <h1><Link id="logo" to={'/dashboard'}>STRACKER</Link></h1>
-                <GreetingContainer />
-            </header>
+            
+                <Link id="logo" to={'/dashboard'}>STRACKER</Link>
+                <section className="navbar-side">
+                    <GreetingContainer />
+                </section>
+               
+            
         </div>
 
         <Switch>

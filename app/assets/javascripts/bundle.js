@@ -450,12 +450,12 @@ __webpack_require__.r(__webpack_exports__);
 var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-    className: "container login-header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
     id: "logo",
     to: '/dashboard'
-  }, "STRACKER")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
+  }, "STRACKER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+    className: "navbar-side"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_greeting_greeting_container__WEBPACK_IMPORTED_MODULE_4__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["AuthRoute"], {
     exact: true,
     path: "/",
     component: _splash_splash__WEBPACK_IMPORTED_MODULE_6__["default"]
@@ -1386,7 +1386,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dashboard-container scroll"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "left col"
+        className: "left-col"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "profile"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1397,23 +1397,13 @@ function (_React$Component) {
         id: "username"
       }, this.props.currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "upper-card"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "user-stats"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "following"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "dash-stats"
-      }, "Following"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.routeCount)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "followers"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "dash-stats"
-      }, "Followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.activityCount)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "activities"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "dash-stats"
-      }, "Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.activityCount))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "card-footer"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "followers-following-Activities"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Following"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.routeCount + 4)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "short-border-right"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Followers"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.activityCount - 1)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        id: "short-border-right"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.props.activityCount))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "latest-activity"
       }, this.props.activityCount > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "lates-act-container"
@@ -1423,14 +1413,21 @@ function (_React$Component) {
         className: "act-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: "activities/".concat(this.props.latestActivity.id)
-      }, this.props.latestActivity.title, " \u2022")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, this.props.latestActivity.title))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dash-stats"
       }, Date(this.props.latestActivity.created_at).slice(0, 15))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "no-acts",
         id: "no-act-message"
       }, "No activties yet. ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         to: 'activities/new'
-      }, "Record one!"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Record one!"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        className: "dashboard-link",
+        to: "/activities"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Your Activity Log"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "chevron-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        "class": "fa fa-chevron-right"
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "tabbed-card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "tabs"
@@ -1477,7 +1474,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Your Activities v"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_feed_user_feed_index_container__WEBPACK_IMPORTED_MODULE_5__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "right col"
+        className: "right-col"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "section",
         id: "linked-in"
@@ -3645,7 +3642,10 @@ function (_React$Component) {
         className: "errors"
       }, errors), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "facebook",
+        onClick: this.handleClick
+      }, this.props.formType, " using Facebook"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Or ", this.props.formType, " With a Username"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.username,
         placeholder: "Username",

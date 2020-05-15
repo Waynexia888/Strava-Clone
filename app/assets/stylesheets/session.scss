@@ -4,9 +4,12 @@ h1 {
 }
 
 .main-container h2 {
-    font-size: 40px;
+    color: #242428;
+    font-size: 45px;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-weight: 500;
+    margin-top: 70px;
+    margin-bottom: 80px;
 }
 
 .vsc-initialized {
@@ -40,6 +43,13 @@ h1 {
     text-align: center;
     font-family: 'Sarabun', sans-serif;
     font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-size: 34px;
+    
 
 
 
@@ -47,7 +57,7 @@ h1 {
 
 .login-form {
     justify-content: center;
-    width: 350px;
+    width: 312px;
     height: 40px;
 }
 
@@ -59,7 +69,7 @@ h1 {
     background: rgba(0, 0, 0, 0.5);
     border: 1px solid lightgray;
     color: #CCC;
-    margin: 6px 0;
+    margin: 20px 0;
     border-radius: 5px;
 }
 
@@ -92,7 +102,8 @@ h1 {
     white-space: nowrap;
     padding: 10px 30px;
     font-size: 14px;
-    line-height: 1.42857143;
+    line-height: 1.22857143;
+    
 }
 
 .login-button {
@@ -148,7 +159,7 @@ h1 {
 #demo-login {
     width: 100%;
     height: 40px;
-    margin-top: 10px;
+    margin-top: 20px;
     border-radius: 5px;
     background-color: white;
     border: 1px solid #fc5200;
@@ -156,4 +167,44 @@ h1 {
     font-weight: bold;
     font-size: 14px;
     cursor: pointer;
+}
+
+
+.facebook {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-color: #3f5d9e;
+    width: 255px;
+    border-radius: 3px;
+    line-height: 24px;
+    padding: 6px 16px;
+    padding-left: 40px;
+    font-size: 14px;
+    font-weight: 700;
+    background-image: image-url('Facebook_icon.svg');
+    background-position: 0px;
+    background-size: 30px;
+    background-repeat: no-repeat;
+}
+
+.facebook:hover {
+    cursor: pointer;
+    background-image: image-url('Facebook_icon.svg');
+    -webkit-filter: brightness(70%);
+    -webkit-transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -o-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    transition: all .25s ease;
+}
+
+
+.login-form h3 {
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
 }

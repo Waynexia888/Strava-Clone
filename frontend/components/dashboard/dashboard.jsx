@@ -84,49 +84,54 @@ class Dashboard extends React.Component {
         return (
             <div className="dash-bg">
                 <div className="dashboard-container scroll">
-                    <div className="left col">
+                    <div className="left-col">
                         <div className="profile">
                             <div className="card-body">
                                 <div className="avatar-img prof-img">
                                 </div>
                                 <h3 id="username">{this.props.currentUser.username}</h3>
                                 <div className="upper-card">
-                                    <div className="user-stats">
-                                        {/* <div className="routes">
-                                            <label className="dash-stats">Routes</label>
-                                            <h3>{this.props.routeCount}</h3>
+                                    <section className="followers-following-Activities">
+                                        <div>
+                                            <h3>Following</h3>
+                                            <p>{this.props.routeCount + 4}</p>
                                         </div>
-                                        <div className="activities">
-                                            <label className="dash-stats">Activities</label>
-                                            <h3>{this.props.activityCount}</h3>
-                                        </div> */}
-                                        <div className="following">
-                                            <label className="dash-stats">Following</label>
-                                            <h3>{this.props.routeCount}</h3>
+                                        <div id="short-border-right"></div>
+
+                                        <div>
+                                            <h3>Followers</h3>
+                                            <p>{this.props.activityCount - 1}</p>
                                         </div>
-                                        <div className="followers">
-                                            <label className="dash-stats">Followers</label>
-                                            <h3>{this.props.activityCount}</h3>
+                                        <div id="short-border-right"></div>
+
+                                        <div>
+                                            <h3>Activities</h3>
+                                            <p>{this.props.activityCount}</p>
                                         </div>
-                                        <div className="activities">
-                                            <label className="dash-stats">Activities</label>
-                                            <h3>{this.props.activityCount}</h3>
-                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            
+                          
+                            <div className="latest-activity">
+                                {this.props.activityCount > 0 ? (
+                                    <div className="lates-act-container">
+                                        <div className="dash-stats">Latest Activity</div>
+                                        <div className="act-title"><Link to={`activities/${this.props.latestActivity.id}`}><li>{this.props.latestActivity.title}</li></Link></div>
+                                        <div className="dash-stats">{Date(this.props.latestActivity.created_at).slice(0, 15)}</div>
                                     </div>
-                                </div>
+                                ) :
+                                    <div className="no-acts" id="no-act-message">No activties yet. <Link to={'activities/new'}>Record one!</Link></div>}
                             </div>
-                            <div className="card-footer">
-                                <div className="latest-activity">
-                                    {this.props.activityCount > 0 ? (
-                                        <div className="lates-act-container">
-                                            <div className="dash-stats">Latest Activity</div>
-                                            <div className="act-title"><Link to={`activities/${this.props.latestActivity.id}`}>{this.props.latestActivity.title} •</Link></div>
-                                            <div className="dash-stats">{Date(this.props.latestActivity.created_at).slice(0, 15)}</div>
-                                        </div>
-                                    ) :
-                                        <div className="no-acts" id="no-act-message">No activties yet. <Link to={'activities/new'}>Record one!</Link></div>}
-                                </div>
-                            </div>
+                            <Link className='dashboard-link' to='/activities'>
+                                <h3>Your Activity Log</h3>
+                                <span className='chevron-container'>
+                                    <i class="fa fa-chevron-right"></i>
+                                </span>
+                            </Link>
+
+                           
+
                         </div>
                         <div className="tabbed-card">
                             <ul className="tabs">
@@ -175,7 +180,7 @@ class Dashboard extends React.Component {
                         </div>
                     </div>
 
-                    <div className="right col">
+                    <div className="right-col">
                         <div className="section" id="linked-in">
                             <div className="media">
                                 <div className="media-object">

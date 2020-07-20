@@ -153,7 +153,9 @@ class Dashboard extends React.Component {
                                     <div className="message-body">
                                         Subscribe and stay motivated with custom progress, 
                                         segment and power goals. 
-                                        <strong id="hydrate"> Upgrade!</strong>
+                                        <strong><a id="hydrate" href="https://www.strava.com/subscribe">
+                                            Upgrade!
+                                        </a></strong>
                                     </div>
                                 </div>
                             </div>
@@ -189,6 +191,64 @@ class Dashboard extends React.Component {
                     </div>
 
                     <div className="right-col">
+                        <div className="section" id="challenge">
+                            <div className="media">
+                                <div className="media-object">
+                                    <img
+                                        className="media-img"
+                                        src={window.images.mountain_image}
+                                        alt="challenge Icon" />
+                                </div>
+                                <div className="media-body">
+                                    <h4 className="media-title">Challengess</h4>
+                                    <p className="media-text">
+                                        Join a run or cycling challenge to stay 
+                                        on top of your game, earn new achievements and see how you stack up.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="section" id="vip">
+                            <div className="media">
+                                <div className="media-object">
+                                    <img
+                                        className="media-img"
+                                        src={window.images.vip_image}
+                                        alt="vip Icon" />
+                                </div>
+                                <div className="media-body">
+                                    <h4 className="media-title">Vip Clubs</h4>
+                                    <p className="media-text">
+                                        Why do it alone? Get more out of your 
+                                        experience by joining or creating a club.
+                                    </p>
+                                    <a className="media-link" href="https://www.strava.com/subscribe">
+                                        Upgrade Today
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="section" id="private">
+                            <div className="media">
+                                <div className="media-object">
+                                    <img
+                                        className="media-img"
+                                        src={window.images.private_image}
+                                        alt="private Icon" />
+                                </div>
+                                <div className="media-body">
+                                    <h4 className="media-title">Try a Privacy Zone</h4>
+                                    <p className="media-text">
+                                        You can hide the location of your home, 
+                                        office or other private places in your activities.
+                                    </p>
+                                    <Link className="media-link" to={'routes/new'}>Hide the Location</Link>
+                                    
+                                </div>
+                            </div>
+                        </div>
                         <div className="section" id="linked-in">
                             <div className="media">
                                 <div className="media-object">

@@ -1461,9 +1461,10 @@ function (_React$Component) {
         id: "chev"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-body"
-      }, "Subscribe and stay motivated with custom progress, segment and power goals.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", {
-        id: "hydrate"
-      }, " Upgrade!")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Subscribe and stay motivated with custom progress, segment and power goals.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        id: "hydrate",
+        href: "https://www.strava.com/subscribe"
+      }, "Upgrade!"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body bottom-card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "total-stats"
@@ -1493,6 +1494,63 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_feed_user_feed_index_container__WEBPACK_IMPORTED_MODULE_5__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "right-col"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section",
+        id: "challenge"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media-object"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "media-img",
+        src: window.images.mountain_image,
+        alt: "challenge Icon"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "media-title"
+      }, "Challengess"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "media-text"
+      }, "Join a run or cycling challenge to stay on top of your game, earn new achievements and see how you stack up.")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section",
+        id: "vip"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media-object"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "media-img",
+        src: window.images.vip_image,
+        alt: "vip Icon"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "media-title"
+      }, "Vip Clubs"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "media-text"
+      }, "Why do it alone? Get more out of your experience by joining or creating a club."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "media-link",
+        href: "https://www.strava.com/subscribe"
+      }, "Upgrade Today")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "section",
+        id: "private"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media-object"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "media-img",
+        src: window.images.private_image,
+        alt: "private Icon"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "media-body"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
+        className: "media-title"
+      }, "Try a Privacy Zone"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "media-text"
+      }, "You can hide the location of your home, office or other private places in your activities."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
+        className: "media-link",
+        to: 'routes/new'
+      }, "Hide the Location")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "section",
         id: "linked-in"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

@@ -27,7 +27,7 @@ class RouteIndex extends React.Component {
         });
         return (
             <div className="wrap">
-                <div className="route-index-container container scroll">
+                <div className="route-index-container">
                     <div className="index-bar">
                         <div className='route-index-header-left'>
                             <h1 className="route-heading">My Routes</h1>

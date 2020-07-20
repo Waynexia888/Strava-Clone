@@ -3,11 +3,27 @@
     margin-right: auto;
     padding-left: 16px;
     padding-right: 16px;
+    max-width: 1360px;
+}
+////////
+.activity-heading {
+    font-weight: bold;
+    font-size: 2rem;
+    color: black;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    margin-top: 2rem;
+    
 }
 
+.activity-counting {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
 
 .activity-index-bar {
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 .activity-index-bar,
@@ -17,15 +33,19 @@ h2 {
 
 .activities-table {
     table-layout: fixed;
-    font-size: 12px;
+    font-size: 16px;
     border-collapse: collapse;
     width: 100%;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
 }
 
 .activity-table-head {
     font-weight: 900;
     box-sizing: border-box;
     padding: 8px;
+    
 }
 
 .activites-index-list {
@@ -40,31 +60,32 @@ h2 {
 
 .view-col {
     display: table-cell;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    height: 40px;
+    padding-top: 22px;
+    padding-bottom: 10px;
+    height: 35px;
     word-wrap: break-word;
     vertical-align: top;
     border-bottom: 1px solid #e6e6eb;
 }
 
 .col-sport {
-    text-align: left;
+    text-align: center;
+    padding-top: 22px;
 }
 
 .col-time,
 .col-distance,
 .col-elevation {
-    text-align: right;
+    text-align: center;
 }
 
 .col-date,
 .col-title {
-    text-align: left;
+    text-align: center;
 }
 
 .col-actions {
-    text-align: right;
+    text-align: center;
 }
 
 .activity-action-list {

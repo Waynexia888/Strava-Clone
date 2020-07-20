@@ -361,6 +361,25 @@ class NewRoute extends React.Component {
             map: this.map,
         });
 
+        //sets map to current location if browser location enabled
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                let pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                this.infoWindow.setPosition(pos);
+                this.infoWindow.setContent('Location found.');
+                this.infoWindow.open(this.map);
+                this.map.setCenter(pos);
+            }, () => {
+                this.handleLocationError(true, this.infoWindow, this.map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            this.handleLocationError(false, this.infoWindow, this.map.getCenter());
+        }
+
         //this is HTML5 geolocation,
         //https://developers.google.com/maps/documentation/javascript/geolocation
         // if (navigator.geolocation) {

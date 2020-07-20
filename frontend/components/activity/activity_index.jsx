@@ -40,10 +40,10 @@ class ActivityIndex extends React.Component {
         }
         return (
             <div className="wrap scroll">
-                <div className="activity-index-container container scroll">
+                <div className="activity-index-container">
                     <div className='activity-index-bar'>
-                        <h1>My Activities</h1>
-                        <h2>{actCountDisp}</h2>
+                        <h1 className="activity-heading">My Activities</h1>
+                        <h2 className="activity-counting">{actCountDisp}</h2>
                         <button id="create-activity-btn"><Link to={'activities/new'}>Record a new activity</Link></button>
                     </div>
                     <div className="activities-table-container">
@@ -56,7 +56,7 @@ class ActivityIndex extends React.Component {
                                     <th className="act-col col-time">Time</th>
                                     <th className="act-col col-distance">Distance</th>
                                     <th className="act-col col-elevation">Elevation</th>
-                                    <th className="act-col"></th>
+                                    <th className="act-col col-actions">Actions</th>
                                 </tr>
                             </thead>
                             <tbody className="actvity-index-list">

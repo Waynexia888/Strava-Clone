@@ -95,7 +95,7 @@ class UserFeedIndexItem extends React.Component {
                 {/* <div className="feed-entry-header"></div> */}
                 <div className="user-feedback">
                     <div className="like-comment">
-
+                        {/* <div>Be the first to give kudos! ·</div> */}
                         <div id='comment-icon' onClick={this.handleClick}>
                             <img src={window.images.comment_icon} alt="" />
                         </div>
@@ -105,9 +105,9 @@ class UserFeedIndexItem extends React.Component {
 
                     </div>
                     <div className="comment-section">
-                       <p>how are you</p>
-                       <p>fine, thnak you</p>
-                       <p>hhahaha</p>
+                       {/* <p>how are you</p> */}
+                       {/* <p>fine, thnak you</p>
+                       <p>hhahaha</p> */}
 
                         {/* <CommentIndex
                             users={this.props.users}

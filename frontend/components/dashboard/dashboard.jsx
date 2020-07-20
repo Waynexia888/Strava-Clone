@@ -124,7 +124,7 @@ class Dashboard extends React.Component {
                                     <div className="no-acts" id="no-act-message">No activties yet. <Link to={'activities/new'}>Record one!</Link></div>}
                             </div>
                             <Link className='dashboard-link' to='/activities'>
-                                <h3>Your Activity Log</h3>
+                                <h3>My Activity Log</h3>
                                 <span className='chevron-container'>
                                     <i class="fa fa-chevron-right"></i>
                                 </span>
@@ -174,7 +174,7 @@ class Dashboard extends React.Component {
                         </div>
                     </div>
                     <div className="dashboard-feed">
-                        <h3>Your Activities v</h3>
+                        <h3 className="dashboard-activity-title">My Activities v</h3>
                         <div className="feed-container">
                             <UserFeedIndexContainer />
                         </div>

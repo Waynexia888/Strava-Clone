@@ -710,10 +710,14 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrap scroll"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "activity-index-container container scroll"
+        className: "activity-index-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "activity-index-bar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "My Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, actCountDisp), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "activity-heading"
+      }, "My Activities"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "activity-counting"
+      }, actCountDisp), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "create-activity-btn"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
         to: 'activities/new'
@@ -736,8 +740,8 @@ function (_React$Component) {
       }, "Distance"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         className: "act-col col-elevation"
       }, "Elevation"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
-        className: "act-col"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
+        className: "act-col col-actions"
+      }, "Actions"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", {
         className: "actvity-index-list"
       }, activities)))));
     }
@@ -1423,7 +1427,7 @@ function (_React$Component) {
       }, "Record one!"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Link"], {
         className: "dashboard-link",
         to: "/activities"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Your Activity Log"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "My Activity Log"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "chevron-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         "class": "fa fa-chevron-right"
@@ -1471,7 +1475,9 @@ function (_React$Component) {
         className: "primary-stats"
       }, this.state.num)))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "dashboard-feed"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Your Activities v"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+        className: "dashboard-activity-title"
+      }, "My Activities v"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "feed-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_feed_user_feed_index_container__WEBPACK_IMPORTED_MODULE_5__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "right-col"
@@ -2180,7 +2186,7 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "wrap"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "route-index-container container scroll"
+        className: "route-index-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2886,7 +2892,29 @@ function (_React$Component) {
       this.directionsDisplay = new google.maps.DirectionsRenderer({
         draggable: true,
         map: this.map
-      }); //this is HTML5 geolocation,
+      }); //sets map to current location if browser location enabled
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function (position) {
+          var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          _this2.infoWindow.setPosition(pos);
+
+          _this2.infoWindow.setContent('Location found.');
+
+          _this2.infoWindow.open(_this2.map);
+
+          _this2.map.setCenter(pos);
+        }, function () {
+          _this2.handleLocationError(true, _this2.infoWindow, _this2.map.getCenter());
+        });
+      } else {
+        // Browser doesn't support Geolocation
+        this.handleLocationError(false, this.infoWindow, this.map.getCenter());
+      } //this is HTML5 geolocation,
       //https://developers.google.com/maps/documentation/javascript/geolocation
       // if (navigator.geolocation) {
       //     navigator.geolocation.getCurrentPosition(position => {
@@ -2905,6 +2933,7 @@ function (_React$Component) {
       //     this.handleLocationError(false, this.infoWindow, this.map.getCenter());
       // }
       // Add a listener for the click event
+
 
       google.maps.event.addListener(this.map, 'click', function (event) {
         var coords = event.latLng;
@@ -4094,7 +4123,7 @@ function (_React$Component) {
         alt: ""
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "comment-section"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "how are you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "fine, thnak you"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "hhahaha"))));
+      })));
     }
   }]);
 

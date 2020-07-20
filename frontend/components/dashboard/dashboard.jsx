@@ -175,6 +175,14 @@ class Dashboard extends React.Component {
                     </div>
                     <div className="dashboard-feed">
                         <h3 className="dashboard-activity-title">My Activities v</h3>
+                        <div className="promo-card">
+                            <div className="promo-image">
+                            </div>
+                            <div className="promo-content">
+                                <p><strong>Thanks for checking out Stracker!</strong> You can learn more about this project by visiting the Github repo below.</p>
+                                <button type="button"><a href="https://github.com/Waynexia888/Strava-Clone" target="_blank">See Project</a></button>
+                            </div>
+                        </div>
                         <div className="feed-container">
                             <UserFeedIndexContainer />
                         </div>

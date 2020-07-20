@@ -29,7 +29,7 @@
 
 .activity-summary-container {
     padding-left: 15px;
-    padding-right: 15px;
+    // padding-right: 15px;
     box-sizing: border-box;
     width: 100%;
 }
@@ -68,11 +68,13 @@
 }
 
 .details-container-personal p {
-    font-size: 10px;
+    font-size: 15px;
+     margin-left: 20px;
 }
 
 .details-container-personal h1 {
-    margin: 0px;
+    // margin: 0px;
+    margin-left: 20px;
 }
 
 .details-container-stats {
@@ -87,11 +89,15 @@
     margin-bottom: 0;
     padding-bottom: 10px;
     border-bottom: 1px solid #ccccd1;
+    padding-top: 10px;
+    padding-left: 20px;
+    line-height: 18px;
 }
 
 .under-stats {
-    font-size: 10px;
+    font-size: 14px;
     margin-right: 20px;
+    
 }
 
 .more-stats {
@@ -103,6 +109,8 @@
 
 #speed {
     padding-top: 17px;
+    margin-left: -30px;
+    padding-right: 35px;
 }
 
 #avg {

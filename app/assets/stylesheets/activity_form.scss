@@ -1,7 +1,7 @@
 .activity-form-container {
     width: 100%;
     height: 100%;
-    background-color: #f5f5fa;
+    background-color: #f0f0f0;
     color: black;
     border-radius: 3px;
     text-align: left;
@@ -13,24 +13,42 @@
     justify-content: center;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
+    width: 335px;
+    height: 400px;
+    // background-color: #F7F7F7;
+//     border-bottom: 1px solid gray;
+}
 
+.activity-form h2 {
+    padding-top: 40px;
+    font-size: 34px;
+    font-weight: 700;
+    padding-left: 65px;
+    // background-color: #F7F7F7;
+    // border-bottom: 1px solid #ccccd1;
+}
+
+.activity-form h3 {
+    padding-top: 20px;
+    color: black;
 }
 
 .activity-input {
     display: flex;
     flex-wrap: wrap;
     margin-right: 50%;
-    margin-left: 50%;
-    width: 130px;
+    margin-left: 75px;
+    width: 320px;
     height: 60px;
     margin-bottom: 10px;
+   
 }
 
 #create-activity-btn-2 {
     position: absolute;
-    width: 50px;
-    left: 336px;
-    bottom: 20px;
+    width: 110px;
+    left: 250px;
+    bottom: 50px;
     background-color: #2d2d32;
     color: white;
     border-radius: 2px;
@@ -40,9 +58,47 @@
 
 #cancel-activity-btn {
     position: absolute;
-    bottom: 20px;
-    left: 274px;
+    bottom: 50px;
+    left: 185px;
     cursor: pointer;
     border-radius: 2px;
     height: 30px;
+}
+
+///////
+.save-p label {
+    display: flex;
+    flex-wrap: wrap;
+    // margin-left: 15%;
+    padding-left: 75px;
+    padding-right: 20px;
+    padding-top: 30px;
+    height: 25px;
+    width: 320px;
+}
+
+.name-input>input {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 75px;
+    position: absolute;
+    width: 320px;
+    line-height: 30px;
+}
+
+
+.name-input textarea {
+    flex-wrap: wrap;
+    // margin-right: 50%;
+    // width: 80%;
+    // height: 100px;
+    // position: absolute;
+
+    line-height: 30px;
+    width: 320px;
+    margin-left: 75px;
+}
+
+.stats-datas {
+    padding-top: 15px;
 }

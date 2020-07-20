@@ -55,12 +55,14 @@ class ActivityShow extends React.Component {
                             <div className="details-container-stats">
                                 <ul className="inline-stats">
                                     <li>
-                                        <strong>{activity.distance} mi</strong>
+                                        {/* <strong>{activity.distance} mi</strong> */}
                                         <div className="under-stats">Distance</div>
+                                        <strong>{activity.distance} mi</strong>
                                     </li>
                                     <li>
-                                        <strong>{activity.time}</strong>
+                                        
                                         <div className="under-stats">Duration</div>
+                                        <strong>{activity.time}</strong>
                                     </li>
                                     {activity.elevation ? (
                                         <li>
@@ -70,11 +72,11 @@ class ActivityShow extends React.Component {
                                     ) : null}
                                 </ul>
                                 <div className="more-stats">
-                                    <div className="under-stats" id="speed">Speed</div>
+                                    <div className="under-stats" id="speed">Average Speed</div>
                                     <div id="avg">
-                                        <div className="under-stats">Avg</div>
+                                        {/* <div className="under-stats">Avg</div> */}
                                         {activity.distance ?
-                                            <div>{this.avg(activity.distance, activity.time)}</div> :
+                                            <div className="stats-datas">{this.avg(activity.distance, activity.time)}</div> :
                                             ""}
                                     </div>
                                 </div>

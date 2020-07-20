@@ -5,16 +5,25 @@
     padding-left: 16px;
 }
 
+.show-route-container h1 {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    font-size: 24px;
+    color: rgb(204, 0, 255);
+}
+
 .show-route-stats {
     display: flex;
     justify-content: flex-start;
     font-size: 20px;
     background-color: #f1f1f1;
     font-family: 'Montserrat', sans-serif;
-    width: 800px;
+    width: 700px;
     border-top: 1px solid #ccccd1;
     border-bottom: 1px solid #ccccd1;
     border-left: 1px solid #ccccd1;
+    padding-left: 100px;
+    line-height: 40px;
 }
 
 .show-route-stats>div {

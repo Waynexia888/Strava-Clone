@@ -590,22 +590,28 @@ function (_React$Component) {
         className: "errors"
       }, errors), this.props.elevation ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Elevation: ", this.props.elevation, " ft") : null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Distance: ", this.props.distance, " mi"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "activity-form"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "activity-input time"
-      }, "Duration:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "name-input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "save-p"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Duration")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.time,
         placeholder: "00:00:00",
         onChange: this.update('time')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "activity-input title"
-      }, "Title", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "name-input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "save-p"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Title")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.title,
         onChange: this.update('title')
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "activity-input description"
-      }, "Description", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "name-input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "save-p"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         value: this.state.description,
         onChange: this.update('description')
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1092,22 +1098,22 @@ function (_React$Component) {
         className: "details-container-stats"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "inline-stats"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, activity.distance, " mi"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "under-stats"
-      }, "Distance")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, activity.time), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Distance"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, activity.distance, " mi")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "under-stats"
-      }, "Duration")), activity.elevation ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, activity.elevation, " ft"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Duration"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, activity.time)), activity.elevation ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, activity.elevation, " ft"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "under-stats"
       })) : null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "more-stats"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "under-stats",
         id: "speed"
-      }, "Speed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Average Speed"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         id: "avg"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "under-stats"
-      }, "Avg"), activity.distance ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.avg(activity.distance, activity.time)) : "")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, activity.distance ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "stats-datas"
+      }, this.avg(activity.distance, activity.time)) : "")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "link-section"
       })))), route.route_data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "map-show"

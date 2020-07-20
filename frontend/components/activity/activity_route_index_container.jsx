@@ -50,7 +50,7 @@ class ActivityRouteIndex extends React.Component {
             <div className="wrap">
                 <div className="activity-route-index-container container">
                     <div className='index-bar'>
-                        <h1>Choose a Route</h1>
+                        <h1>Select a Route </h1>
                     </div>
                     <div className="bottom-border"></div>
                     <ul className="index-list">

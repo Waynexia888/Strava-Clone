@@ -40,32 +40,39 @@ class CreateRouteForm extends React.Component {
 
         return (
             <div className='route-form-container'>
-                <h1>Save</h1>
+                <section className='save-header'>
+                    <h1>Save a Route</h1>
+                </section>
+                <section className="save-paragraph">
+                    <p>
+                        Enter a name and description for your route below. On the next page, you'll be able to see, edit, and share your route.
+                    </p>
+                </section>
                 <form className='route-form-box' onSubmit={this.handleSubmit}>
                     <ul className="errors route-errors">
                         {errors}
                     </ul>
                     <div className="route-form">
                         <div className='name-input'>
-                            <label>
+                            <section className="save-paragraph"><label>
                                 Route Name (required)
+                            </label></section>
                             <input type="text"
                                     value={this.state.title}
                                     onChange={this.update('title')}
-                                    className='route-input' />
-                            </label>
+                                    className='route-input' /> 
                         </div>
-                        <div className="description-input">
-                            <label>
-                                Description
+
+                        <div className="name-input">
+                            <section className="save-description"><label>
+                                Description</label></section>
                             <textarea type="text"
                                     value={this.state.description}
                                     onChange={this.update('description')}
                                     className='route-input'></textarea>
-                            </label>
                         </div>
                         <div className="new-route-buttons">
-                            <input type="submit" value="save" className="route-save" />
+                            <input type="submit" value="Save" className="route-save" />
                             <button id="cancel-btn" onClick={this.props.closeModalSave}>Cancel</button>
                         </div>
                     </div>

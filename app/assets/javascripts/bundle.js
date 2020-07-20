@@ -954,7 +954,7 @@ function (_React$Component) {
         className: "activity-route-index-container container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "index-bar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Choose a Route")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Select a Route ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "bottom-border"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "index-list"
@@ -2101,7 +2101,11 @@ function (_React$Component) {
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "route-form-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Save"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "save-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Save a Route")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "save-paragraph"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Enter a name and description for your route below. On the next page, you'll be able to see, edit, and share your route.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "route-form-box",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
@@ -2110,23 +2114,27 @@ function (_React$Component) {
         className: "route-form"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "name-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Route Name (required)", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "save-paragraph"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Route Name (required)")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         value: this.state.title,
         onChange: this.update('title'),
         className: "route-input"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "description-input"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "name-input"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "save-description"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         type: "text",
         value: this.state.description,
         onChange: this.update('description'),
         className: "route-input"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "new-route-buttons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
-        value: "save",
+        value: "Save",
         className: "route-save"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         id: "cancel-btn",

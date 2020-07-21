@@ -24,7 +24,7 @@ class IndexRoute extends React.Component {
             map: map,
             icon: {
                 path: google.maps.SymbolPath.CIRCLE,
-                scale: 7.0,
+                scale: 20,
                 fillColor: "#049D1D",
                 fillOpacity: 2.0,
                 strokeWeight: 0.4

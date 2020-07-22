@@ -179,6 +179,11 @@ class Dashboard extends React.Component {
                         <h3 className="dashboard-activity-title">My Activities v</h3>
                         <div className="promo-card">
                             <div className="promo-image">
+                                {/* <img
+                                    id="promo-image"
+                                    src={window.images.dashboard_image}
+                                    
+                                /> */}
                             </div>
                             <div className="promo-content">
                                 <p><strong>Thanks for checking out Stracker!</strong> You can learn more about this project by visiting the Github repo below.</p>

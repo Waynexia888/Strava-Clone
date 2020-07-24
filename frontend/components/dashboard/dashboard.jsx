@@ -151,10 +151,10 @@ class Dashboard extends React.Component {
                                     <div className="message-chev-container"></div>
                                     <span id="chev"></span>
                                     <div className="message-body">
-                                        Subscribe and stay motivated with custom progress, 
-                                        segment and power goals. 
-                                        <strong><a id="hydrate" href="https://www.strava.com/subscribe">
-                                            Upgrade!
+                                    Log as many miles as you feel comortable. 
+                                    Rest is essential. Never ever forget to 
+                                        <strong><a id="hydrate">
+                                            Hydrate!
                                         </a></strong>
                                     </div>
                                 </div>

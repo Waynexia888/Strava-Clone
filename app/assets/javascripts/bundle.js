@@ -1465,10 +1465,9 @@ function (_React$Component) {
         id: "chev"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-body"
-      }, "Subscribe and stay motivated with custom progress, segment and power goals.", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        id: "hydrate",
-        href: "https://www.strava.com/subscribe"
-      }, "Upgrade!"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Log as many miles as you feel comortable. Rest is essential. Never ever forget to", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        id: "hydrate"
+      }, "Hydrate!"))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card-body bottom-card"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", {
         className: "total-stats"

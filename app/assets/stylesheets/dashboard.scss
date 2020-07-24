@@ -239,6 +239,10 @@
          display: none;
      }
 
+     .tabbed-card {
+         display: none;
+     }
+
      .promo-card {
          display: none;
      }
@@ -379,7 +383,7 @@
 }
 
 .section:first-child {
-    margin-top: 64px;
+    // margin-top: 64px;
     border-top: none;
 }
 
@@ -701,6 +705,7 @@
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     background-position-y: -25px;
+    background-repeat: no-repeat;
 }
 
 // #promo-image {

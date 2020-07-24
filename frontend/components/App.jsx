@@ -35,11 +35,14 @@ const App = () => (
         <Modal />
         <div className="header-container">
             
-                <Link id="logo" to={'/dashboard'}>STRACKER</Link>
+                {/* <Link id="logo" to={'/dashboard'}>STRACKER</Link>
                 <section className="navbar-side">
                     <GreetingContainer />
-                </section>
-               
+                </section> */}
+            <header className="container login-header">
+                <h1><Link id="logo" to={'/dashboard'}>STRACKER</Link></h1>
+                <GreetingContainer />
+            </header>
             
         </div>
 

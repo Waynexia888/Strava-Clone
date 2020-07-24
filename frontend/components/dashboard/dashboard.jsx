@@ -83,7 +83,7 @@ class Dashboard extends React.Component {
 
         return (
             <div className="dash-bg">
-                <div className="dashboard-container scroll">
+                {/* <div className="dashboard-container scroll"> */}
                     <div className="left-col">
                         <div className="profile">
                             <div className="card-body">
@@ -176,7 +176,7 @@ class Dashboard extends React.Component {
                         </div>
                     </div>
                     <div className="dashboard-feed">
-                        <h3 className="dashboard-activity-title">My Activities v</h3>
+                        {/* <h3 className="dashboard-activity-title">My Activities v</h3> */}
                         <div className="promo-card">
                             <div className="promo-image">
                                 {/* <img
@@ -295,7 +295,7 @@ class Dashboard extends React.Component {
                         </div>
                     </div>
                 </div>
-            </div>
+            // </div>
         )
 
     }

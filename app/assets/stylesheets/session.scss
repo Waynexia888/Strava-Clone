@@ -3,12 +3,12 @@ h1 {
     font-weight: 1000;
 }
 
-.main-container h2 {
+.main-container h1 {
     color: #242428;
     font-size: 45px;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    margin-top: 70px;
+    // margin-top: 70px;
     margin-bottom: 80px;
 }
 
@@ -121,9 +121,10 @@ h1 {
 }
 
 .main-container {
-    margin-top: 80px;
+    // margin-top: 80px;
     margin-bottom: 80px;
     text-align: center;
+    padding-top: 120px;
 }
 
 .contain {
@@ -147,8 +148,8 @@ h1 {
     background-color: #2d2d32;
     color: #fff;
     height: 200px;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 0px;
+    padding-bottom: 80px;
 }
 
 #footer-logo {

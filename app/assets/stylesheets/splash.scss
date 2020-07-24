@@ -1,19 +1,23 @@
-// .splash {
-//     text-align: center;
-//     width: 100%;
-//     height: 100vh;
-//     padding-top: 70px;
-//     background-size: cover;
-// }
+.splash {
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    padding-top: 70px;
+    background-size: cover;
+}
 
-// .splash-content {
-//     height: 100vh;
-// }
+.splash-content {
+    height: 61vh;
+}
 
-// .splash h1 {
-//     color: rgb(36, 36, 40);
-//     font-size: 48px;
-//     font-weight: 700;
-//     margin-top: 70px;
-//     margin-bottom: 80px;
-// }
+.splash h1 {
+    color: rgb(36, 36, 40);
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 70px;
+    margin-bottom: 80px;
+}
+
+.splash-content img {
+    position: relative;
+}
